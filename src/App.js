@@ -1,11 +1,11 @@
-import LandingPage from './screens/LandingPage';
+// import LandingPage from './screens/LandingPage';
 import GlobalStyle from './styles/GlobalStyle';
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <LandingPage />
+      {/* <LandingPage /> */}
     </>
   );
 }
