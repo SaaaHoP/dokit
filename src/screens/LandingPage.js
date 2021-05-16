@@ -8,11 +8,12 @@ import {
   LandingPageLeftBackground,
   LandingPageLoginButton,
   LandingPageMainText,
+  LandingPageRightBackground,
   LandingPageRightComponents,
   LandingPageSignUpButton,
   LandingPageSubText,
   LandingPageUpperBar,
-} from '../components/LandingPage/styledComponent';
+} from '../components/LandingPage/StyledComponent';
 
 const LandingPage = () => {
   return (
@@ -28,13 +29,15 @@ const LandingPage = () => {
           <LandingPageSignUpButton>Sign Up</LandingPageSignUpButton>
         </LandingPageButtons>
       </LandingPageUpperBar>
-      <LandingPageRightComponents>
-        <LandingPageMainText>Use DokitList</LandingPageMainText>
-        <LandingPageSubText>
-          Our Todolist is easy to use, comfortable and free.
-        </LandingPageSubText>
-        <LandingPageGetStartedButton>Get Started</LandingPageGetStartedButton>
-      </LandingPageRightComponents>
+      <LandingPageRightBackground>
+        <LandingPageRightComponents>
+          <LandingPageMainText>Use DokitList</LandingPageMainText>
+          <LandingPageSubText>
+            Our Todolist is easy to use, comfortable and free.
+          </LandingPageSubText>
+          <LandingPageGetStartedButton>Get Started</LandingPageGetStartedButton>
+        </LandingPageRightComponents>
+      </LandingPageRightBackground>
     </>
   );
 };

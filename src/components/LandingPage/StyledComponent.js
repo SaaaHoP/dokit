@@ -66,13 +66,20 @@ export const LandingPageSignUpButton = styled.button`
   font-weight: bold;
 `;
 
+export const LandingPageRightBackground = styled.div`
+  margin-left: 50%;
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const LandingPageRightComponents = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
-  margin-top: 120px;
-  margin-right: 140px;
 `;
 
 export const LandingPageMainText = styled.div`
