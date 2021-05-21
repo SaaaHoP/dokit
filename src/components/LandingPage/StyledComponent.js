@@ -53,6 +53,7 @@ export const LandingPageLoginButton = styled.button`
   text-align: center;
   margin-right: 30px;
   font-weight: bold;
+  cursor: pointer;
 `;
 
 export const LandingPageSignUpButton = styled.button`
@@ -64,6 +65,7 @@ export const LandingPageSignUpButton = styled.button`
   height: 40px;
   text-align: center;
   font-weight: bold;
+  cursor: pointer;
 `;
 
 export const LandingPageRightBackground = styled.div`
@@ -106,4 +108,5 @@ export const LandingPageGetStartedButton = styled.button`
   font-weight: bold;
   font-size: 20px;
   margin-top: 30px;
+  cursor: pointer;
 `;

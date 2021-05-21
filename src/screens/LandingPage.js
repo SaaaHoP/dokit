@@ -1,45 +1,12 @@
 import React from 'react';
-import {
-  LandingPageButtons,
-  LandingPageDokitIcon,
-  LandingPageGetStartedButton,
-  LandingPageImg,
-  LandingPageImgBox,
-  LandingPageLeftBackground,
-  LandingPageLoginButton,
-  LandingPageMainText,
-  LandingPageRightBackground,
-  LandingPageRightComponents,
-  LandingPageSignUpButton,
-  LandingPageSubText,
-  LandingPageUpperBar,
-} from '../components/LandingPage/StyledComponent';
+import LandingComponent from '../components/LandingPage/LandingComponent';
 
-const LandingPage = () => {
+const Landingpage = () => {
   return (
     <>
-      <LandingPageLeftBackground />
-      <LandingPageImgBox>
-        <LandingPageImg />
-      </LandingPageImgBox>
-      <LandingPageUpperBar>
-        <LandingPageDokitIcon />
-        <LandingPageButtons>
-          <LandingPageLoginButton>Login</LandingPageLoginButton>
-          <LandingPageSignUpButton>Sign Up</LandingPageSignUpButton>
-        </LandingPageButtons>
-      </LandingPageUpperBar>
-      <LandingPageRightBackground>
-        <LandingPageRightComponents>
-          <LandingPageMainText>Use DokitList</LandingPageMainText>
-          <LandingPageSubText>
-            Our Todolist is easy to use, comfortable and free.
-          </LandingPageSubText>
-          <LandingPageGetStartedButton>Get Started</LandingPageGetStartedButton>
-        </LandingPageRightComponents>
-      </LandingPageRightBackground>
+      <LandingComponent />
     </>
   );
 };
 
-export default LandingPage;
+export default Landingpage;
