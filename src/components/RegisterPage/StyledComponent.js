@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { DokitIcon } from '../commons/DokitIcon';
 
-export const RegisterPageBox = styled.div`
+export const RegisterPageBox = styled.form`
   position: absolute;
   width: 100%;
   height: 100%;
@@ -15,7 +15,7 @@ export const RegisterPageDokitIcon = styled(DokitIcon)`
   width: 200px;
   height: 200px;
   background-size: 200px;
-  margin-top: -200px;
+  margin-top: -100px;
 `;
 
 export const RegisterPageTextBox = styled.div``;
@@ -91,7 +91,7 @@ export const RegisterPagePasswordRepeatInput = styled.input`
 `;
 
 export const RegisterPageRegisterButton = styled.button`
-  margin-top: 15px;
+  margin-top: 30px;
   width: 300px;
   height: 40px;
   background: #acd3dc;
@@ -99,4 +99,5 @@ export const RegisterPageRegisterButton = styled.button`
   border-radius: 5px;
   border: none;
   font-weight: bold;
+  cursor: pointer;
 `;

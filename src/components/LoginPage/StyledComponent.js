@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { DokitIcon } from '../commons/DokitIcon';
 
-export const LoginPageBox = styled.div`
+export const LoginPageBox = styled.form`
   position: absolute;
   width: 100%;
   height: 100%;
@@ -15,7 +15,7 @@ export const LoginPageDokitIcon = styled(DokitIcon)`
   width: 200px;
   height: 200px;
   background-size: 200px;
-  margin-top: -200px;
+  margin-top: -100px;
 `;
 
 export const LoginPageTextBox = styled.div`
@@ -88,6 +88,7 @@ export const LoginPageLoginButton = styled.button`
   border-radius: 5px;
   border: none;
   font-weight: bold;
+  cursor: pointer;
 `;
 
 export const LoginPageRegisterButton = styled.button`
@@ -99,6 +100,7 @@ export const LoginPageRegisterButton = styled.button`
   border-radius: 5px;
   border: none;
   font-weight: bold;
+  cursor: pointer;
 `;
 
 export const LoginPageGoogleButton = styled.button`
@@ -110,4 +112,5 @@ export const LoginPageGoogleButton = styled.button`
   border-radius: 5px;
   border: none;
   font-weight: bold;
+  cursor: pointer;
 `;

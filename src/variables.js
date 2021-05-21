@@ -1,2 +1,2 @@
 //백엔드 서버 IP
-export const address = 'http://15.165.189.232:8080';
+export const address = 'http://10.21.20.129:8080';
