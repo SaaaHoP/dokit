@@ -10,10 +10,10 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <Route path='/register' component={RegisterPage} />
       <Route path='/' component={LandingPage} exact />
-      <Route path='/login' component={LoginPage} />
+      <Route path='/register' component={RegisterPage} />
       <Route path='/main' component={MainPage} />
+      <Route path='/login' component={LoginPage} />
     </>
   );
 }
