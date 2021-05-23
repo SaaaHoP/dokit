@@ -1,7 +1,14 @@
 import React from 'react';
+import MenuBar from '../components/commons/MenuBar';
+import DateComponent from '../components/MainPage/DateComponent';
 
 const MainPage = () => {
-  return <div>Login Successful! Main Page.</div>;
+  return (
+    <>
+      <MenuBar />
+      <DateComponent />
+    </>
+  );
 };
 
 export default MainPage;
