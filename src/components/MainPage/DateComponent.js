@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef, useState } from 'react';
 import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import {
@@ -9,14 +9,34 @@ import {
 } from './StyledComponent';
 
 const DateComponent = () => {
+  const [startDate, setStartDate] = useState(new Date());
+  const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
+    <DateCenterText onClick={onClick} ref={ref}>
+      {value}
+    </DateCenterText>
+  ));
+
+  let date = `${startDate.getFullYear()}-${
+    startDate.getUTCMonth() + 1
+  }-${startDate.getUTCDate()}`;
+
+  console.log(date);
+
   return (
     <>
       <DateBox>
         <DateLeftText>Date</DateLeftText>
-        <DateCenterText>2021. 03. 31. Wed</DateCenterText>
-        <DateIcon></DateIcon>
+        <ReactDatePicker
+          selected={startDate}
+          onChange={(date) => setStartDate(date)}
+          customInput={<ExampleCustomInput />}
+          popperModifiers={{ preventOverflow: { enabled: true } }}
+          popperPlacement='bottom-start'
+          dateFormat='yyyy. MM. dd. eee'
+          fixedHeight={true}
+        />
+        <DateIcon />
       </DateBox>
-      {/* <ReactDatePicker /> */}
     </>
   );
 };
