@@ -16,9 +16,7 @@ const DateComponent = () => {
     </DateCenterText>
   ));
 
-  let date = `${startDate.getFullYear()}-${
-    startDate.getUTCMonth() + 1
-  }-${startDate.getUTCDate()}`;
+  let date = startDate.toISOString().substring(0, 10);
 
   console.log(date);
 

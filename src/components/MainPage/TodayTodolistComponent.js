@@ -1,8 +1,9 @@
 import axios from 'axios';
 import React, { useState, useRef, useCallback } from 'react';
 import { TodoTemplate } from './StyledComponent';
-import TodolistComponent from './Todolist/TodolistComponent';
 import { address } from '../../variables';
+import TodolistComponent from './Todolist/TodolistComponent';
+import TodolistTemplateComponent from './Todolist/TodolistTemplateComponent';
 
 const TodayTodolistComponent = () => {
   const [todos, setTodos] = useState([
@@ -68,14 +69,14 @@ const TodayTodolistComponent = () => {
 
   return (
     <>
-      <TodoTemplate>
+      <TodolistTemplateComponent>
         <TodolistComponent
           todos={todos}
           onRemove={onRemove}
           onToggle={onToggle}
           onLock={onLock}
         ></TodolistComponent>
-      </TodoTemplate>
+      </TodolistTemplateComponent>
     </>
   );
 };
