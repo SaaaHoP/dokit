@@ -1,31 +1,28 @@
 import styled from 'styled-components';
-// import { DokitIcon } from '../commons/DokitIcon';
 import { AiOutlineTeam } from "react-icons/ai"; // Friend 아이콘
 //import { RiTeamLine } from "react-icons/ri"; // Team 아이콘
 import { BiSearchAlt2 } from "react-icons/bi"; // 돋보기 아이콘
 import { AiOutlineStar } from "react-icons/ai"; // 빈 별
 import { AiFillStar } from "react-icons/ai"; // 찬 별
 import { BsPeopleCircle } from "react-icons/bs"; // 프사
+import { FaPlus } from "react-icons/fa"
 
 export const FriendPageTemplate = styled.div`
-    // position: absolute;
+    position: fixed;
     background: white;
-    width: 1200px;
+    width: 1230px;
     height: 800px;
-
-    // 템플릿 그림자 + 중앙정렬 -> 상단바 좌측바 합칠 때 삭제
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    margin: 0 auto;
-    margin-top: 4rem;
+    top: 90px;
+    left: 190px;
 `;
 
 export const FriendPageTitleWrapper = styled.div`
     width: 95%;
     text-align: left;
-    border-bottom: 1px solid gray;
-    padding-top: 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 1rem;
     padding-bottom: 1rem;
-    padding-left: 1.5rem;
+    padding-left: 1rem;
     margin: 0 auto;
     display: flex;
 `;
@@ -45,22 +42,31 @@ export const FriendPageTitle = styled.div`
 `;
 
 export const FriendPageAddButton = styled.button`
-    height: 48px;
-    width: 48px;
-    border-radius: 24px;
+    width:48px;
+    height:48px;
+    background: rgba(172,211,220,0.3);
+    border-radius: 50px;
     border: none;
-    color: #C4C4C4;
-    margin-right: 1rem;
+    color : rgba(0,0,0,0.5);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-left : auto;
     cursor: pointer;
+`;
+
+export const FriendPageAddButtonIcon = styled(FaPlus)`
+    width: 24px;
+    height: 24px;
 `;
 
 export const FriendPageListWrapper = styled.div`
     width: 50%;
-    height: 680px;
+    height: 500px;
     float: left;
     text-align: left;
-    border-right: 1px solid gray;
-    padding-left: 3rem;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 2rem;
     padding-right: 1rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -104,7 +110,7 @@ export const FriendPageFavoriteTitleStar = styled(AiOutlineStar)`
 
 export const FriendPageFavoriteTitle = styled.div`
     margin-top: 1.5rem;
-    margin-left: 1.5rem;
+    margin-left: 1rem;
     font-size:10px;
     display: flex;
     flex: 1;
@@ -113,7 +119,7 @@ export const FriendPageFavoriteTitle = styled.div`
 `;
 
 export const FriendPageFavoriteWrapper = styled.div`
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     padding-bottom: 1rem;
 `;
 

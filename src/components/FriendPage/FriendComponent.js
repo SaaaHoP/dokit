@@ -5,6 +5,7 @@ import {
     FriendPageTitle,
     FriendPageFriendIcon,
     FriendPageAddButton,
+    FriendPageAddButtonIcon,
     FriendPageListWrapper,
     FriendPageListTitle,
     FriendPageSearchWrapper,
@@ -26,21 +27,105 @@ import {
     FriendPageRejectButton
 } from './StyledComponent';
 
+const FriendListElementCreator = ({user}) => {
+    return(
+        <FriendPageListElement>
+            {
+                user.isFavorite === 'true'
+                ? <FriendPageFavoriteStar/>
+                : <FriendPageFavoriteStarLine/>
+            }
+            <FriendPageUserProfileCircle/>
+            <FriendPageUserName>{user.name}</FriendPageUserName>
+            <FriendPageUserComment>{user.comment}</FriendPageUserComment>
+        </FriendPageListElement>
+    );
+}
+
+const FriendListCreator = ({users}) => {
+    return(
+        <>
+        {users.map(user =>(
+            <FriendListElementCreator user={user} key={user.id}/>
+        ))}
+        </>
+    );
+}
+
+const FriendRequestElementCreator = ({user}) => {
+    return(
+        <FriendPageListElement>
+            <FriendPageUserProfileCircle/>
+            <FriendPageUserName>{user.name}</FriendPageUserName>
+            <FriendPageAcceptButton>Accept</FriendPageAcceptButton>
+            <FriendPageRejectButton>Reject</FriendPageRejectButton>
+        </FriendPageListElement>
+    );
+}
+
+const FriendRequestCreator = ({users}) => {
+    return(
+        <>
+        {users.map(user=>(
+            <FriendRequestElementCreator user={user} key={user.id}/>
+        ))}
+        </>
+    );
+}
+
 const FriendComponent = () => {
+
+    const FavoriteFriendListElements = [
+        {
+            id: 1,
+            name: '김지현',
+            comment: '으랏짜짯짜',
+            isFavorite: 'true'
+        },
+        {
+            id: 2,
+            name: '민지원',
+            comment: '화잇팅이잉잉잉!!이!!!!',
+            isFavorite: 'true'
+        }
+    ];
+
+    const FriendListElements = [
+        {
+            id: 1,
+            name: '김태형',
+            comment: 'Butter',
+            isFavorite: 'false'
+        }
+    ];
+
+    const FriendRequestElements = [
+        {
+            id: 1,
+            name: '곰돌이',
+        },
+        {
+            id: 2,
+            name: '강아지'
+        }
+    ];
+
     return (
         <>
             <FriendPageTemplate>
                 <FriendPageTitleWrapper>
                     <FriendPageFriendIcon/>
                     <FriendPageTitle>Friends</FriendPageTitle>
-                    <FriendPageAddButton></FriendPageAddButton>
+                    <FriendPageAddButton>
+                    <FriendPageAddButtonIcon/>
+                    </FriendPageAddButton>
                 </FriendPageTitleWrapper>
                 <FriendPageListWrapper>
                     <FriendPageListTitle>
                         Friend List
                         <FriendPageSearchWrapper>
-                        <FriendPageInputSearchName/>
-                        <FriendPageSearchIcon/>
+                            <FriendPageInputSearchName/>
+                            <FriendPageSearchIcon/>
                         </FriendPageSearchWrapper>
                     </FriendPageListTitle>
                     <FriendPageFavoriteTitle>
@@ -48,41 +133,20 @@ const FriendComponent = () => {
                         Favorites
                     </FriendPageFavoriteTitle>
                     <FriendPageFavoriteWrapper>
-                        <FriendPageListElement>
-                            <FriendPageFavoriteStar/>
-                            <FriendPageUserProfileCircle/>
-                            <FriendPageUserName>김지현</FriendPageUserName>
-                            <FriendPageUserComment>으랏짜짯짜</FriendPageUserComment>
-                        </FriendPageListElement>
-                        <FriendPageListElement>
-                            <FriendPageFavoriteStar/>
-                            <FriendPageUserProfileCircle/>
-                            <FriendPageUserName>민지원</FriendPageUserName>
-                            <FriendPageUserComment>화잇팅이잉잉잉!!이!!!!</FriendPageUserComment>
-                        </FriendPageListElement>
+                        <FriendListCreator
+                            users={FavoriteFriendListElements}
+                        />
                     </FriendPageFavoriteWrapper>
-                    <FriendPageListElement>
-                            <FriendPageFavoriteStarLine/>
-                            <FriendPageUserProfileCircle/>
-                            <FriendPageUserName>김태형</FriendPageUserName>
-                            <FriendPageUserComment>Butter</FriendPageUserComment>
-                        </FriendPageListElement>
+                    <FriendListCreator
+                            users={FriendListElements}
+                        />
                 </FriendPageListWrapper>
                 <FriendPageRequestWrapper>
                     <FriendPageRequestTitle>Friend Request</FriendPageRequestTitle>
                     <FriendPageRequestListWrapper>
-                        <FriendPageListElement>
-                            <FriendPageUserProfileCircle/>
-                            <FriendPageUserName>곰돌이</FriendPageUserName>
-                            <FriendPageAcceptButton>Accept</FriendPageAcceptButton>
-                            <FriendPageRejectButton>Reject</FriendPageRejectButton>
-                        </FriendPageListElement>
-                        <FriendPageListElement>
-                            <FriendPageUserProfileCircle/>
-                            <FriendPageUserName>강아지</FriendPageUserName>
-                            <FriendPageAcceptButton>Accept</FriendPageAcceptButton>
-                            <FriendPageRejectButton>Reject</FriendPageRejectButton>
-                        </FriendPageListElement>
+                        <FriendRequestCreator
+                            users={FriendRequestElements}
+                        />
                     </FriendPageRequestListWrapper>
                 </FriendPageRequestWrapper>
             </FriendPageTemplate>
