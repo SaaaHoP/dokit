@@ -1,6 +1,8 @@
 import LandingPage from './screens/LandingPage';
 import LoginPage from './screens/LoginPage';
 import RegisterPage from './screens/RegisterPage';
+import SetPage from './screens/SetPage';
+
 import GlobalStyle from './styles/GlobalStyle';
 import MainPage from './screens/MainPage';
 import { Route } from 'react-router-dom';
@@ -14,6 +16,7 @@ function App() {
       <Route path='/login' component={LoginPage} />
       <Route path='/register' component={RegisterPage} />
       <Route path='/main' component={MainPage} />
+      <Route path='/setting' component={SetPage}/>
     </>
   );
 }

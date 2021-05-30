@@ -1,18 +1,18 @@
-import React from 'react';
-
-import {
-    SetPageBox,
-    ProfileBox
-  } from '../components/SetPage/StyledComponent';
+import React, {useState} from 'react';
+import MenuBar from '../components/commons/MenuBar';
+//import DateComponent from '../components/MainPage/DateComponent';
+//import TodayTodolistComponent from '../components/MainPage/TodayTodolistComponent';
+import SetComponent from '../components/SetPage/SetComponent';
 
 const SetPage = () => {
-     return (
-        <>
-            <SetPageBox>
-                <ProfileBox />
-            </SetPageBox>
-        </> 
-    );
+  return (
+    <>
+      <MenuBar />
+      <SetComponent />
+      {/*<DateComponent />
+      <TodayTodolistComponent />*/}
+    </>
+  );
 };
 
 export default SetPage;
