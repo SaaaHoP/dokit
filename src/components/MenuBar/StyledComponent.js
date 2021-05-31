@@ -119,64 +119,64 @@ export const SideBoxIcon1 = styled(SideBoxHomeIcon)`
 position:absolute;
 width:18px;
 height:18px;
-left:15px;
-top:15px;
+left:10px;
+top:10px;
 `;
 
 export const SideBoxIcon2 = styled(SideBoxCalendarIcon)`
 position:absolute;
 width:18px;
 height:18px;
-left:15px;
-top:45px;
+left:10px;
+top:40px;
 `;
 
 export const SideBoxIcon3 = styled(SideBoxFriendsIcon)`
 position:absolute;
 width:18px;
 height:18px;
-left:15px;
-top:75px;
+left:10px;
+top:70px;
 `;
 
 export const SideBoxIcon4 = styled(SideBoxTeamIcon)`
 position:absolute;
 width:18px;
 height:18px;
-left:15px;
-top:105px;
+left:10px;
+top:100px;
 `;
 
 export const SideBoxIcon5 = styled(SideBoxTimerIcon)`
 position:absolute;
 width:18px;
 height:18px;
-left:15px;
-top:15px;
+left:10px;
+top:10px;
 `;
 
 export const SideBoxIcon6 = styled(SideBoxIncompledtedListIcon)`
 position:absolute;
 width:18px;
 height:18px;
-left:15px;
-top:15px;
+left:10px;
+top:10px;
 `;
 
 export const SideBoxIcon7 = styled(SideBoxGuestBookIcon)`
 position:absolute;
 width:18px;
 height:18px;
-left:15px;
-top:15px;
+left:10px;
+top:10px;
 `;
 
 export const SideBoxIcon8 = styled(SideBoxFavoriteIcon)`
 position:absolute;
 width:18px;
 height:18px;
-left:15px;
-top:15px;
+left:10px;
+top:10px;
 `;
 
 export const SideBoxTitle1 = styled.span`
@@ -185,7 +185,7 @@ position:absolute;
 font-size:14px;
 font-weight:600;
 left:45px;
-top:15px;
+top:10px;
 `;
 
 export const SideBoxTitle2 = styled.span`
@@ -194,7 +194,7 @@ position:absolute;
 font-size:14px;
 font-weight:600;
 left:45px;
-top:45px;
+top:40px;
 `;
 
 export const SideBoxTitle3 = styled.span`
@@ -203,7 +203,7 @@ position:absolute;
 font-size:14px;
 font-weight:600;
 left:45px;
-top:75px;
+top:70px;
 `;
 
 export const SideBoxTitle4 = styled.span`
@@ -212,7 +212,7 @@ position:absolute;
 font-size:14px;
 font-weight:600;
 left:45px;
-top:105px;
+top:100px;
 `;
 
 export const SideBoxTitle5 = styled.span`
@@ -221,7 +221,7 @@ position:absolute;
 font-size:14px;
 font-weight:600;
 left:45px;
-top:15px;
+top:10px;
 `;
 
 export const SideBoxTitle6 = styled.span`
@@ -230,7 +230,7 @@ position:absolute;
 font-size:14px;
 font-weight:600;
 left:45px;
-top:15px;
+top:10px;
 `;
 
 export const SideBoxTitle7 = styled.span`
@@ -239,7 +239,7 @@ position:absolute;
 font-size:14px;
 font-weight:600;
 left:45px;
-top:15px;
+top:10px;
 `;
 
 export const SideBoxTitle8 = styled.span`
@@ -248,5 +248,5 @@ position:absolute;
 font-size:14px;
 font-weight:600;
 left:45px;
-top:15px;
+top:10px;
 `;
