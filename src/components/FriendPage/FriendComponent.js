@@ -4,8 +4,6 @@ import {
     FriendPageTitleWrapper,
     FriendPageTitle,
     FriendPageFriendIcon,
-    FriendPageAddButton,
-    FriendPageAddButtonIcon,
     FriendPageListWrapper,
     FriendPageListTitle,
     FriendPageSearchWrapper,
@@ -26,6 +24,7 @@ import {
     FriendPageAcceptButton,
     FriendPageRejectButton
 } from './StyledComponent';
+import AddFriendButton from './AddFriendButton';
 
 const FriendListElementCreator = ({user}) => {
     return(
@@ -116,9 +115,7 @@ const FriendComponent = () => {
                 <FriendPageTitleWrapper>
                     <FriendPageFriendIcon/>
                     <FriendPageTitle>Friends</FriendPageTitle>
-                    <FriendPageAddButton>
-                    <FriendPageAddButtonIcon/>
-                    </FriendPageAddButton>
+                    <AddFriendButton/>
                 </FriendPageTitleWrapper>
                 <FriendPageListWrapper>
                     <FriendPageListTitle>
@@ -134,18 +131,18 @@ const FriendComponent = () => {
                     </FriendPageFavoriteTitle>
                     <FriendPageFavoriteWrapper>
                         <FriendListCreator
-                            users={FavoriteFriendListElements}
+                         users={FavoriteFriendListElements}
                         />
                     </FriendPageFavoriteWrapper>
                     <FriendListCreator
-                            users={FriendListElements}
+                         users={FriendListElements}
                         />
                 </FriendPageListWrapper>
                 <FriendPageRequestWrapper>
                     <FriendPageRequestTitle>Friend Request</FriendPageRequestTitle>
                     <FriendPageRequestListWrapper>
                         <FriendRequestCreator
-                            users={FriendRequestElements}
+                         users={FriendRequestElements}
                         />
                     </FriendPageRequestListWrapper>
                 </FriendPageRequestWrapper>
