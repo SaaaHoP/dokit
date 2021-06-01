@@ -4,7 +4,9 @@ import { BiSearchAlt2 } from "react-icons/bi"; // 돋보기 아이콘
 import { AiOutlineStar } from "react-icons/ai"; // 빈 별
 import { AiFillStar } from "react-icons/ai"; // 찬 별
 import { BsPeopleCircle } from "react-icons/bs"; // 프사
-import { FaPlus } from "react-icons/fa"
+import { FaPlus } from "react-icons/fa";
+import { TiPlus } from "react-icons/ti";
+
 
 export const TeamPageTemplate = styled.div`
     position: fixed;
@@ -50,21 +52,20 @@ export const ModalContentsWrapper = styled.div`
     // margin: 0 auto;
     width: 100%;
     position: relative;
-    padding: 0 20px 32px;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
-    flex-direction: column;
 `;
 
 export const TeamPageAddModalSelectWrapper = styled.div`
+    float: left;
     width: 50%;
     height: 450px;
     border-right: 1px solid rgba(0, 0, 0, 0.15);
 `;
 
-export const TeamPageAddModalSelectTitle = styled.div`
-    margin-top: 5px;
+export const TeamPageAddModalTitle = styled.div`
+    margin-top: 15px;
     font-size: 24px;
     font-weight: 500;
     text-align: center;
@@ -84,26 +85,14 @@ export const TeamPageAddModalInputSearchName = styled.input.attrs({
     border: none;
 `;
 
-export const TeamPageAddModalCreateButton = styled.div`
-    font-size: 18px;
-    font-weight: 700;
-    width: 100px;
-    height: 30px;
-    margin-left: 240px;
-    padding-top: 5px;
-    background: rgba(172, 211, 220, 0.5);
-    border-radius: 22px;
-    text-align: center;
-    cursor: pointer;
-`;
-
 export const TeamPageAddModalSelectListWrapper = styled.div`
     margin-top: 50px;
 `;
 
 export const TeamPageAddModalFriendListElement = styled.div`
     display: flex;
-    margin-bottom: 1rem;
+    margin-left: 20px;
+    margin-bottom: 10px;
 `;
 
 export const TeamPageAddModalUserCheckbox = styled.input.attrs({
@@ -126,6 +115,73 @@ export const TeamPageAddModalUserName = styled.div`
     margin-top: 0.5rem;
 `;
 
+export const TeamPageAddModalInformationWrapper = styled.div`
+    float: left;
+    width: 50%;
+    height: 450px;
+`;
+
+export const TeamPageAddModalThumbnail = styled.div`
+    margin-top: 50px;
+    margin-left: 70px;
+    width: 150px;
+    height: 150px;
+    background: rgba(196, 196, 196, 0.6);
+    border-radius: 75px;
+    font-size: 20px;
+    text-align: center; 
+    color: rgba(0, 0, 0, 0.5);
+    padding-top: 60px;
+`;
+
+export const TeamPageAddModalSelectThumbnail = styled(TiPlus)`
+    color: #97D7E6; 
+    width: 48px;
+    height: 48px;
+    margin-top: 30px;
+    margin-left: 110px;
+    // float: right;
+    cursor: pointer;
+`; 
+
+export const TeamPageAddModalInputWrapper = styled.div`
+    margin-top: 35px;
+`;
+
+export const TeamPageAddModalName = styled.div`
+    font-size: 16px;
+    margin-bottom: 20px;
+    margin-left: 40px;
+`;
+
+export const TeamPageAddModalProject = styled.div`
+    font-size: 16px;
+    margin-bottom: 10px;
+    margin-left: 22px;
+`;
+
+export const TeamPageAddModalInputName = styled.input.attrs({
+    
+})`
+    margin-left: 10px;
+    width: 140px;
+    border: none;
+    border-bottom: 1px solid gray;
+`;
+
+export const TeamPageAddModalCreateButton = styled.div`
+    font-size: 18px;
+    font-weight: 700;
+    width: 100px;
+    height: 30px;
+    margin-left: 180px;
+    margin-top: 80px;
+    padding-top: 5px;
+    background: rgba(172, 211, 220, 0.5);
+    border-radius: 22px;
+    text-align: center;
+    cursor: pointer;
+`;
 
 export const TeamPageTitleWrapper = styled.div`
     width: 95%;

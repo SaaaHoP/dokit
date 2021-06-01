@@ -9,12 +9,19 @@ import {
     ModalCloseButton, 
     ModalContentsWrapper,
     TeamPageAddModalSelectWrapper,
-    TeamPageAddModalSelectTitle,
+    TeamPageAddModalTitle,
     TeamPageAddModalSearchWrapper,
     TeamPageAddModalInputSearchName,
-    TeamPageAddModalCreateButton,
     TeamPageSearchIcon,
     TeamPageAddModalSelectListWrapper,
+    TeamPageAddModalInformationWrapper,
+    TeamPageAddModalThumbnail,
+    TeamPageAddModalSelectThumbnail,
+    TeamPageAddModalInputWrapper,
+    TeamPageAddModalName,
+    TeamPageAddModalProject,
+    TeamPageAddModalInputName,
+    TeamPageAddModalCreateButton
 } from "./StyledComponent";
 
 const FriendListElementCreator = ({user}) => {
@@ -71,9 +78,9 @@ class AddTeam extends Component {
                     </ModalCloseButton>
                     <ModalContentsWrapper onClick={isOpen}> {/* Modal창은 들어오면 isOpen true인 상태라 안꺼짐 */}
                         <TeamPageAddModalSelectWrapper>
-                            <TeamPageAddModalSelectTitle>
+                            <TeamPageAddModalTitle>
                                 Select Member
-                            </TeamPageAddModalSelectTitle>
+                            </TeamPageAddModalTitle>
                             <TeamPageAddModalSearchWrapper>
                                 <TeamPageAddModalInputSearchName/>
                                 <TeamPageSearchIcon/>
@@ -83,7 +90,28 @@ class AddTeam extends Component {
                                  users={FriendListElements}/>
                             </TeamPageAddModalSelectListWrapper>
                         </TeamPageAddModalSelectWrapper>
-                        <TeamPageAddModalCreateButton>Create</TeamPageAddModalCreateButton>
+                        <TeamPageAddModalInformationWrapper>
+                            <TeamPageAddModalTitle>
+                                Information
+                            </TeamPageAddModalTitle>
+                            <TeamPageAddModalThumbnail>
+                                Thumbnail
+                                <TeamPageAddModalSelectThumbnail/>
+                            </TeamPageAddModalThumbnail>
+                            <TeamPageAddModalInputWrapper>
+                                <TeamPageAddModalName>
+                                    NAME :
+                                    <TeamPageAddModalInputName/>
+                                </TeamPageAddModalName>
+                                <TeamPageAddModalProject>
+                                    PROJECT :
+                                    <TeamPageAddModalInputName/>
+                                </TeamPageAddModalProject>
+                                <TeamPageAddModalCreateButton>
+                                    Create
+                                </TeamPageAddModalCreateButton>
+                            </TeamPageAddModalInputWrapper>
+                        </TeamPageAddModalInformationWrapper>
                     </ModalContentsWrapper>
                 </TeamPageAddModal>
             {/* </div> */}
