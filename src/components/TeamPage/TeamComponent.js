@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 import {
     TeamPageTemplate,
     TeamPageTitleWrapper,
@@ -72,9 +73,27 @@ const TeamRequestCreator = ({users}) => {
     );
 }
 
+// const FavoriteTeamListElementsGetter = () => {
+//     axios.get(`teams/me/favorite`).then((res) => {
+//         const FavoriteTeamListElements = res.data;
+//     });
+// }
+
+// const TeamListElementsGetter = () => {
+//     axios.get(`teams/me/normal`).then((res) => {
+//         const TeamListElements = res.data;
+//     });
+// }
+
+// const TeamRequestElementsGetter = () => {
+//     axios.get(`teams/me/request`).then((res) => {
+//         const TeamRequestElements = res.data;
+//     });
+// }
+
 const TeamComponent = () => {
 
-    const FavoriteTeamListElements = [
+    const FavoriteTeamListElements = [ 
         {
             id: 1,
             name: '두야~호~!',
@@ -143,11 +162,13 @@ const TeamComponent = () => {
                     </TeamPageFavoriteTitle>
                     <TeamPageFavoriteWrapper>
                         <TeamListCreator
-                         users={FavoriteTeamListElements}
+                         users= {FavoriteTeamListElements}
+                        //  {FavoriteTeamListElementsGetter}
                         />
                     </TeamPageFavoriteWrapper>
                     <TeamListCreator
                          users={TeamListElements}
+                        // {TeamListElementsGetter}
                         />
                 </TeamPageListWrapper>
                 <TeamPageRequestWrapper>
@@ -155,6 +176,7 @@ const TeamComponent = () => {
                     <TeamPageRequestListWrapper>
                         <TeamRequestCreator
                          users={TeamRequestElements}
+                         // {TeamRequestElementsGetter}
                         />
                     </TeamPageRequestListWrapper>
                 </TeamPageRequestWrapper>
