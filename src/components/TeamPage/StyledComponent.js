@@ -1,20 +1,18 @@
 import styled from 'styled-components';
-import { RiTeamLine } from "react-icons/ri"; // Team 아이콘
-import { BiSearchAlt2 } from "react-icons/bi"; // 돋보기 아이콘
-import { AiOutlineStar } from "react-icons/ai"; // 빈 별
-import { AiFillStar } from "react-icons/ai"; // 찬 별
-import { BsPeopleCircle } from "react-icons/bs"; // 프사
+import { RiTeamLine } from "react-icons/ri"; 
+import { BiSearchAlt2 } from "react-icons/bi"; 
+import { AiOutlineStar, AiFillStar } from "react-icons/ai"; 
+import { BsPeopleCircle } from "react-icons/bs"; 
 import { FaPlus } from "react-icons/fa";
 import { TiPlus } from "react-icons/ti";
-
 
 export const TeamPageTemplate = styled.div`
     position: fixed;
     background: white;
-    width: 1300px;
     height: 600px;
-    top: 90px;
+    top: 85px;
     left: 200px;
+    right: 30px;
 `;
 
 export const ModalBackground = styled.div`
@@ -49,7 +47,6 @@ export const ModalCloseButton = styled.span`
 `;
 
 export const ModalContentsWrapper = styled.div`
-    // margin: 0 auto;
     width: 100%;
     position: relative;
     box-sizing: border-box;
@@ -65,7 +62,7 @@ export const TeamPageAddModalSelectWrapper = styled.div`
 `;
 
 export const TeamPageAddModalTitle = styled.div`
-    margin-top: 15px;
+    margin-top: 10px;
     font-size: 24px;
     font-weight: 500;
     text-align: center;
@@ -140,7 +137,6 @@ export const TeamPageAddModalSelectThumbnail = styled(TiPlus)`
     height: 48px;
     margin-top: 30px;
     margin-left: 110px;
-    // float: right;
     cursor: pointer;
 `; 
 
@@ -230,7 +226,16 @@ export const TeamPageAddButtonIcon = styled(FaPlus)`
 
 export const TeamPageListWrapper = styled.div`
     width: 50%;
-    height: 500px;
+    height: 520px;
+    overflow: auto;
+    &::-webkit-scrollbar {
+        width: 15px;
+        border-radius: 7px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 7px;
+      }
     float: left;
     text-align: left;
     border-right: 1px solid rgba(0, 0, 0, 0.1);
@@ -344,11 +349,20 @@ export const TeamPageUserComment = styled.div`
 
 export const TeamPageRequestWrapper = styled.div`
     width: 50%;
-    height: 500px;
+    height: 520px;
+    overflow: auto;
+    &::-webkit-scrollbar {
+        width: 15px;
+        border-radius: 7px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 7px;
+      }
     float: left;
     text-align:left;
     padding-left: 1.5rem;
-    padding-right: 3rem;
+    padding-right: 2rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
 `;

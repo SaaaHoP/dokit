@@ -126,18 +126,43 @@ const TeamComponent = () => {
             name: 'ABCDEFG',
             comment: '영어영어영어',
             isFavorite: 'false'
-        }
+        },
+
     ];
 
     const TeamRequestElements = [
         {
             id: 1,
-            name: '캡스톤토로톤톤톤톤톤',
+            name: '캡스톤토로톤톤',
         },
         {
             id: 2,
             name: '나무나무'
-        }
+        },
+        {
+            id: 3,
+            name: '캡스톤토로톤톤',
+        },
+        {
+            id: 4,
+            name: '나무나무'
+        },
+        {
+            id: 5,
+            name: '캡스톤토로톤톤',
+        },
+        {
+            id: 6,
+            name: '나무나무'
+        },
+        {
+            id: 7,
+            name: '캡스톤토로톤톤',
+        },
+        {
+            id: 8,
+            name: '나무나무'
+        },
     ];
 
     return (
