@@ -5,16 +5,13 @@ import {BsPeopleCircle} from 'react-icons/bs'
 
 export const CalendarPageBox = styled.div`
 position: absolute;
-//width: 1300px;
-height: 620px;
-//top:82px;
 top : 10%;
-left : 14%;
+left : 13%;
 right : 13px;
 display: flex;
 flex-direction: column;
 
-border: solid 5px blue;
+//border: solid 5px blue;
 `;
 
 export const CalendarPageCalendar = styled.div`
@@ -55,8 +52,9 @@ display : flex;
 `;
 
 export const TeamCalendarPageMemberListBox = styled.div`
-width:120px;
+width:12%;
 height:200px;
+margin-right : 15px;
 margin-left:10px;
 padding : 10px;
 display: flex;
@@ -91,9 +89,12 @@ font-size:15px;
 
 
 export const TeamCalendarPageCalendarPosition = styled.div`
-width:1040px;
+//position : absolute;
+
+width:88%;
 height:100%;
 margin-right:13px;
+dispaly : flex;
 //border: solid 3px green;
 `;
 
@@ -124,6 +125,7 @@ align-items: center;
 //아이콘 가운데정렬
 
 margin-left : auto;
+cursor: pointer;
 `;
 
 export const CalendarPageScheduleAddButtonIcon = styled(FaPlus)`
@@ -143,6 +145,7 @@ display:flex;
 justify-content: center;
 align-items: center;
 margin-left : 13px;
+cursor: pointer;
 `;
 
 export const TeamCalendarPageInfoButtonIcon = styled(BsThreeDotsVertical)`
