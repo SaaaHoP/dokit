@@ -9,10 +9,10 @@ import { FaPlus } from "react-icons/fa"
 export const FriendPageTemplate = styled.div`
     position: fixed;
     background: white;
-    width: 1300px;
-    height: 600px;
-    top: 90px;
+    height: 700px;
+    top: 85px;
     left: 200px;
+    right: 10px;
 `;
 
 export const ModalBackground = styled.div`
@@ -26,7 +26,7 @@ export const ModalBackground = styled.div`
 
 export const FriendPageAddModal = styled.div`
     width: 360px;
-    height: 360px;
+    height: 340px;
     top: 150px;
     left: 1080px;
     background-color: white;
@@ -75,7 +75,6 @@ export const FriendPageAddModalUserProfileCircle = styled(BsPeopleCircle)`
 
 export const FriendPageAddModalUserName = styled.div`
     font-size: 18px;
-    // font-weight: 600;
     margin: 0 auto;
     margin-top: 20px;
 `;
@@ -96,10 +95,10 @@ export const FriendPageAddModalUserComment = styled.div`
 
 export const FriendPageAddModalAddButton = styled.div`
     font-size: 18px;
-    width: 74px;
+    width: 80px;
     height: 36px;
     margin-top: 30px;
-    margin-left: 240px;
+    margin-left: 230px;
     padding-top: 0.5rem;
     background: rgba(0, 0, 0, 0.2);
     border-radius: 22px;
@@ -152,8 +151,17 @@ export const FriendPageAddButtonIcon = styled(FaPlus)`
 `;
 
 export const FriendPageListWrapper = styled.div`
+    overflow: auto;
+    &::-webkit-scrollbar {
+        width: 15px;
+        border-radius: 7px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 7px;
+      }
     width: 50%;
-    height: 500px;
+    height: 520px;
     float: left;
     text-align: left;
     border-right: 1px solid rgba(0, 0, 0, 0.1);
@@ -267,7 +275,16 @@ export const FriendPageUserComment = styled.div`
 
 export const FriendPageRequestWrapper = styled.div`
     width: 50%;
-    height: 500px;
+    height: 520px;
+    overflow: auto;
+    &::-webkit-scrollbar {
+        width: 15px;
+        border-radius: 7px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 7px;
+      }
     float: left;
     text-align:left;
     padding-left: 1.5rem;
@@ -282,7 +299,7 @@ export const FriendPageRequestTitle = styled.div`
 `;
 
 export const FriendPageRequestListWrapper = styled.div`
-    margin-top: 3rem;
+    margin-top: 1.5rem;
 `;
 
 export const FriendPageAcceptButton = styled.button`
@@ -310,4 +327,11 @@ export const FriendPageRejectButton = styled.button`
     text-align: center;
     font-weight: 500;
     cursor: pointer;
+`;
+
+export const FriendPageMyRequestWrapper = styled.div`
+    width: 100%;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin-top: 1rem;
+    padding-top: 1rem;
 `;

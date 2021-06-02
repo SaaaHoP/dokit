@@ -27,8 +27,8 @@ class AddFriend extends Component {
                     <ModalContentsWrapper onClick={isOpen}> {/* Modal창은 들어오면 isOpen true인 상태라 안꺼짐 */}
                         <FriendPageAddModalInputEmail/>
                         <FriendPageAddModalUserProfileCircle/>
-                        <FriendPageAddModalUserName>민지원</FriendPageAddModalUserName>
-                        <FriendPageAddModalUserComment>한줄소개입니다</FriendPageAddModalUserComment>
+                        <FriendPageAddModalUserName> </FriendPageAddModalUserName>
+                        <FriendPageAddModalUserComment> </FriendPageAddModalUserComment>
                         <FriendPageAddModalAddButton>Add</FriendPageAddModalAddButton>
                     </ModalContentsWrapper>
                 </FriendPageAddModal>
