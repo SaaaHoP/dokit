@@ -9,6 +9,7 @@ import {
 import { IoAddCircleOutline } from 'react-icons/io5';
 import { ImCancelCircle } from 'react-icons/im';
 
+
 //DateComponent Styled Component
 export const DateBox = styled.div`
   position: absolute;
@@ -171,6 +172,7 @@ export const TodoItemUnlock = styled(BsFillUnlockFill)`
   width: 24px;
   height: 24px;
 `;
+
 
 export const TodoItemAddButton = styled(IoAddCircleOutline)`
   position: absolute;
@@ -335,3 +337,4 @@ export const TodoItemReviseBackground = styled.div`
   height: 100%;
   background-color: rgba(255, 255, 255, 0.7);
 `;
+

@@ -8,6 +8,7 @@ import {
   DateLeftText,
 } from './StyledComponent';
 
+
 const DateComponent = ({ startDate, setStartDate }) => {
   const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
     <DateCenterText onClick={onClick} ref={ref}>

@@ -80,6 +80,7 @@ const TodayTodolistComponent = ({ selectDate }) => {
 
   //맨첨 불러온 리스트에서는 id가 부여되어 있어서 id로 삭제하면 되는데
   //추가하고 삭제할때는 get해온뒤가 아닌거여서 id가 부여 안되어있다. 그거 해결해야할듯
+
   const onRemove = useCallback(
     (sequence) => {
       setTodos(todos.filter((todo) => todo.sequence !== sequence));
@@ -117,6 +118,7 @@ const TodayTodolistComponent = ({ selectDate }) => {
     },
     [todos]
   );
+
 
   const onLock = useCallback(
     (sequence) => {
