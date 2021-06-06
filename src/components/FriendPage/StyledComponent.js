@@ -10,6 +10,7 @@ export const FriendPageTemplate = styled.div`
     position: fixed;
     background: white;
     height: 700px;
+    // width: 1320px;
     top: 85px;
     left: 200px;
     right: 10px;
@@ -27,8 +28,9 @@ export const ModalBackground = styled.div`
 export const FriendPageAddModal = styled.div`
     width: 360px;
     height: 340px;
-    top: 150px;
-    left: 1080px;
+    top: 140px;
+    right: 70px;
+    float: right;
     background-color: white;
     position: relative;
     box-sizing: border-box;
@@ -228,7 +230,7 @@ export const FriendPageListElement = styled.div`
     font-size: 18px;
     color: black;
     display: flex;
-    align-items: center
+    align-items: center;
 `;
 
 export const FriendPageFavoriteStar = styled(AiFillStar)`

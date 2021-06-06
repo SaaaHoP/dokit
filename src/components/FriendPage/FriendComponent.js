@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
+import { address } from '../../variables';
 import {
     FriendPageTemplate,
     FriendPageTitleWrapper,
@@ -24,7 +26,6 @@ import {
     FriendPageAcceptButton,
     FriendPageRejectButton,
     FriendPageMyRequestWrapper,
-
 } from './StyledComponent';
 import AddFriendButton from './AddFriendButton';
 
@@ -37,12 +38,13 @@ const FriendListElementCreator = ({user}) => {
                 : <FriendPageFavoriteStarLine/>
             }
             <FriendPageUserProfileCircle/>
-            <FriendPageUserName>{user.name}</FriendPageUserName>
-            <FriendPageUserComment>{user.comment}</FriendPageUserComment>
+            <FriendPageUserName>{user.username}</FriendPageUserName>
+            <FriendPageUserComment>{user.conversation}</FriendPageUserComment>
         </FriendPageListElement>
     );
 }
 
+// WIP
 const FriendListCreator = ({users}) => {
     return(
         <>
@@ -79,7 +81,7 @@ const MyFriendRequestElementCreator = ({user}) => {
         <FriendPageListElement>
             <FriendPageUserProfileCircle/>
             <FriendPageUserName>{user.name}</FriendPageUserName>
-            <FriendPageRejectButton>Reject</FriendPageRejectButton>
+            <FriendPageRejectButton>Delete</FriendPageRejectButton>
         </FriendPageListElement>
     );
 }
@@ -95,74 +97,79 @@ const FriendMyRequestCreator = ({users}) => {
 }
 
 
-
 const FriendComponent = () => {
 
     const FavoriteFriendListElements = [
         {
             id: 1,
-            name: '김지현',
-            comment: '일이삼사오육칠팔구심일이삼사오',
+            username: '김지현',
+            conversation: '일이삼사오육칠팔구심일이삼사오',
             isFavorite: 'true'
         },
         {
             id: 2,
-            name: '민지원',
-            comment: '화잇팅이잉잉잉!!이!!!!',
+            username: '민지원',
+            conversation: '화잇팅이잉잉잉!!이!!!!',
             isFavorite: 'true'
         },
         {
             id: 3,
-            name: '김지현',
-            comment: '으랏짜짯짜',
+            username: '김지현',
+            conversation: '으랏짜짯짜',
             isFavorite: 'true'
         },
         {
             id: 4,
-            name: '민지원',
-            comment: '화잇팅이잉잉잉!!이!!!!',
+            username: '민지원',
+            conversation: '화잇팅이잉잉잉!!이!!!!',
             isFavorite: 'true'
         }
     ];
 
-    const FriendListElements = [
-        {
-            id: 1,
-            name: '김태형',
-            comment: 'Butter',
-            isFavorite: 'false'
-        },
-        {
-            id: 2,
-            name: '김태형',
-            comment: 'Butter',
-            isFavorite: 'false'
-        },
-        {
-            id: 3,
-            name: '김태형',
-            comment: 'Butter',
-            isFavorite: 'false'
-        },
-        {
-            id: 4,
-            name: '김태형',
-            comment: 'Butter',
-            isFavorite: 'false'
-        },
-        {
-            id: 5,
-            name: '김태형',
-            comment: 'Butter',
-            isFavorite: 'false'
-        },
-        {
-            id: 6,
-            name: '김태형',
-            comment: 'Butter',
-            isFavorite: 'false'
-        },
-    ];
+    // const FriendListElements = [
+    //     {
+    //         id: 1,
+    //         name: '김태형',
+    //         comment: 'Butter',
+    //         isFavorite: 'false'
+    //     },
+    //     {
+    //         id: 2,
+    //         name: '김태형',
+    //         comment: 'Butter',
+    //         isFavorite: 'false'
+    //     },
+    //     {
+    //         id: 3,
+    //         name: '김태형',
+    //         comment: 'Butter',
+    //         isFavorite: 'false'
+    //     },
+    //     {
+    //         id: 4,
+    //         name: '김태형',
+    //         comment: 'Butter',
+    //         isFavorite: 'false'
+    //     },
+    //     {
+    //         id: 5,
+    //         name: '김태형',
+    //         comment: 'Butter',
+    //         isFavorite: 'false'
+    //     },
+    //     {
+    //         id: 6,
+    //         name: '김태형',
+    //         comment: 'Butter',
+    //         isFavorite: 'false'
+    //     },
+    // ];
+
+    var [FriendListElements, setFriendListElements] = useState([]);
+
+    axios.get(`${address}/friends/me/normal`).then((res) => {
+        setFriendListElements(res.data);
+    });
 
     const FriendRequestElements = [
         {
