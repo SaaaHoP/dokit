@@ -6,6 +6,8 @@ import {
   BsArrowReturnRight,
   BsCheck,
 } from 'react-icons/bs';
+import { IoAddCircleOutline } from 'react-icons/io5';
+import { ImCancelCircle } from 'react-icons/im';
 
 //DateComponent Styled Component
 export const DateBox = styled.div`
@@ -170,4 +172,166 @@ export const TodoItemUnlock = styled(BsFillUnlockFill)`
   height: 24px;
 `;
 
-export const TodoItemAddButton = styled.div``;
+export const TodoItemAddButton = styled(IoAddCircleOutline)`
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  left: 410px;
+  top: 480px;
+  cursor: pointer;
+  color: black;
+  /* z-index: 2; */
+`;
+
+//TodoListItemAddComponent StyledComponent
+
+export const TodoItemAddBlur = styled.div`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+`;
+
+export const TodoItemAddBackground = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+`;
+
+export const TodoItemAddBox = styled.form`
+  position: absolute;
+  left: 735px;
+  top: 290px;
+  width: 300px;
+  height: 360px;
+  background-color: rgba(255, 255, 255);
+  border-radius: 20px;
+  z-index: 999;
+`;
+
+export const TodoItemAddToListBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-left: 20px;
+  margin-right: 10px;
+  margin-bottom: 30px;
+`;
+
+export const TodoItemAddToListText = styled.div`
+  font-weight: bold;
+  font-size: 30px;
+`;
+
+export const TodoItemAddToListCancel = styled(ImCancelCircle)`
+  margin-left: 270px;
+  margin-top: 10px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+`;
+
+export const TodoItemAddTitleBox = styled.div`
+  display: flex;
+  margin-top: 30px;
+  margin-left: 30px;
+  align-items: center;
+`;
+
+export const TodoItemAddTitleText = styled.div`
+  font-weight: bold;
+  font-size: 20px;
+`;
+
+export const TodoItemAddTitleInput = styled.input`
+  margin-left: 5px;
+  border: none;
+  border-bottom: 1px solid;
+  background-color: rgba(172, 211, 220, 0);
+  width: 180px;
+`;
+
+export const TodoItemAddMemoBox = styled.div`
+  display: flex;
+  margin-top: 30px;
+  margin-left: 30px;
+  align-items: center;
+`;
+
+export const TodoItemAddMemoText = styled.div`
+  font-weight: bold;
+  font-size: 20px;
+`;
+
+export const TodoItemAddMemoInput = styled.input`
+  margin-left: 5px;
+  border: none;
+  border-bottom: 1px solid;
+  background-color: rgba(172, 211, 220, 0);
+`;
+
+export const TodoItemAddLockBox = styled.div`
+  display: flex;
+  margin-top: 20px;
+  margin-left: 30px;
+  align-items: center;
+`;
+
+export const TodoItemAddLockText = styled.div`
+  font-weight: bold;
+  font-size: 20px;
+`;
+
+export const TodoItemAddLockUnlocked = styled(BsFillUnlockFill)`
+  width: 36px;
+  height: 36px;
+  margin-left: 20px;
+  cursor: pointer;
+`;
+
+export const TodoItemAddLockLocked = styled(BsFillLockFill)`
+  width: 36px;
+  height: 36px;
+  margin-left: 20px;
+  cursor: pointer;
+`;
+
+export const TodoItemAddButtonBox = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10px;
+  margin-top: 110px;
+`;
+
+export const TodoItemAddSaveButton = styled.button`
+  width: 91px;
+  height: 28px;
+  background: rgba(172, 211, 220, 0.3);
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+`;
+
+export const TodoItemAddDeleteButton = styled.button`
+  margin-left: 10px;
+  width: 91px;
+  height: 28px;
+  background: rgba(255, 0, 0, 0.3);
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+`;
+
+export const TodoItemReviseBackground = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+`;

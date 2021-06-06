@@ -8,17 +8,14 @@ import {
   DateLeftText,
 } from './StyledComponent';
 
-const DateComponent = () => {
-  const [startDate, setStartDate] = useState(new Date());
+const DateComponent = ({ startDate, setStartDate }) => {
   const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
     <DateCenterText onClick={onClick} ref={ref}>
       {value}
     </DateCenterText>
   ));
 
-  let date = startDate.toISOString().substring(0, 10);
-
-  console.log(date);
+  // let date = startDate.toISOString().substring(0, 10);
 
   return (
     <>

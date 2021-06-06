@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   TodoItem,
   TodoItemIcon,
@@ -17,11 +17,20 @@ import {
   TodoItemTextBox,
   TodoItemDescriptionCompleted,
 } from '../StyledComponent';
+import TodolistItemReviseComponent from './TodolistItemReviseComponent';
 
-const TodolistItemComponent = ({ todo, onToggle, onLock }) => {
+const TodolistItemComponent = ({
+  todo,
+  onToggle,
+  onLock,
+  onRemove,
+  selectDate,
+  onRevise,
+}) => {
   const {
     completed,
     content,
+    date,
     description,
     emoticon,
     emphasized,
@@ -29,6 +38,13 @@ const TodolistItemComponent = ({ todo, onToggle, onLock }) => {
     opened,
     sequence,
   } = todo;
+
+  const [background, setBackground] = useState(false);
+  // console.log(todo);
+  const onBackground = () => {
+    setBackground(!background);
+  };
+
   return (
     <>
       <TodoItem>
@@ -56,11 +72,20 @@ const TodolistItemComponent = ({ todo, onToggle, onLock }) => {
             )}
           </TodoItemDescriptionBox>
         </TodoItemTextBox>
-        <TodoItemPencil onClick></TodoItemPencil>
+        <TodoItemPencil onClick={onBackground}></TodoItemPencil>
         <TodoItemLockBox onClick={() => onLock(sequence)}>
           {opened ? <TodoItemUnlock /> : <TodoItemLock />}
         </TodoItemLockBox>
       </TodoItem>
+      {background ? (
+        <TodolistItemReviseComponent
+          todo={todo}
+          onRemove={onRemove}
+          selectDate={selectDate}
+          onBackground={onBackground}
+          onRevise={onRevise}
+        />
+      ) : null}
     </>
   );
 };

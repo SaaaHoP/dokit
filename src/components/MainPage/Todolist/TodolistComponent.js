@@ -2,7 +2,14 @@ import React from 'react';
 import { TodoItemlist } from '../StyledComponent';
 import TodolistItemComponent from './TodolistItemComponent';
 
-const TodolistComponent = ({ todos, onToggle, onLock }) => {
+const TodolistComponent = ({
+  todos,
+  onToggle,
+  onLock,
+  onRemove,
+  selectDate,
+  onRevise,
+}) => {
   return (
     <>
       <TodoItemlist>
@@ -12,6 +19,9 @@ const TodolistComponent = ({ todos, onToggle, onLock }) => {
             key={todo.sequence}
             onToggle={onToggle}
             onLock={onLock}
+            onRemove={onRemove}
+            selectDate={selectDate}
+            onRevise={onRevise}
           ></TodolistItemComponent>
         ))}
       </TodoItemlist>
