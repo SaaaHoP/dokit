@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { AiOutlineTeam } from "react-icons/ai"; // Friend 아이콘
-//import { RiTeamLine } from "react-icons/ri"; // Team 아이콘
 import { BiSearchAlt2 } from "react-icons/bi"; // 돋보기 아이콘
 import { AiOutlineStar } from "react-icons/ai"; // 빈 별
 import { AiFillStar } from "react-icons/ai"; // 찬 별
@@ -10,10 +9,103 @@ import { FaPlus } from "react-icons/fa"
 export const FriendPageTemplate = styled.div`
     position: fixed;
     background: white;
-    width: 1230px;
-    height: 800px;
-    top: 90px;
-    left: 190px;
+    height: 700px;
+    // width: 1320px;
+    top: 85px;
+    left: 200px;
+    right: 10px;
+`;
+
+export const ModalBackground = styled.div`
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.4);
+`;
+
+export const FriendPageAddModal = styled.div`
+    width: 360px;
+    height: 340px;
+    top: 140px;
+    right: 70px;
+    float: right;
+    background-color: white;
+    position: relative;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    background: white;       
+`;
+
+export const ModalCloseButton = styled.span`
+    float: right;
+    margin-right: 10px;
+    margin-top: 5px;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+`;
+
+export const ModalContentsWrapper = styled.div`
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    padding: 0 20px 32px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+`;
+
+export const FriendPageAddModalInputEmail = styled.input.attrs({
+    placeholder: "input friend's email and press the enter key.."
+})`
+    width: 300px;
+    border: none;
+    border-bottom: 1px solid #000000;
+`;
+
+export const FriendPageAddModalUserProfileCircle = styled(BsPeopleCircle)`
+    height: 120px;
+    width: 120px;
+    color: #C4C4C4;
+    margin: 0 auto;
+    margin-top: 30px;
+`;
+
+export const FriendPageAddModalUserName = styled.div`
+    font-size: 18px;
+    margin: 0 auto;
+    margin-top: 20px;
+`;
+
+export const FriendPageAddModalUserComment = styled.div`
+    margin: 0 auto;
+    margin-top: 10px;
+    font-size: 13px;
+    padding-top: 0.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    height: 30px;
+    background: rgba(172, 211, 220, 0.5);
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+`;
+
+export const FriendPageAddModalAddButton = styled.div`
+    font-size: 18px;
+    width: 80px;
+    height: 36px;
+    margin-top: 30px;
+    margin-left: 230px;
+    padding-top: 0.5rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 22px;
+    text-align: center;
+    cursor: pointer;
 `;
 
 export const FriendPageTitleWrapper = styled.div`
@@ -61,8 +153,17 @@ export const FriendPageAddButtonIcon = styled(FaPlus)`
 `;
 
 export const FriendPageListWrapper = styled.div`
+    overflow: auto;
+    &::-webkit-scrollbar {
+        width: 15px;
+        border-radius: 7px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 7px;
+      }
     width: 50%;
-    height: 500px;
+    height: 520px;
     float: left;
     text-align: left;
     border-right: 1px solid rgba(0, 0, 0, 0.1);
@@ -129,7 +230,7 @@ export const FriendPageListElement = styled.div`
     font-size: 18px;
     color: black;
     display: flex;
-    align-items: center
+    align-items: center;
 `;
 
 export const FriendPageFavoriteStar = styled(AiFillStar)`
@@ -176,7 +277,16 @@ export const FriendPageUserComment = styled.div`
 
 export const FriendPageRequestWrapper = styled.div`
     width: 50%;
-    height: 680px;
+    height: 520px;
+    overflow: auto;
+    &::-webkit-scrollbar {
+        width: 15px;
+        border-radius: 7px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 7px;
+      }
     float: left;
     text-align:left;
     padding-left: 1.5rem;
@@ -191,7 +301,7 @@ export const FriendPageRequestTitle = styled.div`
 `;
 
 export const FriendPageRequestListWrapper = styled.div`
-    margin-top: 3rem;
+    margin-top: 1.5rem;
 `;
 
 export const FriendPageAcceptButton = styled.button`
@@ -219,4 +329,11 @@ export const FriendPageRejectButton = styled.button`
     text-align: center;
     font-weight: 500;
     cursor: pointer;
+`;
+
+export const FriendPageMyRequestWrapper = styled.div`
+    width: 100%;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin-top: 1rem;
+    padding-top: 1rem;
 `;
