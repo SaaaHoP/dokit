@@ -27,8 +27,9 @@ export const ModalBackground = styled.div`
 export const TeamPageAddModal = styled.div`
     width: 600px;
     height: 500px;
-    top: 150px;
-    left: 850px;
+    top: 140px;
+    right: 90px;
+    float: right;
     background-color: white;
     position: relative;
     box-sizing: border-box;
