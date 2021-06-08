@@ -5,6 +5,7 @@ import SetPage from './screens/SetPage';
 
 import GlobalStyle from './styles/GlobalStyle';
 import MainPage from './screens/MainPage';
+import PasswordCheckPage from './screens/PasswordCheckPage'
 import { Route } from 'react-router-dom';
 
 
@@ -16,6 +17,7 @@ function App() {
       <Route path='/login' component={LoginPage} />
       <Route path='/register' component={RegisterPage} />
       <Route path='/main' component={MainPage} />
+      <Route path='/passwordCheck' component={PasswordCheckPage}/>
       <Route path='/setting' component={SetPage}/>
     </>
   );

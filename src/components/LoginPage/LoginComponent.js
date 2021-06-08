@@ -66,7 +66,7 @@ const LoginComponent = () => {
     await axios.post(`${address}/auth/login`, body).then((res) => {
       const accessToken = 'Bearer ' + res.data.token;
       axios.defaults.headers.common['Authorization'] = accessToken;
-      if (res.status === 200) history.push('/main');
+      if (res.status === 200) history.push('/PasswordCheck');
       // if (res.status === 200) window.location = '/about';
     });
   };
