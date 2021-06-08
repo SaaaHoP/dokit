@@ -7,6 +7,7 @@ export const SetPageBox = styled.div`
   height:100%;
   left: 192px;
   top: 84px;
+  z-index:0;
 `;
 
 //
@@ -47,7 +48,7 @@ export const SetPageProfileChangeButton = styled.button`
   margin-left: 36px;
   margin-top : 360px;
   font-weight: bold;
-  cursor: pointer;//?
+  cursor: pointer;//가져다 대면 눌러지는 모양
 `;
 
 export const SetPageProfileDeleteButton = styled.button`
