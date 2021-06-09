@@ -25,7 +25,7 @@ export const ModalBackground = styled.div`
 
 export const FriendPageAddModal = styled.div`
     width: 370px;
-    height: 340px;
+    height: 320px;
     top: 140px;
     right: 70px;
     float: right;
@@ -58,7 +58,7 @@ export const ModalContentsWrapper = styled.div`
 `;
 
 export const FriendPageAddModalInputEmail = styled.input.attrs({
-    placeholder: "input friend's email and press the SEARCH button.."
+    placeholder: "input friend's email.."
 })`
     margin-left: 10px;
     width: 300px;
@@ -77,44 +77,15 @@ export const FriendPageAddModalUserProfileCircle = styled.img`
 
 export const FriendPageAddModalUserName = styled.div`
     font-size: 18px;
+    height: 20px;
     margin: 0 auto;
     margin-top: 20px;
 `;
 
-export const FriendPageAddModalUserComment = styled.div`
-    margin: 0 auto;
-    margin-top: 10px;
-    font-size: 13px;
-    padding-top: 0.5rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    height: 30px;
-    background: rgba(172, 211, 220, 0.5);
-    border-radius: 10px;
+export const FriendPageAddModalAddButton = styled.button`
     border: none;
-    text-align: center;
-`;
-
-export const FriendPageModalButtonWrapper = styled.div`
-    display: flex;
-    margin-left: 180px;
-    margin-top: 30px;
-`;
-
-export const FriendPageAddModalSearchButton = styled.div`
-    margin-top: 10px;
-    padding-top: 6px;
-    font-size: 13px;
-    width: 65px;
-    height: 26px;
-    background: rgba(0, 0, 0, 0.15);
-    border-radius: 22px;
-    text-align: center;
-    cursor: pointer;
-    margin-right: 10px;
-`;
-
-export const FriendPageAddModalAddButton = styled.div`
+    margin-left: 250px;
+    margin-top: 20px;
     font-size: 18px;
     width: 75px;
     height: 36px;

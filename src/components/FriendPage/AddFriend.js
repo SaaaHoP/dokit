@@ -1,4 +1,6 @@
-import React, { Component } from "react";
+import axios from 'axios';
+import { address } from '../../variables';
+import React, { Component, useEffect, useState } from 'react';
 import { 
     ModalBackground, 
     FriendPageAddModal, 
@@ -7,16 +9,38 @@ import {
     FriendPageAddModalInputEmail,
     FriendPageAddModalUserProfileCircle,
     FriendPageAddModalUserName,
-    FriendPageAddModalUserComment,
-    FriendPageAddModalAddButton
+    FriendPageAddModalAddButton,
 } from "./StyledComponent";
 
-class AddFriend extends Component {
+const AddFriend = (props) => {
 
-  render() {
-    const { isOpen, close } = this.props;   // AddFriendButton에서 props로 가져온것
-    return (
-      <>
+  var [User,setUser] = useState([]);
+  const isOpen = props.isOpen;
+  const close = props.close;
+
+  const inputHandler = (e) => {
+    axios.get(`${address}/friends`, {
+      params: {
+        email: e.target.value
+      }
+    })
+    .then((res) => {
+      setUser(res.data);
+    });
+  };
+
+  // WIP
+  const addHandler = (e) => {
+    // console.log("111111");
+    // e.preventDefault();
+    axios.post(`${address}/friends/me`, {
+      friendID: User.id
+    });
+  };
+
+  
+  return (
+    <>
         {isOpen ? (  // 열려있으면
           <ModalBackground>
             {/* <div onClick={close}> 로그인창 말고 회색 바탕 누르면 close 효과  */}
@@ -25,19 +49,18 @@ class AddFriend extends Component {
                      &times;
                     </ModalCloseButton>
                     <ModalContentsWrapper onClick={isOpen}> {/* Modal창은 들어오면 isOpen true인 상태라 안꺼짐 */}
-                        <FriendPageAddModalInputEmail/>
-                        <FriendPageAddModalUserProfileCircle/>
-                        <FriendPageAddModalUserName> </FriendPageAddModalUserName>
-                        <FriendPageAddModalUserComment> </FriendPageAddModalUserComment>
-                        <FriendPageAddModalAddButton>Add</FriendPageAddModalAddButton>
+                        <FriendPageAddModalInputEmail onChange={inputHandler}/>
+                        <FriendPageAddModalUserProfileCircle src={User.profileUrl}/>
+                        <FriendPageAddModalUserName> {User.username} </FriendPageAddModalUserName>
+                        <FriendPageAddModalAddButton onClick={(e) => this.addHandler(e)}>Add</FriendPageAddModalAddButton>
                     </ModalContentsWrapper>
                 </FriendPageAddModal>
             {/* </div> */}
           </ModalBackground>
         ) : null}
       </>
-    );
-  }
-}
+  );
+};
+
 
 export default AddFriend;

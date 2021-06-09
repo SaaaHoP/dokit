@@ -142,7 +142,7 @@ const FriendComponent = () => {
     var [MyFriendRequestElements, setMyFriendRequestElements] = useState([]);
 
     // 로그인 대신 //
-    const accessToken = 'Bearer ' + "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX01FTUJFUiJdLCJlbWFpbCI6Imp3MUBuYXZlci5jb20iLCJpYXQiOjE2MjMyMjA0NzgsImV4cCI6MTYyMzIyMjI3OH0.pXEvmU210wzT510IBwrAHLuHrHQToPP8SqP1C9UyspE";
+    const accessToken = 'Bearer ' + "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX01FTUJFUiJdLCJlbWFpbCI6Imp3MUBuYXZlci5jb20iLCJpYXQiOjE2MjMyNTg1MzgsImV4cCI6MTYyMzI2MDMzOH0.BrVpKZQxEsRzL4JyQG-XJsWaivmNaToE3BVJ9XQwow4";
     axios.defaults.headers.common['Authorization'] = accessToken;
     localStorage.setItem('Authorization', accessToken);
     ////////////////
