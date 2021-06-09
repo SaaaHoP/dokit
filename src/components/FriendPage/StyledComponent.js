@@ -3,14 +3,12 @@ import { AiOutlineTeam } from "react-icons/ai"; // Friend 아이콘
 import { BiSearchAlt2 } from "react-icons/bi"; // 돋보기 아이콘
 import { AiOutlineStar } from "react-icons/ai"; // 빈 별
 import { AiFillStar } from "react-icons/ai"; // 찬 별
-import { BsPeopleCircle } from "react-icons/bs"; // 프사
 import { FaPlus } from "react-icons/fa"
 
 export const FriendPageTemplate = styled.div`
     position: fixed;
     background: white;
     height: 700px;
-    // width: 1320px;
     top: 85px;
     left: 200px;
     right: 10px;
@@ -26,7 +24,7 @@ export const ModalBackground = styled.div`
 `;
 
 export const FriendPageAddModal = styled.div`
-    width: 360px;
+    width: 370px;
     height: 340px;
     top: 140px;
     right: 70px;
@@ -60,16 +58,18 @@ export const ModalContentsWrapper = styled.div`
 `;
 
 export const FriendPageAddModalInputEmail = styled.input.attrs({
-    placeholder: "input friend's email and press the enter key.."
+    placeholder: "input friend's email and press the SEARCH button.."
 })`
+    margin-left: 10px;
     width: 300px;
     border: none;
     border-bottom: 1px solid #000000;
 `;
 
-export const FriendPageAddModalUserProfileCircle = styled(BsPeopleCircle)`
+export const FriendPageAddModalUserProfileCircle = styled.img`
     height: 120px;
     width: 120px;
+    border-radius: 50%;
     color: #C4C4C4;
     margin: 0 auto;
     margin-top: 30px;
@@ -95,14 +95,31 @@ export const FriendPageAddModalUserComment = styled.div`
     text-align: center;
 `;
 
+export const FriendPageModalButtonWrapper = styled.div`
+    display: flex;
+    margin-left: 180px;
+    margin-top: 30px;
+`;
+
+export const FriendPageAddModalSearchButton = styled.div`
+    margin-top: 10px;
+    padding-top: 6px;
+    font-size: 13px;
+    width: 65px;
+    height: 26px;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 22px;
+    text-align: center;
+    cursor: pointer;
+    margin-right: 10px;
+`;
+
 export const FriendPageAddModalAddButton = styled.div`
     font-size: 18px;
-    width: 80px;
+    width: 75px;
     height: 36px;
-    margin-top: 30px;
-    margin-left: 230px;
     padding-top: 0.5rem;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.15);
     border-radius: 22px;
     text-align: center;
     cursor: pointer;
@@ -250,10 +267,11 @@ export const FriendPageFavoriteStarLine = styled(AiOutlineStar)`
     cursor: pointer;
 `;
 
-export const FriendPageUserProfileCircle = styled(BsPeopleCircle)`
+export const FriendPageUserProfileCircle = styled.img`
     height: 48px;
     width: 48px;
     color: #C4C4C4;
+    border-radius: 50%;
 `;
 
 export const FriendPageUserName = styled.div`

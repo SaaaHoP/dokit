@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { address } from '../../variables';
 import {
@@ -29,22 +29,38 @@ import {
 } from './StyledComponent';
 import AddFriendButton from './AddFriendButton';
 
-const FriendListElementCreator = ({user}) => {
+const FavoriteFriendListElementCreator = ({user}) => {
     return(
         <FriendPageListElement>
-            {
-                user.isFavorite === 'true'
-                ? <FriendPageFavoriteStar/>
-                : <FriendPageFavoriteStarLine/>
-            }
-            <FriendPageUserProfileCircle/>
+            <FriendPageFavoriteStar/>
+            <FriendPageUserProfileCircle src={user.profileUrl}/>
             <FriendPageUserName>{user.username}</FriendPageUserName>
             <FriendPageUserComment>{user.conversation}</FriendPageUserComment>
         </FriendPageListElement>
     );
 }
 
-// WIP
+const FavoriteFriendListCreator = ({users}) => {
+    return(
+        <>
+        {users.map(user =>(
+            <FavoriteFriendListElementCreator user={user} key={user.id}/>
+        ))}
+        </>
+    );
+}
+
+const FriendListElementCreator = ({user}) => {
+    return(
+        <FriendPageListElement>
+            <FriendPageFavoriteStarLine/>
+            <FriendPageUserProfileCircle src={user.profileUrl}/>
+            <FriendPageUserName>{user.username}</FriendPageUserName>
+            <FriendPageUserComment>{user.conversation}</FriendPageUserComment>
+        </FriendPageListElement>
+    );
+}
+
 const FriendListCreator = ({users}) => {
     return(
         <>
@@ -58,13 +74,27 @@ const FriendListCreator = ({users}) => {
 const FriendRequestElementCreator = ({user}) => {
     return(
         <FriendPageListElement>
-            <FriendPageUserProfileCircle/>
-            <FriendPageUserName>{user.name}</FriendPageUserName>
-            <FriendPageAcceptButton>Accept</FriendPageAcceptButton>
-            <FriendPageRejectButton>Reject</FriendPageRejectButton>
+            <FriendPageUserProfileCircle src={user.profileUrl}/>
+            <FriendPageUserName>{user.username}</FriendPageUserName>
+            <FriendPageAcceptButton onClick={acceptHandler(user.id)}>
+                Accept
+            </FriendPageAcceptButton>
+            <FriendPageRejectButton onClick={rejectHandler(user.id)}>Reject</FriendPageRejectButton>
         </FriendPageListElement>
     );
 }
+
+const acceptHandler = (id) => {
+    axios.patch(`${address}/friends/me`,{
+       friendId: id
+    });
+};
+
+const rejectHandler = (id) => {
+    axios.delete(`${address}/friends/me/from_request`,{
+       friendId: id
+    });
+};
 
 const FriendRequestCreator = ({users}) => {
     return(
@@ -79,12 +109,18 @@ const FriendRequestCreator = ({users}) => {
 const MyFriendRequestElementCreator = ({user}) => {
     return(
         <FriendPageListElement>
-            <FriendPageUserProfileCircle/>
-            <FriendPageUserName>{user.name}</FriendPageUserName>
-            <FriendPageRejectButton>Delete</FriendPageRejectButton>
+            <FriendPageUserProfileCircle src={user.profileUrl}/>
+            <FriendPageUserName>{user.username}</FriendPageUserName>
+            <FriendPageRejectButton onClick={deleteHandler(user.id)}>Delete</FriendPageRejectButton>
         </FriendPageListElement>
     );
 }
+
+const deleteHandler = (id) => {
+    axios.delete(`${address}/friends/me/to_request`,{
+       friendId: id
+    });
+};
 
 const FriendMyRequestCreator = ({users}) => {
     return(
@@ -99,99 +135,41 @@ const FriendMyRequestCreator = ({users}) => {
 
 const FriendComponent = () => {
 
-    const FavoriteFriendListElements = [
-        {
-            id: 1,
-            username: '김지현',
-            conversation: '일이삼사오육칠팔구심일이삼사오',
-            isFavorite: 'true'
-        },
-        {
-            id: 2,
-            username: '민지원',
-            conversation: '화잇팅이잉잉잉!!이!!!!',
-            isFavorite: 'true'
-        },
-        {
-            id: 3,
-            username: '김지현',
-            conversation: '으랏짜짯짜',
-            isFavorite: 'true'
-        },
-        {
-            id: 4,
-            username: '민지원',
-            conversation: '화잇팅이잉잉잉!!이!!!!',
-            isFavorite: 'true'
-        }
-    ];
-
-    // const FriendListElements = [
-    //     {
-    //         id: 1,
-    //         name: '김태형',
-    //         comment: 'Butter',
-    //         isFavorite: 'false'
-    //     },
-    //     {
-    //         id: 2,
-    //         name: '김태형',
-    //         comment: 'Butter',
-    //         isFavorite: 'false'
-    //     },
-    //     {
-    //         id: 3,
-    //         name: '김태형',
-    //         comment: 'Butter',
-    //         isFavorite: 'false'
-    //     },
-    //     {
-    //         id: 4,
-    //         name: '김태형',
-    //         comment: 'Butter',
-    //         isFavorite: 'false'
-    //     },
-    //     {
-    //         id: 5,
-    //         name: '김태형',
-    //         comment: 'Butter',
-    //         isFavorite: 'false'
-    //     },
-    //     {
-    //         id: 6,
-    //         name: '김태형',
-    //         comment: 'Butter',
-    //         isFavorite: 'false'
-    //     },
-    // ];
 
     var [FriendListElements, setFriendListElements] = useState([]);
+    var [FavoriteFriendListElements, setFavoriteFriendListElements] = useState([]);
+    var [FriendRequestElements, setFriendRequestElements] = useState([]);
+    var [MyFriendRequestElements, setMyFriendRequestElements] = useState([]);
 
-    axios.get(`${address}/friends/me/normal`).then((res) => {
-        setFriendListElements(res.data);
-    });
+    // 로그인 대신 //
+    const accessToken = 'Bearer ' + "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX01FTUJFUiJdLCJlbWFpbCI6Imp3MUBuYXZlci5jb20iLCJpYXQiOjE2MjMyMjA0NzgsImV4cCI6MTYyMzIyMjI3OH0.pXEvmU210wzT510IBwrAHLuHrHQToPP8SqP1C9UyspE";
+    axios.defaults.headers.common['Authorization'] = accessToken;
+    localStorage.setItem('Authorization', accessToken);
+    ////////////////
 
-    const FriendRequestElements = [
-        {
-            id: 1,
-            name: '곰돌이',
-        },
-        {
-            id: 2,
-            name: '강아지'
-        }
-    ];
+    useEffect(() => {
+        const axiosGet = async () => {
+            let jwtToken = localStorage.getItem('Authorization');
+            axios.defaults.headers.common['Authorization'] = jwtToken;
 
-    const MyFriendRequestElements = [
-        {
-            id: 1,
-            name: '커피온리',
-        },
-        {
-            id: 2,
-            name: '맘모스'
-        }
-    ];
+            await axios.get(`${address}/friends/me/normal`).then((res) => {
+                setFriendListElements(res.data.friends);
+            });
+            
+            await axios.get(`${address}/friends/me/favorite`).then((res) => {
+                setFavoriteFriendListElements(res.data.friends);
+            });
+            
+            await axios.get(`${address}/friends/me/from_request`).then((res) => {
+                setFriendRequestElements(res.data.friends);
+            });
+            
+            await axios.get(`${address}/friends/me/to_request`).then((res) => {
+                setMyFriendRequestElements(res.data.friends);
+            });
+        };
+        axiosGet();
+    },[]);
 
     return (
         <>
@@ -214,7 +192,7 @@ const FriendComponent = () => {
                         Favorites
                     </FriendPageFavoriteTitle>
                     <FriendPageFavoriteWrapper>
-                        <FriendListCreator
+                        <FavoriteFriendListCreator
                          users={FavoriteFriendListElements}
                         />
                     </FriendPageFavoriteWrapper>
