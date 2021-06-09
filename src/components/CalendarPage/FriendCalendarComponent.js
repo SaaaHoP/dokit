@@ -12,12 +12,17 @@ const FriendCalendarComponent = () => {
         <>
             <CalendarPageBox>
                   <CalendarPageCalendar>
-                    <FullCalendar defaultView="dayGridMonth" plugins={[ dayGridPlugin ]} />
+                    <FullCalendar                     
+                        defaultView="dayGridMonth"
+                        navLinks={true} //날짜 클릭 가능하게
+                        aspectRatio= '2.3'
+                        plugins={[dayGridPlugin]}
+                        weekends={true}
+                    />
                   </CalendarPageCalendar>
             </CalendarPageBox>
         </>
     );
 };
-  
 export default FriendCalendarComponent;
   
