@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 import { BiCalendar, BiPencil } from 'react-icons/bi';
 import {
   BsFillUnlockFill,
@@ -8,7 +9,6 @@ import {
 } from 'react-icons/bs';
 import { IoAddCircleOutline } from 'react-icons/io5';
 import { ImCancelCircle } from 'react-icons/im';
-
 
 //DateComponent Styled Component
 export const DateBox = styled.div`
@@ -33,6 +33,10 @@ export const DateLeftText = styled.div`
 export const DateCenterText = styled.div`
   font-weight: bold;
   font-size: 24px;
+  width: 390px;
+  height: 50px;
+  margin-top: 25px;
+  text-align: center;
   cursor: pointer;
 `;
 export const DateIcon = styled(BiCalendar)`
@@ -173,7 +177,6 @@ export const TodoItemUnlock = styled(BsFillUnlockFill)`
   height: 24px;
 `;
 
-
 export const TodoItemAddButton = styled(IoAddCircleOutline)`
   position: absolute;
   width: 60px;
@@ -187,21 +190,12 @@ export const TodoItemAddButton = styled(IoAddCircleOutline)`
 
 //TodoListItemAddComponent StyledComponent
 
-export const TodoItemAddBlur = styled.div`
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.7);
-`;
-
 export const TodoItemAddBackground = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 5;
 `;
 
 export const TodoItemAddBox = styled.form`
@@ -332,9 +326,96 @@ export const TodoItemAddDeleteButton = styled.button`
 `;
 
 export const TodoItemReviseBackground = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 5;
 `;
 
+export const TodoItemReviseBox = styled.form`
+  position: absolute;
+  top: 240px;
+  left: 750px;
+  width: 300px;
+  height: 360px;
+  background-color: rgba(255, 255, 255);
+  border-radius: 20px;
+  z-index: 999;
+`;
+
+//서브 투두리스트 레이아웃
+
+export const TodolistLeftBox = styled.div`
+  position: absolute;
+  left: 17%;
+  top: 15%;
+  width: 300px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const TodolistLeftSubBox = styled.div`
+  width: 300px;
+  height: 400px;
+  background-color: rgba(172, 211, 220, 0.2);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const TodolistLeftSubBoxText = styled.div`
+  font-weight: bold;
+  font-size: 27px;
+  margin-bottom: 20px;
+`;
+
+export const TodolistLeftArrow = styled(AiOutlineArrowLeft)`
+  width: 100px;
+  height: 50px;
+  margin-bottom: 20px;
+  cursor: pointer;
+`;
+
+export const TodolistRightBox = styled.div`
+  position: absolute;
+  left: 75%;
+  top: 15%;
+  width: 300px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const TodolistRightSubBox = styled.div`
+  width: 300px;
+  height: 400px;
+  background-color: rgba(172, 211, 220, 0.2);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const TodolistRightSubBoxText = styled.div`
+  font-weight: bold;
+  font-size: 27px;
+  margin-bottom: 20px;
+`;
+
+export const TodolistRightArrow = styled(AiOutlineArrowRight)`
+  width: 100px;
+  height: 50px;
+  margin-bottom: 20px;
+  cursor: pointer;
+`;

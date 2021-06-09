@@ -1,4 +1,6 @@
+import axios from 'axios';
 import React, { useState } from 'react';
+import { address } from '../../../variables';
 import {
   TodoItem,
   TodoItemIcon,
@@ -40,21 +42,39 @@ const TodolistItemComponent = ({
   } = todo;
 
   const [background, setBackground] = useState(false);
-  // console.log(todo);
   const onBackground = () => {
     setBackground(!background);
   };
 
+  const onClickComplete = async (sequence) => {
+    onToggle(sequence);
+    let jwtToken = localStorage.getItem('Authorization');
+    axios.defaults.headers.common['Authorization'] = jwtToken;
+    await axios.patch(`${address}/todolist/me/completed`, {
+      completed: !completed,
+      id: id,
+    });
+  };
+
+  const onClickLock = async (sequence) => {
+    onLock(sequence);
+    let jwtToken = localStorage.getItem('Authorization');
+    axios.defaults.headers.common['Authorization'] = jwtToken;
+    await axios.patch(`${address}/todolist/me/opened`, {
+      id: id,
+      opened: !opened,
+    });
+  };
 
   return (
     <>
       <TodoItem>
-        <TodoItemIcon onClick={() => onToggle(sequence)}>
+        <TodoItemIcon onClick={() => onClickComplete(sequence)}>
           {completed ? <TodoItemChecked /> : <TodoItemBlankCheck />}
         </TodoItemIcon>
         <TodoItemTextBox>
           <TodoItemTitleBox>
-            <TodoItemTitle onClick={() => onToggle(sequence)}>
+            <TodoItemTitle onClick={() => onClickComplete(sequence)}>
               {completed ? (
                 <TodoItemTitleCompleted>{content}</TodoItemTitleCompleted>
               ) : (
@@ -74,7 +94,7 @@ const TodolistItemComponent = ({
           </TodoItemDescriptionBox>
         </TodoItemTextBox>
         <TodoItemPencil onClick={onBackground}></TodoItemPencil>
-        <TodoItemLockBox onClick={() => onLock(sequence)}>
+        <TodoItemLockBox onClick={() => onClickLock(sequence)}>
           {opened ? <TodoItemUnlock /> : <TodoItemLock />}
         </TodoItemLockBox>
       </TodoItem>

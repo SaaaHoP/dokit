@@ -22,6 +22,7 @@ import {
   TodoItemAddToListCancel,
   TodoItemAddToListText,
   TodoItemReviseBackground,
+  TodoItemReviseBox,
 } from '../StyledComponent';
 
 function TodolistItemReviseComponent({
@@ -50,7 +51,7 @@ function TodolistItemReviseComponent({
   const revisedTodo = {
     completed: completed,
     content: todoContent,
-    date: date,
+    date: selectDate,
     description: todoDescription,
     emoticon: emoticon,
     emphasized: emphasized,
@@ -107,7 +108,7 @@ function TodolistItemReviseComponent({
   return (
     <>
       <TodoItemReviseBackground>
-        <TodoItemAddBox onSubmit={onSaveSubmit}>
+        <TodoItemReviseBox onSubmit={onSaveSubmit}>
           <TodoItemAddToListCancel onClick={onBackground} />
           <TodoItemAddToListBox>
             <TodoItemAddToListText>Revise List</TodoItemAddToListText>
@@ -142,7 +143,7 @@ function TodolistItemReviseComponent({
               Delete
             </TodoItemAddDeleteButton>
           </TodoItemAddButtonBox>
-        </TodoItemAddBox>
+        </TodoItemReviseBox>
       </TodoItemReviseBackground>
     </>
   );

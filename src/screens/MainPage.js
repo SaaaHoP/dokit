@@ -5,13 +5,29 @@ import TodayTodolistComponent from '../components/MainPage/TodayTodolistComponen
 
 const MainPage = () => {
   const [startDate, setStartDate] = useState(new Date());
+  const previousDay = new Date(startDate);
+  const nextDay = new Date(startDate);
   let selectDate = startDate.toISOString().substring(0, 10);
-  console.log(selectDate);
+
+  const onClickPreviousday = () => {
+    previousDay.setDate(previousDay.getDate() - 1);
+    setStartDate(previousDay);
+  };
+
+  const onClickNextday = () => {
+    nextDay.setDate(nextDay.getDate() + 1);
+    setStartDate(nextDay);
+  };
+
   return (
     <>
       <MenuBar />
       <DateComponent startDate={startDate} setStartDate={setStartDate} />
-      <TodayTodolistComponent selectDate={selectDate} />
+      <TodayTodolistComponent
+        selectDate={selectDate}
+        onClickPreviousday={onClickPreviousday}
+        onClickNextday={onClickNextday}
+      />
     </>
   );
 };
