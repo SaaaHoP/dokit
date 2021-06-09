@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
+import { address } from '../../variables';
 import {
     FriendPageTemplate,
     FriendPageTitleWrapper,
     FriendPageTitle,
     FriendPageFriendIcon,
-    FriendPageAddButton,
-    FriendPageAddButtonIcon,
     FriendPageListWrapper,
     FriendPageListTitle,
     FriendPageSearchWrapper,
@@ -24,8 +24,10 @@ import {
     FriendPageRequestListWrapper,
     FriendPageRequestTitle,
     FriendPageAcceptButton,
-    FriendPageRejectButton
+    FriendPageRejectButton,
+    FriendPageMyRequestWrapper,
 } from './StyledComponent';
+import AddFriendButton from './AddFriendButton';
 
 const FriendListElementCreator = ({user}) => {
     return(
@@ -36,12 +38,13 @@ const FriendListElementCreator = ({user}) => {
                 : <FriendPageFavoriteStarLine/>
             }
             <FriendPageUserProfileCircle/>
-            <FriendPageUserName>{user.name}</FriendPageUserName>
-            <FriendPageUserComment>{user.comment}</FriendPageUserComment>
+            <FriendPageUserName>{user.username}</FriendPageUserName>
+            <FriendPageUserComment>{user.conversation}</FriendPageUserComment>
         </FriendPageListElement>
     );
 }
 
+// WIP
 const FriendListCreator = ({users}) => {
     return(
         <>
@@ -73,31 +76,100 @@ const FriendRequestCreator = ({users}) => {
     );
 }
 
+const MyFriendRequestElementCreator = ({user}) => {
+    return(
+        <FriendPageListElement>
+            <FriendPageUserProfileCircle/>
+            <FriendPageUserName>{user.name}</FriendPageUserName>
+            <FriendPageRejectButton>Delete</FriendPageRejectButton>
+        </FriendPageListElement>
+    );
+}
+
+const FriendMyRequestCreator = ({users}) => {
+    return(
+        <>
+        {users.map(user=>(
+            <MyFriendRequestElementCreator user={user} key={user.id}/>
+        ))}
+        </>
+    );
+}
+
+
 const FriendComponent = () => {
 
     const FavoriteFriendListElements = [
         {
             id: 1,
-            name: '김지현',
-            comment: '으랏짜짯짜',
+            username: '김지현',
+            conversation: '일이삼사오육칠팔구심일이삼사오',
             isFavorite: 'true'
         },
         {
             id: 2,
-            name: '민지원',
-            comment: '화잇팅이잉잉잉!!이!!!!',
+            username: '민지원',
+            conversation: '화잇팅이잉잉잉!!이!!!!',
+            isFavorite: 'true'
+        },
+        {
+            id: 3,
+            username: '김지현',
+            conversation: '으랏짜짯짜',
+            isFavorite: 'true'
+        },
+        {
+            id: 4,
+            username: '민지원',
+            conversation: '화잇팅이잉잉잉!!이!!!!',
             isFavorite: 'true'
         }
     ];
 
-    const FriendListElements = [
-        {
-            id: 1,
-            name: '김태형',
-            comment: 'Butter',
-            isFavorite: 'false'
-        }
-    ];
+    // const FriendListElements = [
+    //     {
+    //         id: 1,
+    //         name: '김태형',
+    //         comment: 'Butter',
+    //         isFavorite: 'false'
+    //     },
+    //     {
+    //         id: 2,
+    //         name: '김태형',
+    //         comment: 'Butter',
+    //         isFavorite: 'false'
+    //     },
+    //     {
+    //         id: 3,
+    //         name: '김태형',
+    //         comment: 'Butter',
+    //         isFavorite: 'false'
+    //     },
+    //     {
+    //         id: 4,
+    //         name: '김태형',
+    //         comment: 'Butter',
+    //         isFavorite: 'false'
+    //     },
+    //     {
+    //         id: 5,
+    //         name: '김태형',
+    //         comment: 'Butter',
+    //         isFavorite: 'false'
+    //     },
+    //     {
+    //         id: 6,
+    //         name: '김태형',
+    //         comment: 'Butter',
+    //         isFavorite: 'false'
+    //     },
+    // ];
+
+    var [FriendListElements, setFriendListElements] = useState([]);
+
+    axios.get(`${address}/friends/me/normal`).then((res) => {
+        setFriendListElements(res.data);
+    });
 
     const FriendRequestElements = [
         {
@@ -110,15 +182,24 @@ const FriendComponent = () => {
         }
     ];
 
+    const MyFriendRequestElements = [
+        {
+            id: 1,
+            name: '커피온리',
+        },
+        {
+            id: 2,
+            name: '맘모스'
+        }
+    ];
+
     return (
         <>
             <FriendPageTemplate>
                 <FriendPageTitleWrapper>
                     <FriendPageFriendIcon/>
                     <FriendPageTitle>Friends</FriendPageTitle>
-                    <FriendPageAddButton>
-                    <FriendPageAddButtonIcon/>
-                    </FriendPageAddButton>
+                    <AddFriendButton/>
                 </FriendPageTitleWrapper>
                 <FriendPageListWrapper>
                     <FriendPageListTitle>
@@ -134,20 +215,28 @@ const FriendComponent = () => {
                     </FriendPageFavoriteTitle>
                     <FriendPageFavoriteWrapper>
                         <FriendListCreator
-                            users={FavoriteFriendListElements}
+                         users={FavoriteFriendListElements}
                         />
                     </FriendPageFavoriteWrapper>
                     <FriendListCreator
-                            users={FriendListElements}
+                         users={FriendListElements}
                         />
                 </FriendPageListWrapper>
                 <FriendPageRequestWrapper>
                     <FriendPageRequestTitle>Friend Request</FriendPageRequestTitle>
                     <FriendPageRequestListWrapper>
                         <FriendRequestCreator
-                            users={FriendRequestElements}
+                         users={FriendRequestElements}
                         />
                     </FriendPageRequestListWrapper>
+                    <FriendPageMyRequestWrapper>
+                    <FriendPageRequestTitle>My Request</FriendPageRequestTitle>
+                    <FriendPageRequestListWrapper>
+                        <FriendMyRequestCreator
+                         users={MyFriendRequestElements}
+                        />
+                    </FriendPageRequestListWrapper>
+                </FriendPageMyRequestWrapper>
                 </FriendPageRequestWrapper>
             </FriendPageTemplate>
         </>
