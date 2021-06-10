@@ -30,14 +30,13 @@ const AddFriend = (props) => {
   };
 
   // WIP
-  const addHandler = (e) => {
-    // console.log("111111");
-    // e.preventDefault();
-    axios.post(`${address}/friends/me`, {
-      friendID: User.id
+  const addHandler = async(id, e) => {
+    console.log(id);
+    e.preventDefault();
+    await axios.post(`${address}/friends/me`, {
+      friendID: id
     });
   };
-
   
   return (
     <>
@@ -52,7 +51,7 @@ const AddFriend = (props) => {
                         <FriendPageAddModalInputEmail onChange={inputHandler}/>
                         <FriendPageAddModalUserProfileCircle src={User.profileUrl}/>
                         <FriendPageAddModalUserName> {User.username} </FriendPageAddModalUserName>
-                        <FriendPageAddModalAddButton onClick={(e) => this.addHandler(e)}>Add</FriendPageAddModalAddButton>
+                        <FriendPageAddModalAddButton onClick={(e) => addHandler(User.id, e)}>Add</FriendPageAddModalAddButton>
                     </ModalContentsWrapper>
                 </FriendPageAddModal>
             {/* </div> */}
