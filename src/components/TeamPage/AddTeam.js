@@ -1,4 +1,6 @@
-import React, { Component } from "react";
+import React, { useEffect, useState, Component } from 'react';
+import axios from 'axios';
+import { address } from '../../variables';
 import { 
     TeamPageAddModalFriendListElement,
     TeamPageAddModalUserName,
@@ -24,50 +26,41 @@ import {
     TeamPageAddModalCreateButton
 } from "./StyledComponent";
 
-const FriendListElementCreator = ({user}) => {
-    return(
-        <TeamPageAddModalFriendListElement>
-            <TeamPageAddModalUserCheckbox/>
-            <TeamPageAddModalUserProfile/>
-            <TeamPageAddModalUserName>{user.name}</TeamPageAddModalUserName>
-        </TeamPageAddModalFriendListElement>
-    )
-}
+const AddTeam = (props) => {
+    var [FriendListElements, setFriendListElements] = useState([]);
+    const isOpen = props.isOpen;
+    const close = props.close;
 
-const FriendListCreator = ({users}) =>{
-    return(
-        <>
-        {users.map(user=>(
-            <FriendListElementCreator user={user} key={user.id}/>
-        ))}
-        </>
-    )
-}
-
-const FriendListElements = [
-    {
-        id: 1,
-        name: '김지현'
-    },
-    {
-        id: 2,
-        name: '민지원'
-    },
-    {
-        id: 3,
-        name: '김몽'
-    },
-    {
-        id: 4,
-        name: '민루피'
+    const FriendListElementCreator = ({user}) => {
+        return(
+            <TeamPageAddModalFriendListElement>
+                <TeamPageAddModalUserCheckbox/>
+                <TeamPageAddModalUserProfile src={user.profileUrl}/>
+                <TeamPageAddModalUserName>{user.username}</TeamPageAddModalUserName>
+            </TeamPageAddModalFriendListElement>
+        );
     }
-];
+    
+    const FriendListCreator = ({users}) =>{
+        return(
+            <>
+            {users.map(user=>(
+                <FriendListElementCreator user={user} key={user.id}/>
+            ))}
+            </>
+        );
+    }
 
-class AddTeam extends Component {
+    useEffect(() => {
+        const axiosGet = async () => {
+            await axios.get(`${address}/friends/me/for_team`).then((res) => {
+                setFriendListElements(res.data.friends);
+            });   
+        };
+        axiosGet();
+    },[]);
 
-    render() {
-        const { isOpen, close } = this.props;   // AddTeamButton에서 props로 가져온것
-        return (
+    return (
         <>
         {isOpen ? (  // 열려있으면
           <ModalBackground>
@@ -119,7 +112,6 @@ class AddTeam extends Component {
         ) : null}
       </>
     );
-  }
-}
+};
 
 export default AddTeam;

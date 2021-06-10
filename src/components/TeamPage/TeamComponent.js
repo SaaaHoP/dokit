@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { address } from '../../variables';
 import {
     TeamPageTemplate,
     TeamPageTitleWrapper,
@@ -27,143 +28,132 @@ import {
 } from './StyledComponent';
 import AddTeamButton from './AddTeamButton';
 
-const TeamListElementCreator = ({user}) => {
-    return(
-        <TeamPageListElement>
-            {
-                user.isFavorite === 'true'
-                ? <TeamPageFavoriteStar/>
-                : <TeamPageFavoriteStarLine/>
-            }
-            <TeamPageUserProfileCircle/>
-            <TeamPageUserName>{user.name}</TeamPageUserName>
-            <TeamPageUserComment>{user.comment}</TeamPageUserComment>
-        </TeamPageListElement>
-    );
-}
-
-const TeamListCreator = ({users}) => {
-    return(
-        <>
-        {users.map(user =>(
-            <TeamListElementCreator user={user} key={user.id}/>
-        ))}
-        </>
-    );
-}
-
-const TeamRequestElementCreator = ({user}) => {
-    return(
-        <TeamPageListElement>
-            <TeamPageUserProfileCircle/>
-            <TeamPageUserName>{user.name}</TeamPageUserName>
-            <TeamPageAcceptButton>Accept</TeamPageAcceptButton>
-            <TeamPageRejectButton>Reject</TeamPageRejectButton>
-        </TeamPageListElement>
-    );
-}
-
-const TeamRequestCreator = ({users}) => {
-    return(
-        <>
-        {users.map(user=>(
-            <TeamRequestElementCreator user={user} key={user.id}/>
-        ))}
-        </>
-    );
-}
-
-// const FavoriteTeamListElementsGetter = () => {
-//     axios.get(`teams/me/favorite`).then((res) => {
-//         const FavoriteTeamListElements = res.data;
-//     });
-// }
-
-// const TeamListElementsGetter = () => {
-//     axios.get(`teams/me/normal`).then((res) => {
-//         const TeamListElements = res.data;
-//     });
-// }
-
-// const TeamRequestElementsGetter = () => {
-//     axios.get(`teams/me/request`).then((res) => {
-//         const TeamRequestElements = res.data;
-//     });
-// }
-
 const TeamComponent = () => {
 
-    const FavoriteTeamListElements = [ 
-        {
-            id: 1,
-            name: '두야~호~!',
-            comment: 'Dokit List 성공한당',
-            isFavorite: 'true'
-        },
-        {
-            id: 2,
-            name: '기본스터디카페',
-            comment: null,
-            isFavorite: 'true'
-        }
-    ];
+    const FavoriteTeamListElementCreator = ({user}) => {
+        return(
+            <TeamPageListElement>
+                <TeamPageFavoriteStar/>
+                <TeamPageUserProfileCircle src={user.profileUrl}/>
+                <TeamPageUserName>{user.teamName}</TeamPageUserName>
+                <TeamPageUserComment>{user.projectName}</TeamPageUserComment>
+            </TeamPageListElement>
+        );
+    }
+    
+    const FavoriteTeamListCreator = ({users}) => {
+        return(
+            <>
+            {users.map(user =>(
+                <FavoriteTeamListElementCreator user={user} key={user.id}/>
+            ))}
+            </>
+        );
+    }
 
-    const TeamListElements = [
-        {
-            id: 1,
-            name: '플밍3조',
-            comment: '교수님ㅠㅠ넘어져라',
-            isFavorite: 'false'
-        },
-        {
-            id: 2,
-            name: '19쿼드라',
-            comment: '인공지능이 무에유?',
-            isFavorite: 'false'
-        },
-        {
-            id: 3,
-            name: 'ABCDEFG',
-            comment: '영어영어영어',
-            isFavorite: 'false'
-        },
+    const TeamListElementCreator = ({user}) => {
+        return(
+            <TeamPageListElement>
+                <TeamPageFavoriteStarLine/>
+                <TeamPageUserProfileCircle src={user.profileUrl}/>
+                <TeamPageUserName>{user.teamName}</TeamPageUserName>
+                <TeamPageUserComment>{user.projectName}</TeamPageUserComment>
+            </TeamPageListElement>
+        );
+    }
+    
+    const TeamListCreator = ({users}) => {
+        return(
+            <>
+            {users.map(user =>(
+                <TeamListElementCreator user={user} key={user.id}/>
+            ))}
+            </>
+        );
+    }
+    
+    const TeamRequestElementCreator = ({user}) => {
+        return(
+            <TeamPageListElement>
+                <TeamPageUserProfileCircle src={user.profileUrl}/>
+                <TeamPageUserName>{user.teamName}</TeamPageUserName>
+                <TeamPageAcceptButton onClick={(e) => acceptHandler(user.id, e)}>
+                    Accept
+                </TeamPageAcceptButton>
+                <TeamPageRejectButton onClick={(e) => rejectHandler(user.id, e)}> 
+                    Reject
+                </TeamPageRejectButton>
+            </TeamPageListElement>
+        );
+    }
 
-    ];
+    const acceptHandler = async(id, e) => {
+        e.preventDefault();
+        await axios.patch(`${address}/teams/me/request`,{
+           teamId: id
+        });
+        await axios.get(`${address}/teams/me/request`).then((res) => {
+            setTeamRequestElements(res.data.teams);
+        });
+        await axios.get(`${address}/teams/me/normal`).then((res) => {
+            setTeamListElements(res.data.teams);
+        });
+    };
 
-    const TeamRequestElements = [
-        {
-            id: 1,
-            name: '캡스톤토로톤톤',
-        },
-        {
-            id: 2,
-            name: '나무나무'
-        },
-        {
-            id: 3,
-            name: '캡스톤토로톤톤',
-        },
-        {
-            id: 4,
-            name: '나무나무'
-        },
-        {
-            id: 5,
-            name: '캡스톤토로톤톤',
-        },
-        {
-            id: 6,
-            name: '나무나무'
-        },
-        {
-            id: 7,
-            name: '캡스톤토로톤톤',
-        },
-        {
-            id: 8,
-            name: '나무나무'
-        },
-    ];
+    const rejectHandler = async(id, e) => {
+        e.preventDefault();
+        await axios.delete(`${address}/teams/me/request`,{
+            data: {
+                teamId: id
+            }
+        });
+        await axios.get(`${address}/teams/me/request`).then((res) => {
+            setTeamRequestElements(res.data.teams);
+        });
+        await axios.get(`${address}/teams/me/normal`).then((res) => {
+                setTeamListElements(res.data.teams);
+            });
+    };
+    
+    const TeamRequestCreator = ({users}) => {
+        return(
+            <>
+            {users.map(user=>(
+                <TeamRequestElementCreator user={user} key={user.id}/>
+            ))}
+            </>
+        );
+    }
+
+    var [FavoriteTeamListElements, setFavoriteTeamListElements] = useState([]);
+    var [TeamListElements, setTeamListElements] = useState([]);
+    var [TeamRequestElements, setTeamRequestElements] = useState([]);
+
+    // 로그인 대신 //
+    const accessToken = 'Bearer ' + "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX01FTUJFUiJdLCJlbWFpbCI6Imp3MUBuYXZlci5jb20iLCJpYXQiOjE2MjMzNDEwNDAsImV4cCI6MTYyMzM0Mjg0MH0.2rC0SDGyVnrr3bSAJYafqCfKyugiqYblW4FG4ZRah9g";
+    axios.defaults.headers.common['Authorization'] = accessToken;
+    localStorage.setItem('Authorization', accessToken);
+    ////////////////
+
+    useEffect(() => {
+        const axiosGet = async () => {
+            let jwtToken = localStorage.getItem('Authorization');
+            axios.defaults.headers.common['Authorization'] = jwtToken;
+
+            await axios.get(`${address}/teams/me/favorite`).then((res) => {
+                setFavoriteTeamListElements(res.data.teams);
+            });
+
+            await axios.get(`${address}/teams/me/normal`).then((res) => {
+                setTeamListElements(res.data.teams);
+            });
+
+            await axios.get(`${address}/teams/me/request`).then((res) => {
+                setTeamRequestElements(res.data.teams);
+            });
+        };
+        axiosGet();
+    },[]);
 
     return (
         <>
@@ -186,14 +176,12 @@ const TeamComponent = () => {
                         Favorites
                     </TeamPageFavoriteTitle>
                     <TeamPageFavoriteWrapper>
-                        <TeamListCreator
+                        <FavoriteTeamListCreator
                          users= {FavoriteTeamListElements}
-                        //  {FavoriteTeamListElementsGetter}
                         />
                     </TeamPageFavoriteWrapper>
                     <TeamListCreator
                          users={TeamListElements}
-                        // {TeamListElementsGetter}
                         />
                 </TeamPageListWrapper>
                 <TeamPageRequestWrapper>
@@ -201,7 +189,6 @@ const TeamComponent = () => {
                     <TeamPageRequestListWrapper>
                         <TeamRequestCreator
                          users={TeamRequestElements}
-                         // {TeamRequestElementsGetter}
                         />
                     </TeamPageRequestListWrapper>
                 </TeamPageRequestWrapper>
