@@ -130,7 +130,7 @@ const TeamComponent = () => {
     var [TeamRequestElements, setTeamRequestElements] = useState([]);
 
     // 로그인 대신 //
-    const accessToken = 'Bearer ' + "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX01FTUJFUiJdLCJlbWFpbCI6Imp3MUBuYXZlci5jb20iLCJpYXQiOjE2MjMzNDEwNDAsImV4cCI6MTYyMzM0Mjg0MH0.2rC0SDGyVnrr3bSAJYafqCfKyugiqYblW4FG4ZRah9g";
+    const accessToken = 'Bearer ' + "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX01FTUJFUiJdLCJlbWFpbCI6Imp3MUBuYXZlci5jb20iLCJpYXQiOjE2MjM0NDAyNzEsImV4cCI6MTYyMzQ0MjA3MX0.Z2Y-VM_B6w-xUqdQiDw9HjbZw9e6WkCEbSwdF57IjRo";
     axios.defaults.headers.common['Authorization'] = accessToken;
     localStorage.setItem('Authorization', accessToken);
     ////////////////
@@ -156,6 +156,7 @@ const TeamComponent = () => {
     },[]);
 
     return (
+
         <>
             <TeamPageTemplate>
                 <TeamPageTitleWrapper>

@@ -58,7 +58,7 @@ export const ModalContentsWrapper = styled.div`
 export const TeamPageAddModalSelectWrapper = styled.div`
     float: left;
     width: 50%;
-    height: 450px;
+    height: 420px;
     border-right: 1px solid rgba(0, 0, 0, 0.15);
 `;
 
@@ -116,7 +116,7 @@ export const TeamPageAddModalUserName = styled.div`
 export const TeamPageAddModalInformationWrapper = styled.div`
     float: left;
     width: 50%;
-    height: 450px;
+    height: 400px;
 `;
 
 export const TeamPageAddModalThumbnail = styled.div`
@@ -166,13 +166,13 @@ export const TeamPageAddModalInputName = styled.input.attrs({
     border-bottom: 1px solid gray;
 `;
 
-export const TeamPageAddModalCreateButton = styled.div`
+export const TeamPageAddModalCreateButton = styled.button`
+    border: none;
     font-size: 18px;
     font-weight: 700;
     width: 100px;
     height: 30px;
-    margin-left: 180px;
-    margin-top: 80px;
+    margin-left: 480px;
     padding-top: 5px;
     background: rgba(172, 211, 220, 0.5);
     border-radius: 22px;

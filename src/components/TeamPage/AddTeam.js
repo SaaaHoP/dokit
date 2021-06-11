@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { address } from '../../variables';
 import { 
@@ -27,20 +27,50 @@ import {
 } from "./StyledComponent";
 
 const AddTeam = (props) => {
-    var [FriendListElements, setFriendListElements] = useState([]);
+
+    const [FriendListElements, setFriendListElements] = useState([]);
     const isOpen = props.isOpen;
+    const open = props.open;
     const close = props.close;
+
+    const [friends, setFriends] = useState([]);
+    const [projectName, setProjectName] = useState('');
+    const [teamName, setTeamName] = useState('');
 
     const FriendListElementCreator = ({user}) => {
         return(
             <TeamPageAddModalFriendListElement>
-                <TeamPageAddModalUserCheckbox/>
+                <TeamPageAddModalUserCheckbox onClick={() => chkHandler(user.id)}/>
                 <TeamPageAddModalUserProfile src={user.profileUrl}/>
                 <TeamPageAddModalUserName>{user.username}</TeamPageAddModalUserName>
             </TeamPageAddModalFriendListElement>
         );
     }
+
+    const chkHandler = (id) => {
+        friends.push(id);
+        console.log(friends);
+    };
+
+    const teamHandler = async(e) => {
+        setTeamName(e.target.value);
+    };
+
+    const projectHandler = async(e) => {
+        setProjectName(e.target.value);
+    };
     
+    let team = {
+        friends: friends,
+        image: null,
+        projectName: projectName,
+        teamName: teamName
+    };
+    
+    const createHandler = async(e) => {
+        await axios.post(`${address}/teams`, team);
+    };
+
     const FriendListCreator = ({users}) =>{
         return(
             <>
@@ -62,14 +92,13 @@ const AddTeam = (props) => {
 
     return (
         <>
-        {isOpen ? (  // 열려있으면
+        {isOpen ? (  
           <ModalBackground>
-            {/* <div onClick={close}> 로그인창 말고 회색 바탕 누르면 close 효과  */}
                 <TeamPageAddModal>
-                    <ModalCloseButton onClick={close}> {/* x 버튼 누르면 close 효과 */} 
+                    <ModalCloseButton onClick={close}> 
                      &times;
                     </ModalCloseButton>
-                    <ModalContentsWrapper onClick={isOpen}> {/* Modal창은 들어오면 isOpen true인 상태라 안꺼짐 */}
+                    <ModalContentsWrapper onClick={open}>
                         <TeamPageAddModalSelectWrapper>
                             <TeamPageAddModalTitle>
                                 Select Member
@@ -94,20 +123,25 @@ const AddTeam = (props) => {
                             <TeamPageAddModalInputWrapper>
                                 <TeamPageAddModalName>
                                     NAME :
-                                    <TeamPageAddModalInputName/>
+                                    <TeamPageAddModalInputName
+                                     onChange={(e) => teamHandler(e)}
+                                    />
                                 </TeamPageAddModalName>
                                 <TeamPageAddModalProject>
                                     PROJECT :
-                                    <TeamPageAddModalInputName/>
+                                    <TeamPageAddModalInputName
+                                     onChange={(e) => projectHandler(e)}
+                                    />
                                 </TeamPageAddModalProject>
-                                <TeamPageAddModalCreateButton>
-                                    Create
-                                </TeamPageAddModalCreateButton>
                             </TeamPageAddModalInputWrapper>
                         </TeamPageAddModalInformationWrapper>
                     </ModalContentsWrapper>
+                    <TeamPageAddModalCreateButton
+                     onClick={(e) => createHandler(e)}
+                    >
+                        Create
+                    </TeamPageAddModalCreateButton>
                 </TeamPageAddModal>
-            {/* </div> */}
           </ModalBackground>
         ) : null}
       </>
