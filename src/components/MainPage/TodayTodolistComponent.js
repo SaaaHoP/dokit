@@ -187,7 +187,7 @@ const TodayTodolistComponent = ({
         <TodolistRightSubBox>
           <TodolistRightSubBoxText>내일</TodolistRightSubBoxText>
           <TodolistRightSubBoxText>
-            예정 할 일 {tomorrowTodos.numberOfItems}건
+            예정 할 일 {tomorrowTodos.numberOfIncomplete}건
           </TodolistRightSubBoxText>
         </TodolistRightSubBox>
       </TodolistRightBox>
