@@ -34,13 +34,28 @@ const FriendComponent = () => {
     const FavoriteFriendListElementCreator = ({user}) => {
         return(
             <FriendPageListElement>
-                <FriendPageFavoriteStar/>
+                <FriendPageFavoriteStar onClick={(e) => deleteFavoriteHandler(user.id, e)}/>
                 <FriendPageUserProfileCircle src={user.profileUrl}/>
                 <FriendPageUserName>{user.username}</FriendPageUserName>
                 <FriendPageUserComment>{user.conversation}</FriendPageUserComment>
             </FriendPageListElement>
         );
     }
+
+    const deleteFavoriteHandler = async(friendId, e) => {
+        e.preventDefault();
+        await axios.delete(`${address}/favorite/me/friends`,{
+            data: {
+               id: friendId
+            }
+        });
+        await axios.get(`${address}/friends/me/favorite`).then((res) => {
+            setFavoriteFriendListElements(res.data.friends);
+        });
+        await axios.get(`${address}/friends/me/normal`).then((res) => {
+            setFriendListElements(res.data.friends);
+        });
+    };
     
     const FavoriteFriendListCreator = ({users}) => {
         return(
@@ -55,13 +70,26 @@ const FriendComponent = () => {
     const FriendListElementCreator = ({user}) => {
         return(
             <FriendPageListElement>
-                <FriendPageFavoriteStarLine/>
+                <FriendPageFavoriteStarLine onClick={(e) => favoriteHandler(user.id, e)}/>
                 <FriendPageUserProfileCircle src={user.profileUrl}/>
                 <FriendPageUserName>{user.username}</FriendPageUserName>
                 <FriendPageUserComment>{user.conversation}</FriendPageUserComment>
             </FriendPageListElement>
         );
     }
+
+    const favoriteHandler = async(friendId, e) => {
+        e.preventDefault();
+        await axios.patch(`${address}/favorite/me/friends`,{
+               id: friendId
+        });
+        await axios.get(`${address}/friends/me/favorite`).then((res) => {
+            setFavoriteFriendListElements(res.data.friends);
+        });
+        await axios.get(`${address}/friends/me/normal`).then((res) => {
+            setFriendListElements(res.data.friends);
+        });
+    };
     
     const FriendListCreator = ({users}) => {
         return(
@@ -163,7 +191,7 @@ const FriendComponent = () => {
     var [MyFriendRequestElements, setMyFriendRequestElements] = useState([]);
 
     // 로그인 대신 //
-    const accessToken = 'Bearer ' + "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX01FTUJFUiJdLCJlbWFpbCI6Imp3MUBuYXZlci5jb20iLCJpYXQiOjE2MjMyOTg2MzgsImV4cCI6MTYyMzMwMDQzOH0.kB4SFbRLt0J5YrRnynKaYgy1_aLOnTOHSgZ6wwuQgBA";
+    const accessToken = 'Bearer ' + "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX01FTUJFUiJdLCJlbWFpbCI6Imp3MUBuYXZlci5jb20iLCJpYXQiOjE2MjM0MzMxNzYsImV4cCI6MTYyMzQzNDk3Nn0.9mBvooxvdXK2pjSC4PhE2vInwGP207ADdhxHaWoOmXM";
     axios.defaults.headers.common['Authorization'] = accessToken;
     localStorage.setItem('Authorization', accessToken);
     ////////////////

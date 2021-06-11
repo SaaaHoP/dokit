@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { AiOutlineTeam } from "react-icons/ai"; // Friend 아이콘
-import { BiSearchAlt2 } from "react-icons/bi"; // 돋보기 아이콘
-import { AiOutlineStar } from "react-icons/ai"; // 빈 별
-import { AiFillStar } from "react-icons/ai"; // 찬 별
+import { AiOutlineTeam } from "react-icons/ai";
+import { BiSearchAlt2 } from "react-icons/bi"; 
+import { AiOutlineStar } from "react-icons/ai"; 
+import { AiFillStar } from "react-icons/ai"; 
 import { FaPlus } from "react-icons/fa"
 
 export const FriendPageTemplate = styled.div`
@@ -84,8 +84,7 @@ export const FriendPageAddModalUserName = styled.div`
 
 export const FriendPageAddModalAddButton = styled.button`
     border: none;
-    margin-left: 250px;
-    margin-top: 20px;
+    margin-left: 270px;
     font-size: 18px;
     width: 75px;
     height: 36px;

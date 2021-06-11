@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { address } from '../../variables';
-import React, { Component, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { 
     ModalBackground, 
     FriendPageAddModal, 
@@ -28,34 +28,33 @@ const AddFriend = (props) => {
       setUser(res.data);
     });
   };
+  
+  let id = {
+    friendId: User.id
+  };
 
-  // WIP
-  const addHandler = async(id, e) => {
-    console.log(id);
+  const addHandler = async(e) => {
     e.preventDefault();
-    await axios.post(`${address}/friends/me`, {
-      friendID: id
-    });
+    await axios.post(`${address}/friends/me`, id);
+    setUser([]);
   };
   
   return (
-    <>
-        {isOpen ? (  // 열려있으면
-          <ModalBackground>
-            {/* <div onClick={close}> 로그인창 말고 회색 바탕 누르면 close 효과  */}
-                <FriendPageAddModal>
-                    <ModalCloseButton onClick={close}> {/* x 버튼 누르면 close 효과 */} 
-                     &times;
-                    </ModalCloseButton>
-                    <ModalContentsWrapper onClick={isOpen}> {/* Modal창은 들어오면 isOpen true인 상태라 안꺼짐 */}
-                        <FriendPageAddModalInputEmail onChange={inputHandler}/>
-                        <FriendPageAddModalUserProfileCircle src={User.profileUrl}/>
-                        <FriendPageAddModalUserName> {User.username} </FriendPageAddModalUserName>
-                        <FriendPageAddModalAddButton onClick={(e) => addHandler(User.id, e)}>Add</FriendPageAddModalAddButton>
-                    </ModalContentsWrapper>
-                </FriendPageAddModal>
-            {/* </div> */}
-          </ModalBackground>
+    <>  
+      {isOpen ? (  
+        <ModalBackground>
+          <FriendPageAddModal>
+            <ModalCloseButton onClick={close}>
+              &times;
+            </ModalCloseButton>
+            <ModalContentsWrapper onClick={isOpen}> 
+              <FriendPageAddModalInputEmail onChange={inputHandler}/>
+              <FriendPageAddModalUserProfileCircle src={User.profileUrl}/>
+              <FriendPageAddModalUserName> {User.username} </FriendPageAddModalUserName>
+            </ModalContentsWrapper>
+            <FriendPageAddModalAddButton onClick={(e) => addHandler(e)}>Add</FriendPageAddModalAddButton>
+          </FriendPageAddModal>
+        </ModalBackground>
         ) : null}
       </>
   );
