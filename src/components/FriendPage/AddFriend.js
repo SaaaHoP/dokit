@@ -1,4 +1,6 @@
-import React, { Component } from "react";
+import axios from 'axios';
+import { address } from '../../variables';
+import React, { useState } from 'react';
 import { 
     ModalBackground, 
     FriendPageAddModal, 
@@ -7,37 +9,56 @@ import {
     FriendPageAddModalInputEmail,
     FriendPageAddModalUserProfileCircle,
     FriendPageAddModalUserName,
-    FriendPageAddModalUserComment,
-    FriendPageAddModalAddButton
+    FriendPageAddModalAddButton,
 } from "./StyledComponent";
 
-class AddFriend extends Component {
+const AddFriend = (props) => {
 
-  render() {
-    const { isOpen, close } = this.props;   // AddFriendButton에서 props로 가져온것
-    return (
-      <>
-        {isOpen ? (  // 열려있으면
-          <ModalBackground>
-            {/* <div onClick={close}> 로그인창 말고 회색 바탕 누르면 close 효과  */}
-                <FriendPageAddModal>
-                    <ModalCloseButton onClick={close}> {/* x 버튼 누르면 close 효과 */} 
-                     &times;
-                    </ModalCloseButton>
-                    <ModalContentsWrapper onClick={isOpen}> {/* Modal창은 들어오면 isOpen true인 상태라 안꺼짐 */}
-                        <FriendPageAddModalInputEmail/>
-                        <FriendPageAddModalUserProfileCircle/>
-                        <FriendPageAddModalUserName> </FriendPageAddModalUserName>
-                        <FriendPageAddModalUserComment> </FriendPageAddModalUserComment>
-                        <FriendPageAddModalAddButton>Add</FriendPageAddModalAddButton>
-                    </ModalContentsWrapper>
-                </FriendPageAddModal>
-            {/* </div> */}
-          </ModalBackground>
+  var [User,setUser] = useState([]);
+  const isOpen = props.isOpen;
+  const close = props.close;
+
+  const inputHandler = (e) => {
+    axios.get(`${address}/friends`, {
+      params: {
+        email: e.target.value
+      }
+    })
+    .then((res) => {
+      setUser(res.data);
+    });
+  };
+  
+  let id = {
+    friendId: User.id
+  };
+
+  const addHandler = async(e) => {
+    e.preventDefault();
+    await axios.post(`${address}/friends/me`, id);
+    setUser([]);
+  };
+  
+  return (
+    <>  
+      {isOpen ? (  
+        <ModalBackground>
+          <FriendPageAddModal>
+            <ModalCloseButton onClick={close}>
+              &times;
+            </ModalCloseButton>
+            <ModalContentsWrapper onClick={isOpen}> 
+              <FriendPageAddModalInputEmail onChange={inputHandler}/>
+              <FriendPageAddModalUserProfileCircle src={User.profileUrl}/>
+              <FriendPageAddModalUserName> {User.username} </FriendPageAddModalUserName>
+            </ModalContentsWrapper>
+            <FriendPageAddModalAddButton onClick={(e) => addHandler(e)}>Add</FriendPageAddModalAddButton>
+          </FriendPageAddModal>
+        </ModalBackground>
         ) : null}
       </>
-    );
-  }
-}
+  );
+};
+
 
 export default AddFriend;
