@@ -40,16 +40,23 @@ const AddTeam = (props) => {
     const FriendListElementCreator = ({user}) => {
         return(
             <TeamPageAddModalFriendListElement>
-                <TeamPageAddModalUserCheckbox onClick={() => chkHandler(user.id)}/>
+                <TeamPageAddModalUserCheckbox onClick={(e) => chkHandler(user.id, e)}/>
                 <TeamPageAddModalUserProfile src={user.profileUrl}/>
                 <TeamPageAddModalUserName>{user.username}</TeamPageAddModalUserName>
             </TeamPageAddModalFriendListElement>
         );
     }
 
-    const chkHandler = (id) => {
-        friends.push(id);
-        console.log(friends);
+    const chkHandler = (id, e) => {
+        e.stopPropagation();
+        const found = friends.findIndex(element => element === id);
+        if(found > -1){
+            friends.splice(found);
+            console.log(friends);
+        } else {
+            friends.push(id);
+            console.log(friends);
+        }
     };
 
     const teamHandler = async(e) => {
@@ -68,6 +75,7 @@ const AddTeam = (props) => {
     };
     
     const createHandler = async(e) => {
+        console.log(team);
         await axios.post(`${address}/teams`, team);
     };
 
