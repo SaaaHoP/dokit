@@ -40,7 +40,9 @@ const AddTeam = (props) => {
     const FriendListElementCreator = ({user}) => {
         return(
             <TeamPageAddModalFriendListElement>
-                <TeamPageAddModalUserCheckbox onClick={(e) => chkHandler(user.id, e)}/>
+                <TeamPageAddModalUserCheckbox 
+                 onClick={(e) => chkHandler(user.id, e)}
+                />
                 <TeamPageAddModalUserProfile src={user.profileUrl}/>
                 <TeamPageAddModalUserName>{user.username}</TeamPageAddModalUserName>
             </TeamPageAddModalFriendListElement>
@@ -66,18 +68,6 @@ const AddTeam = (props) => {
     const projectHandler = async(e) => {
         setProjectName(e.target.value);
     };
-    
-    let team = {
-        friends: friends,
-        image: null,
-        projectName: projectName,
-        teamName: teamName
-    };
-    
-    const createHandler = async(e) => {
-        console.log(team);
-        await axios.post(`${address}/teams`, team);
-    };
 
     const FriendListCreator = ({users}) =>{
         return(
@@ -89,6 +79,22 @@ const AddTeam = (props) => {
         );
     }
 
+    const submitHandler = async (e) => {
+
+        e.preventDefault();
+    
+        let team = {
+            friends: friends,
+            image: null,
+            projectName: projectName,
+            teamName: teamName
+        };
+        console.log(team);
+
+        e.target.value=team;
+
+    };
+
     useEffect(() => {
         const axiosGet = async () => {
             await axios.get(`${address}/friends/me/for_team`).then((res) => {
@@ -97,12 +103,16 @@ const AddTeam = (props) => {
         };
         axiosGet();
     },[]);
-
+    
     return (
         <>
         {isOpen ? (  
           <ModalBackground>
-                <TeamPageAddModal>
+                <TeamPageAddModal
+                 onSubmit={submitHandler}
+                 action={`${address}/teams`}
+                 method="post"
+                >
                     <ModalCloseButton onClick={close}> 
                      &times;
                     </ModalCloseButton>
@@ -145,7 +155,7 @@ const AddTeam = (props) => {
                         </TeamPageAddModalInformationWrapper>
                     </ModalContentsWrapper>
                     <TeamPageAddModalCreateButton
-                     onClick={(e) => createHandler(e)}
+                     type="submit"
                     >
                         Create
                     </TeamPageAddModalCreateButton>

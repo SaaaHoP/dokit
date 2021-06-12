@@ -24,7 +24,7 @@ export const ModalBackground = styled.div`
     background: rgba(255, 255, 255, 0.7);
 `;
 
-export const TeamPageAddModal = styled.div`
+export const TeamPageAddModal = styled.form`
     width: 600px;
     height: 500px;
     top: 140px;
