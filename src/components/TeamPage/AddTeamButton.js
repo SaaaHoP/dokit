@@ -3,6 +3,7 @@ import AddTeam from "./AddTeam";
 import  {TeamPageAddButton, TeamPageAddButtonIcon} from "./StyledComponent";
 
 class AddTeamButton extends Component {
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -24,7 +25,7 @@ class AddTeamButton extends Component {
         <TeamPageAddButton onClick={this.openModal}>
             <TeamPageAddButtonIcon/>
         </TeamPageAddButton>
-        <AddTeam isOpen={this.state.isModalOpen} close={this.closeModal} />
+        <AddTeam isOpen={this.state.isModalOpen} open={this.openModal} close={this.closeModal} />
       </>
     );
   }

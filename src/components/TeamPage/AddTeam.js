@@ -1,4 +1,6 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { address } from '../../variables';
 import { 
     TeamPageAddModalFriendListElement,
     TeamPageAddModalUserName,
@@ -24,59 +26,97 @@ import {
     TeamPageAddModalCreateButton
 } from "./StyledComponent";
 
-const FriendListElementCreator = ({user}) => {
-    return(
-        <TeamPageAddModalFriendListElement>
-            <TeamPageAddModalUserCheckbox/>
-            <TeamPageAddModalUserProfile/>
-            <TeamPageAddModalUserName>{user.name}</TeamPageAddModalUserName>
-        </TeamPageAddModalFriendListElement>
-    )
-}
+const AddTeam = (props) => {
 
-const FriendListCreator = ({users}) =>{
-    return(
-        <>
-        {users.map(user=>(
-            <FriendListElementCreator user={user} key={user.id}/>
-        ))}
-        </>
-    )
-}
+    const [FriendListElements, setFriendListElements] = useState([]);
+    const isOpen = props.isOpen;
+    const open = props.open;
+    const close = props.close;
 
-const FriendListElements = [
-    {
-        id: 1,
-        name: '김지현'
-    },
-    {
-        id: 2,
-        name: '민지원'
-    },
-    {
-        id: 3,
-        name: '김몽'
-    },
-    {
-        id: 4,
-        name: '민루피'
+    const [friends, setFriends] = useState([]);
+    const [projectName, setProjectName] = useState('');
+    const [teamName, setTeamName] = useState('');
+
+    const FriendListElementCreator = ({user}) => {
+        return(
+            <TeamPageAddModalFriendListElement>
+                <TeamPageAddModalUserCheckbox 
+                 onClick={(e) => chkHandler(user.id, e)}
+                />
+                <TeamPageAddModalUserProfile src={user.profileUrl}/>
+                <TeamPageAddModalUserName>{user.username}</TeamPageAddModalUserName>
+            </TeamPageAddModalFriendListElement>
+        );
     }
-];
 
-class AddTeam extends Component {
+    const chkHandler = (id, e) => {
+        e.stopPropagation();
+        const found = friends.findIndex(element => element === id);
+        if(found > -1){
+            friends.splice(found);
+            console.log(friends);
+        } else {
+            friends.push(id);
+            console.log(friends);
+        }
+    };
 
-    render() {
-        const { isOpen, close } = this.props;   // AddTeamButton에서 props로 가져온것
-        return (
+    const teamHandler = async(e) => {
+        setTeamName(e.target.value);
+    };
+
+    const projectHandler = async(e) => {
+        setProjectName(e.target.value);
+    };
+
+    const FriendListCreator = ({users}) =>{
+        return(
+            <>
+            {users.map(user=>(
+                <FriendListElementCreator user={user} key={user.id}/>
+            ))}
+            </>
+        );
+    }
+
+    const submitHandler = async (e) => {
+
+        e.preventDefault();
+    
+        let team = {
+            friends: friends,
+            image: null,
+            projectName: projectName,
+            teamName: teamName
+        };
+        console.log(team);
+
+        e.target.value=team;
+
+    };
+
+    useEffect(() => {
+        const axiosGet = async () => {
+            await axios.get(`${address}/friends/me/for_team`).then((res) => {
+                setFriendListElements(res.data.friends);
+            });   
+        };
+        axiosGet();
+    },[]);
+    
+    return (
         <>
-        {isOpen ? (  // 열려있으면
+        {isOpen ? (  
           <ModalBackground>
-            {/* <div onClick={close}> 로그인창 말고 회색 바탕 누르면 close 효과  */}
-                <TeamPageAddModal>
-                    <ModalCloseButton onClick={close}> {/* x 버튼 누르면 close 효과 */} 
+                <TeamPageAddModal
+                 onSubmit={submitHandler}
+                 action={`${address}/teams`}
+                 method="post"
+                >
+                    <ModalCloseButton onClick={close}> 
                      &times;
                     </ModalCloseButton>
-                    <ModalContentsWrapper onClick={isOpen}> {/* Modal창은 들어오면 isOpen true인 상태라 안꺼짐 */}
+                    <ModalContentsWrapper onClick={open}>
                         <TeamPageAddModalSelectWrapper>
                             <TeamPageAddModalTitle>
                                 Select Member
@@ -101,25 +141,29 @@ class AddTeam extends Component {
                             <TeamPageAddModalInputWrapper>
                                 <TeamPageAddModalName>
                                     NAME :
-                                    <TeamPageAddModalInputName/>
+                                    <TeamPageAddModalInputName
+                                     onChange={(e) => teamHandler(e)}
+                                    />
                                 </TeamPageAddModalName>
                                 <TeamPageAddModalProject>
                                     PROJECT :
-                                    <TeamPageAddModalInputName/>
+                                    <TeamPageAddModalInputName
+                                     onChange={(e) => projectHandler(e)}
+                                    />
                                 </TeamPageAddModalProject>
-                                <TeamPageAddModalCreateButton>
-                                    Create
-                                </TeamPageAddModalCreateButton>
                             </TeamPageAddModalInputWrapper>
                         </TeamPageAddModalInformationWrapper>
                     </ModalContentsWrapper>
+                    <TeamPageAddModalCreateButton
+                     type="submit"
+                    >
+                        Create
+                    </TeamPageAddModalCreateButton>
                 </TeamPageAddModal>
-            {/* </div> */}
           </ModalBackground>
         ) : null}
       </>
     );
-  }
-}
+};
 
 export default AddTeam;
