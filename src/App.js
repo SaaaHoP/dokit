@@ -7,6 +7,10 @@ import MainPage from './screens/MainPage';
 import PasswordCheckPage from './screens/PasswordCheckPage';
 import { Route } from 'react-router-dom';
 import TeamCalendarPage from './screens/TeamCalendarPage';
+import FriendPage from './screens/FriendPage';
+import TeamPage from './screens/TeamPage';
+import FriendCalendarPage from './screens/FriendCalendarPage';
+import PrivateCalendarPage from './screens/PrivateCalendarPage';
 
 function App() {
   return (
@@ -18,7 +22,11 @@ function App() {
       <Route path='/main' component={MainPage} />
       <Route path='/passwordCheck' component={PasswordCheckPage} />
       <Route path='/setting' component={SetPage} />
+      <Route path='/friend' component={FriendPage} />
+      <Route path='/team' component={TeamPage} />
+      <Route path='/calendar' component={PrivateCalendarPage} />
       <Route path='/teamCalendar' component={TeamCalendarPage} />
+      <Route path='/frinedCalendar' component={FriendCalendarPage} />
     </>
   );
 }
