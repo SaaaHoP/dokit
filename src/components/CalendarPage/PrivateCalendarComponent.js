@@ -29,25 +29,25 @@ const PrivateCalendarComponent = () => {
             opened: 'true'
         },
         {
-            id:3,
-            title: '인공지능#3', 
+            id: 3,
+            title: '인공지능#3',
             date: '2021-06-14',
             color: 'rgba(215,211,255,1.0)',
-            opened:'true'
+            opened: 'true'
         },
         {
-            id:4,
-            title: '!!!!!종강!!!!!', 
-            start: '2021-06-15', 
-            end : '2021-06-20',
+            id: 4,
+            title: '!!!!!종강!!!!!',
+            start: '2021-06-15',
+            end: '2021-06-20',
             color: 'rgba(255,241,198,1.0',
             opened: 'true'
         },
         {
-            id:5,
-            title: '~~~여행~~~', 
-            start: '2021-06-19', 
-            end : '2021-06-21',
+            id: 5,
+            title: '~~~여행~~~',
+            start: '2021-06-19',
+            end: '2021-06-21',
             color: 'rgba(208,247,255,1.0)',
             opened: 'false'
         }
@@ -67,28 +67,27 @@ const PrivateCalendarComponent = () => {
     ];
 
     return (
-      <>
-        <CalendarPageBox>
-            <PrivateCalendarPageUpperPart>
-                <AddToScheduleButton />
-            </PrivateCalendarPageUpperPart>
-            <PrivateCalendarPageCalendarPosition>
-                <CalendarPageCalendar>
-                <FullCalendar
-                    defaultView="dayGridMonth"
-                    navLinks={true } //날짜 클릭 가능하게
-                    aspectRatio= '2.6'
-                    eventTextColor="black"
-                    plugins={[dayGridPlugin]}
-                    weekends={true}
-                    events={PrivateCalendarItems}
-                />
-                </CalendarPageCalendar>
-            </PrivateCalendarPageCalendarPosition>
-        </CalendarPageBox>
-      </>
+        <>
+            <CalendarPageBox>
+                <PrivateCalendarPageUpperPart>
+                    <AddToScheduleButton />
+                </PrivateCalendarPageUpperPart>
+                <PrivateCalendarPageCalendarPosition>
+                    <CalendarPageCalendar>
+                        <FullCalendar
+                            defaultView="dayGridMonth"
+                            navLinks={true} //날짜 클릭 가능하게
+                            aspectRatio='2.5'
+                            eventTextColor="black"
+                            plugins={[dayGridPlugin]}
+                            weekends={true}
+                            events={PrivateCalendarItems}
+                        />
+                    </CalendarPageCalendar>
+                </PrivateCalendarPageCalendarPosition>
+            </CalendarPageBox>
+        </>
     );
 };
-  
+
 export default PrivateCalendarComponent;
-  

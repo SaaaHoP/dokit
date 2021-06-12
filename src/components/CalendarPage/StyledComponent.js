@@ -1,11 +1,78 @@
 import styled from 'styled-components';
 import { FaPlus } from "react-icons/fa"
 import { BsThreeDotsVertical } from "react-icons/bs"
-import {BsPeopleCircle} from 'react-icons/bs'
-import {FiLock} from 'react-icons/fi'
-import {FiUnlock} from 'react-icons/fi'
+import { BsPeopleCircle } from 'react-icons/bs'
+import { FiLock } from 'react-icons/fi'
+import { FiUnlock } from 'react-icons/fi'
 
 
+export const TeamCalendarPageInfoModalLeftButtons = styled.div`
+width:30%
+margin-top : 2px;
+display: flex;
+flex-direction:column;
+align-items: center;
+`;
+
+export const TeamCalendarPageInfoModalCreateButton = styled.div`
+    font-size: 16px;
+    font-weight: 700;
+    width: 80px;
+    height: 30px;
+    padding-top: 5px;
+    background: rgba(172, 211, 220, 0.5);
+    border-radius: 17px;
+    text-align: center;
+    cursor: pointer;
+    margin-left : auto;
+    margin-top : auto;
+`;
+export const TeamCalendarPageInfoModalDeleteButton = styled.div`
+    font-size: 16px;
+    font-weight: 700;
+    width: 80px;
+    height: 30px;
+    padding-top: 5px;
+    background: rgba(255, 0, 0, 0.3);
+    border-radius: 17px;
+    text-align: center;
+    cursor: pointer;
+    margin-top : auto;
+`;
+export const TeamCalendarPageInfoModalCompleteButton = styled.div`
+    font-size: 16px;
+    font-weight: 700;
+    width: 80px;
+    height: 30px;
+    padding-top: 5px;
+    background: rgba(172, 211, 220, 0.5);
+    border-radius: 17px;
+    text-align: center;
+    cursor: pointer;
+    margin-top : auto;
+`;
+
+export const CalendarPageInfoModalButtonPosition = styled.div`
+width: 48%;
+height : 15%;
+position: absolute;
+box-sizing: border-box;
+display: flex;
+bottom : 3px;
+right : 3px;
+`;
+
+export const changeToLock = styled.div`
+  //opened : true
+  background: rgba(172,211,220,0.7);
+  border : Black;
+`;
+
+export const changeToUnlock = styled.div`
+    //opened : true
+    background: rgba(172,211,220,0.7);
+    border : Black;
+`;
 
 export const CalendarPageModalBackground = styled.div`
     position: fixed;
@@ -22,8 +89,7 @@ export const CalendarPageAddModal = styled.div`
     position:absolute;
     width: 360px;
     height: 440px;
-    top: 20%; //팝업창 test하려고 top 없앰
-
+    top: 20%;
     right : 13px;
     background-color: white;
     box-sizing: border-box;
@@ -31,6 +97,20 @@ export const CalendarPageAddModal = styled.div`
     border-radius: 20px;
     background: white;
     z-index: 999;
+`;
+
+export const TeamPageAddModal = styled.div`
+    position : absolute;
+    width: 600px;
+    height: 500px;
+    top: 20%;
+    right: 13px;
+    background-color: white;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    background: white;     
+    z-index: 999;  
 `;
 
 export const ModalCloseButton = styled.span`
@@ -159,10 +239,10 @@ display: flex;
 bottom :-13px;
 `;
 
-export const CalendarPageAddModalButton=styled.button`
+export const CalendarPageAddModalButton = styled.button`
 height: 40px;
 width: 100px;
-border-radius: 8px;
+border-radius: 17px;
 border: none;
 background: rgba(172,211,220,0.3);
 font-size: 17px;
@@ -185,7 +265,7 @@ margin-left : auto;
 export const CalendarPageBox = styled.div`
 position: absolute;
 top : 10%;
-left : 13%;
+left : 15%;
 right : 13px;
 display: flex;
 flex-direction: column;
@@ -225,7 +305,6 @@ export const TeamCalendarPageProjectTitle = styled.span`
 font-family:'Noto Sans KR';
 font-size:35px;
 font-weight:600;
-left:24px;
 `;
 
 export const TeamCalendarPageButtonPosition = styled.div`
@@ -236,7 +315,6 @@ export const TeamCalendarPageMemberListBox = styled.div`
 width:12%;
 height:200px;
 margin-right : 15px;
-margin-left:10px;
 padding : 10px;
 display: flex;
 flex-direction:column;
