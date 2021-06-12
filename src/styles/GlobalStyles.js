@@ -2,18 +2,19 @@
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 
-const GlobalStyle = createGlobalStyle`
-    ${reset}
+export const GlobalStyles = createGlobalStyle`
+    ${reset};
     a{
          text-decoration:none;
      }
      *{
          box-sizing:border-box;
      }
-     body{
-         font-family: 'Roboto', sans-serif;
+     html, body{
+         font-family: 'Roboto', 'Noto Sans KR' sans-serif;
+         font-weight: 500;
          font-size: 14px;
      }
  `;
 
-export default GlobalStyle;
+export default GlobalStyles;
