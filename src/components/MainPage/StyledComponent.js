@@ -1,14 +1,21 @@
 import styled from 'styled-components';
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
-import { BiCalendar, BiPencil } from 'react-icons/bi';
+import { BiCalendar, BiPencil, BiShoppingBag } from 'react-icons/bi';
 import {
   BsFillUnlockFill,
   BsFillLockFill,
   BsArrowReturnRight,
   BsCheck,
 } from 'react-icons/bs';
-import { IoAddCircleOutline } from 'react-icons/io5';
+import { IoAddCircleOutline, IoFastFoodOutline } from 'react-icons/io5';
 import { ImCancelCircle } from 'react-icons/im';
+import {
+  RiComputerLine,
+  RiBookletLine,
+  RiStarLine,
+  RiHeartLine,
+} from 'react-icons/ri';
+import { MdPeopleOutline } from 'react-icons/md';
 
 //DateComponent Styled Component
 export const DateBox = styled.div`
@@ -80,15 +87,24 @@ export const TodoItemBlankCheck = styled.div`
   background: white;
   border-radius: 24px;
   font-weight: lighter;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
-export const TodoItemChecked = styled(BsCheck)`
+export const TodoItemChecked = styled.div`
+  /* BsCheck */
+  border: 2px solid #888dfd;
   width: 48px;
   height: 48px;
   color: #888dfd;
   font-weight: lighter;
   background-color: white;
   border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
 `;
 
 export const TodoItemTextBox = styled.div`
@@ -281,6 +297,16 @@ export const TodoItemAddLockText = styled.div`
   font-size: 20px;
 `;
 
+// export const TodoItemAddLockUnlockedBox = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   width: 50px;
+//   height: 50px;
+//   border-radius: 25px;
+//   background: rgba(172, 211, 220, 0.3);
+// `;
+
 export const TodoItemAddLockUnlocked = styled(BsFillUnlockFill)`
   width: 36px;
   height: 36px;
@@ -299,7 +325,7 @@ export const TodoItemAddButtonBox = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-right: 10px;
-  margin-top: 110px;
+  margin-top: 10px;
 `;
 
 export const TodoItemAddSaveButton = styled.button`
@@ -322,6 +348,88 @@ export const TodoItemAddDeleteButton = styled.button`
   border: none;
   font-weight: bold;
   font-size: 15px;
+  cursor: pointer;
+`;
+
+export const TodoItemAddIconBox = styled.div`
+  display: flex;
+  margin-top: 20px;
+  margin-left: 30px;
+  align-items: center;
+`;
+
+export const TodoItemAddIconText = styled.div`
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 60px;
+`;
+
+export const TodoItemAddIconListBox = styled.div`
+  /* position: absolute; */
+  width: 200px;
+  height: 80px;
+  background: rgba(172, 211, 220, 0.2);
+  border-radius: 10px;
+  margin-left: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const TodoItemAddIconNone = styled.div`
+  width: 40px;
+  height: 36px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  /* margin-left: 5px; */
+`;
+
+export const TodoItemAddIcon1 = styled(RiComputerLine)`
+  width: 36px;
+  height: 36px;
+  margin-left: 10px;
+  cursor: pointer;
+`;
+export const TodoItemAddIcon2 = styled(RiBookletLine)`
+  width: 36px;
+  height: 36px;
+  margin-left: 10px;
+  cursor: pointer;
+`;
+export const TodoItemAddIcon3 = styled(IoFastFoodOutline)`
+  width: 36px;
+  height: 36px;
+  margin-left: 10px;
+  cursor: pointer;
+`;
+export const TodoItemAddIcon4 = styled(RiStarLine)`
+  width: 36px;
+  height: 36px;
+  margin-left: 5px;
+  cursor: pointer;
+`;
+export const TodoItemAddIcon5 = styled(RiHeartLine)`
+  width: 36px;
+  height: 36px;
+  margin-left: 10px;
+  cursor: pointer;
+`;
+export const TodoItemAddIcon6 = styled(MdPeopleOutline)`
+  width: 36px;
+  height: 36px;
+  margin-left: 10px;
+  cursor: pointer;
+`;
+export const TodoItemAddIcon7 = styled(BiShoppingBag)`
+  width: 36px;
+  height: 36px;
+  margin-left: 10px;
   cursor: pointer;
 `;
 
@@ -419,3 +527,5 @@ export const TodolistRightArrow = styled(AiOutlineArrowRight)`
   margin-bottom: 20px;
   cursor: pointer;
 `;
+
+//Add 할때 이모티콘

@@ -18,6 +18,14 @@ import {
   TodoItemDescriptionBox,
   TodoItemTextBox,
   TodoItemDescriptionCompleted,
+  TodoItemAddIcon1,
+  TodoItemAddIconNone,
+  TodoItemAddIcon2,
+  TodoItemAddIcon3,
+  TodoItemAddIcon4,
+  TodoItemAddIcon5,
+  TodoItemAddIcon6,
+  TodoItemAddIcon7,
 } from '../StyledComponent';
 import TodolistItemReviseComponent from './TodolistItemReviseComponent';
 
@@ -66,11 +74,34 @@ const TodolistItemComponent = ({
     });
   };
 
+  const iconReturn = () => {
+    if (emoticon === 'null')
+      return <TodoItemAddIconNone style={{ marginLeft: '0' }} />;
+    else if (emoticon === '1')
+      return <TodoItemAddIcon1 style={{ marginLeft: '0' }} />;
+    else if (emoticon === '2')
+      return <TodoItemAddIcon2 style={{ marginLeft: '0' }} />;
+    else if (emoticon === '3')
+      return <TodoItemAddIcon3 style={{ marginLeft: '0' }} />;
+    else if (emoticon === '4')
+      return <TodoItemAddIcon4 style={{ marginLeft: '0' }} />;
+    else if (emoticon === '5')
+      return <TodoItemAddIcon5 style={{ marginLeft: '0' }} />;
+    else if (emoticon === '6')
+      return <TodoItemAddIcon6 style={{ marginLeft: '0' }} />;
+    else if (emoticon === '7')
+      return <TodoItemAddIcon7 style={{ marginLeft: '0' }} />;
+  };
+
   return (
     <>
       <TodoItem>
         <TodoItemIcon onClick={() => onClickComplete(sequence)}>
-          {completed ? <TodoItemChecked /> : <TodoItemBlankCheck />}
+          {completed ? (
+            <TodoItemChecked>{iconReturn()}</TodoItemChecked>
+          ) : (
+            <TodoItemBlankCheck>{iconReturn()}</TodoItemBlankCheck>
+          )}
         </TodoItemIcon>
         <TodoItemTextBox>
           <TodoItemTitleBox>
