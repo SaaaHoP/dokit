@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 import LandingPage_Img from '../../icons/LandingPage_Img.png';
+import LandingPage2_Img from '../../icons/LandingPage2_Img.png';
+import LandingPage3_Img from '../../icons/LandingPage3_Img.png';
+
 import { DokitIcon } from '../commons/DokitIcon';
 
 export const LandingPageLeftBackground = styled.div`
@@ -20,12 +23,13 @@ export const LandingPageImgBox = styled.div`
 `;
 
 export const LandingPageImg = styled.div`
-  background-image: url(${LandingPage_Img});
-  background-size: 420px 590px;
+  background-image: url(${LandingPage3_Img});
+  background-size: 500px 583px;
   position: absolute;
-  width: 420px;
-  height: 590px;
+  width: 500px;
+  height: 583px;
   margin-top: 50px;
+  border-radius: 20px;
 `;
 
 export const LandingPageUpperBar = styled.div`
