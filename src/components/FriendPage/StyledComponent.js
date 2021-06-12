@@ -20,7 +20,7 @@ export const ModalBackground = styled.div`
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(255, 255, 255, 0.7);
 `;
 
 export const FriendPageAddModal = styled.div`
