@@ -32,6 +32,9 @@ const PasswordCheck = () => {
         password: password,
     };
 
+    const wrongHandler = () => {
+    }
+
     //async&await
     //Confirm버튼 누를시 발생시킬 fuction
     const submitHandler = async (e) => {
@@ -40,6 +43,7 @@ const PasswordCheck = () => {
         //주소 이런식으로 발생시킴
         await axios.post(`${address}/members/profile/me/password/valid`, postPassword).then((res)=> {
             if(res.status === 200) history.push('/setting')
+            else {wrongHandler()}
         });
     };
 

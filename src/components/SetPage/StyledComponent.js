@@ -142,24 +142,6 @@ export const SetPageNotificationLine5 = styled.div`
 export const SetPageNotificationLine6 = styled.div`
 `;
 
-export const SetPageNotificationText1 = styled.span`
-`;
-
-export const SetPageNotificationText2 = styled.span`
-`;
-
-export const SetPageNotificationText3 = styled.span`
-`;
-
-export const SetPageNotificationText4 = styled.span`
-`;
-
-export const SetPageNotificationText5 = styled.span`
-`;
-
-export const SetPageNotificationText6 = styled.span`
-`;
-
 //
 export const SetPageApplyBox = styled.div`
   position: absolute;

@@ -53,10 +53,37 @@ import {
   NotificationLine,
   NotificationContentBox,
   NotificationContent1,
+  NotificationContent2,
+  NotificationContent3,
+  NotificationContent4,
+  NotificationContent5,
+  NotificationContent6,
   TitleChange,
   TitleChangeText,
   TitleChangeButton,
   MainBlur,
+  IncompletedList1,
+  IncompletedList2,
+  IncompletedList3,
+  IncompletedListIcon1,
+  IncompletedListIcon2,
+  IncompletedListIcon3,
+  IncompletedListIcon4,
+  IncompletedListIcon5,
+  IncompletedListIcon6,
+  GuestBookList1,
+  GuestBookList2,
+  GuestBookList3,
+  GuestBookList4,
+  GuestBookList5,
+  FavoriteSmallTitle,
+  FavoriteSmallTitle2,
+  FavoriteFriendList1,
+  FavoriteFriendList2,
+  FavoriteFriendList3,
+  FavoriteTeamList1,
+  FavoriteTeamList2,
+  FavoriteTeamList3
 } from '../MenuBar/StyledComponent';
 import TitleButton from '@material-ui/core/Button';
 import TitleTextField from '@material-ui/core/TextField';
@@ -83,14 +110,27 @@ const MenuBar = () => {
 
   ///////////////////////////
   //for title useState
-  const [title, setTitle] = useState('Default Title');
-  const [title2, setTitle2] = useState('sibal');
+  const [title, setTitle] = useState('');
+  const [title2, setTitle2] = useState('wrong');
 
-  useCallback(() => {
-    axios.get(`${address}/members/me/converstaion`).then((res) => {
+  useEffect(()=>{
+    let jwtToken = localStorage.getItem('Authorization');
+    axios.defaults.headers.common['Authorization'] = jwtToken;
+    axios.get(`${address}/members/me/conversation`).then((res) => {
       setTitle(res.data.conversation);
     });
-  });
+    console.log("useEffect");
+  },[setTitle])
+
+
+  // useCallback(() => {
+  //   let jwtToken = localStorage.getItem('Authorization');
+  //   axios.defaults.headers.common['Authorization'] = jwtToken;
+  //   axios.get(`${address}/members/me/converstaion`).then((res) => {
+  //     setTitle(res.data.conversation);
+  //   });
+  //   console.log("usecallback");
+  // },[setTitle]);
 
   //input title fuction
   const onChangeTitle = useCallback((e) => {
@@ -105,18 +145,42 @@ const MenuBar = () => {
   //change title fuction
   const submitHandler = async (e) => {
     e.preventDefault();
+    let jwtToken = localStorage.getItem('Authorization');
+    axios.defaults.headers.common['Authorization'] = jwtToken;
+
     //주소 이런식으로 발생시킴
     axios.patch(`${address}/members/me/conversation`, bufferTitle);
     handleClose3();
   };
 
+
   //apply title function
-  const applyHandler = async (e) => {
-    e.preventDefault();
-    axios.get(`${address}/members/me/converstaion`).then((res) => {
-      setTitle(res.data.conversation);
-    });
-  };
+  // const applyHandler =  () => {
+  //   // e.preventDefault();
+  //   const axiosGet = async () => {
+  //     let jwtToken = localStorage.getItem('Authorization');
+  //     axios.defaults.headers.common['Authorization'] = jwtToken;
+  //     await axios.get(`${address}/members/me/conversation`).then((res) => {
+  //     setTitle(res.data.conversation);
+  //   });
+  //   }
+  //   axiosGet();
+  // }
+
+
+//   const applyHandler = (e) => {
+//     useEffect(()=> {
+//     e.preventDefault();
+//     const axiosGet = () => {
+//       let jwtToken = localStorage.getItem('Authorization');
+//     axios.defaults.headers.common['Authorization'] = jwtToken;
+//      axios.get(`${address}/members/me/conversation`).then((res) => {
+//       setTitle(res.data.conversation);
+//     });
+//     }
+//     axiosGet();
+//   }, [setTitle])
+// }
 
   const openTitle = () => {
     setTitle2(title);
@@ -330,7 +394,14 @@ TimerButton.defaultProps = {
                 <NotificationToSetIcon />
               </Link>
               <NotificationLine />
-              <NotificationContentBox></NotificationContentBox>
+              <NotificationContentBox>
+                <NotificationContent1>민지원 님이 친구 요청 하였습니다</NotificationContent1>
+                <NotificationContent2>박성호 님이 그룹에 초대하였습니다</NotificationContent2>
+                <NotificationContent3>3/30 미완료 리스트 3건 있습니다</NotificationContent3>
+                <NotificationContent4>이상민 님이 방명록을 남기셨습니다</NotificationContent4>
+                <NotificationContent5>오늘의 리스트를 작성해주세요</NotificationContent5>
+                <NotificationContent6>잠깐! 타이머를 종료 하셨나요?</NotificationContent6>
+              </NotificationContentBox>
             </NotificationDialog>
           ) : null}
           {open2 ? <MainBlur onClick={handleClose2} /> : null}
@@ -365,7 +436,7 @@ TimerButton.defaultProps = {
               <SideBoxIcon1 />
               <SideBoxTitle1>Dokit List</SideBoxTitle1>
             </Link>
-            <Link to='/main'>
+            <Link to='/teamCalendar'>
               <SideBoxIcon2 />
               <SideBoxTitle2>Calendar</SideBoxTitle2>
             </Link>
@@ -400,14 +471,46 @@ TimerButton.defaultProps = {
           <SideBoxDetail3>
             <SideBoxIcon6 />
             <SideBoxTitle6>Incompleted List</SideBoxTitle6>
+            <div>
+              <IncompletedList1>인공지능 3주차 강의</IncompletedList1>
+              <IncompletedListIcon1/>
+              <IncompletedListIcon2/>
+              <IncompletedList2>알고리즘 2주차 강의</IncompletedList2>
+              <IncompletedListIcon3/>
+              <IncompletedListIcon4/>
+              <IncompletedList3>프로젝트 자료제출</IncompletedList3>
+              <IncompletedListIcon5/>
+              <IncompletedListIcon6/>
+            </div>
           </SideBoxDetail3>
           <SideBoxDetail4>
             <SideBoxIcon7 />
             <SideBoxTitle7>Guest Book</SideBoxTitle7>
+            <div>
+              <GuestBookList1>박성호 : 소통해요~</GuestBookList1>
+              <GuestBookList2>이상민 : 안녕하세요^^</GuestBookList2>
+              <GuestBookList3></GuestBookList3>
+              <GuestBookList4></GuestBookList4>
+              <GuestBookList5></GuestBookList5>
+            </div>
           </SideBoxDetail4>
           <SideBoxDetail5>
             <SideBoxIcon8 />
             <SideBoxTitle8>Favorite</SideBoxTitle8>
+            <div>
+              <FavoriteSmallTitle>Friends</FavoriteSmallTitle>
+              <FavoriteFriendList1>김지현</FavoriteFriendList1>
+              <FavoriteFriendList2>민지원</FavoriteFriendList2>
+              <FavoriteFriendList3></FavoriteFriendList3>
+            </div>
+            <div style={{"position" : "absolute", "width" : "200px", "height" : "1px", "left" : "0px", "top" : "70px",
+            "background-color" : "gray"}}/>
+            <div>
+              <FavoriteSmallTitle2>Team</FavoriteSmallTitle2>
+              <FavoriteTeamList1>두야호</FavoriteTeamList1>
+              <FavoriteTeamList2></FavoriteTeamList2>
+              <FavoriteTeamList3></FavoriteTeamList3>
+            </div>
           </SideBoxDetail5>
         </SideBox>
       </MenuBox>

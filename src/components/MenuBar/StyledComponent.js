@@ -16,7 +16,9 @@ import {
     SideBoxGuestBookIcon,
     SideBoxFavoriteIcon,
     UpperBoxMe_SettingIcon,
-    UpperBoxMe_LogoutIcon
+    UpperBoxMe_LogoutIcon,
+    SideBoxPlusIcon,
+    SideBoxCheckIcon
 } from '../commons/MenuBarIcon';
 
 export const MenuBox = styled.div`
@@ -104,7 +106,6 @@ margin:4px;
 
 
 export const SideBoxContent = styled.div`
-background:white;
 position:relative;
 width:190px;
 height:80px;
@@ -502,7 +503,59 @@ background-color:gray;
 export const NotificationContentBox = styled.div`
 background-color:red;
 `;
-export const NotificationContent1 = styled.span`
+export const NotificationContent1 = styled.div`
+font-family:'Roboto';
+position:absolute;
+color:black;
+font-size:16px;
+font-weight:500;
+left:20px;
+top:50px;
+`;
+export const NotificationContent2 = styled.div`
+font-family:'Roboto';
+position:absolute;
+color:black;
+font-size:16px;
+font-weight:500;
+left:20px;
+top:75px;
+`;
+export const NotificationContent3 = styled.div`
+font-family:'Roboto';
+position:absolute;
+color:black;
+font-size:16px;
+font-weight:500;
+left:20px;
+top:100px;
+`;
+export const NotificationContent4 = styled.div`
+font-family:'Roboto';
+position:absolute;
+color:black;
+font-size:16px;
+font-weight:500;
+left:20px;
+top:125px;
+`;
+export const NotificationContent5 = styled.div`
+font-family:'Roboto';
+position:absolute;
+color:black;
+font-size:16px;
+font-weight:500;
+left:20px;
+top:150px;
+`;
+export const NotificationContent6 = styled.div`
+font-family:'Roboto';
+position:absolute;
+color:black;
+font-size:16px;
+font-weight:500;
+left:20px;
+top:175px;
 `;
 
 export const TitleDialog = styled.div`
@@ -516,3 +569,219 @@ export const TitleChangeText = styled.span`
 
 export const TitleChangeButton = styled.span`
 `;
+
+export const IncompletedList1 = styled.span`
+font-family:'Roboto';
+position:absolute;
+color:black;
+font-size:14px;
+font-weight:400;
+left:5px;
+top:35px;
+`;
+
+export const IncompletedList2 = styled.span`
+font-family:'Roboto';
+position:absolute;
+color:black;
+font-size:14px;
+font-weight:400;
+left:5px;
+top:60px;
+`;
+
+export const IncompletedList3 = styled.span`
+font-family:'Roboto';
+position:absolute;
+color:black;
+font-size:14px;
+font-weight:400;
+left:5px;
+top:85px;
+`;
+
+export const IncompletedListIcon1 = styled(SideBoxPlusIcon)`
+position: absolute;
+right:30px;
+top:35px;
+color:gray;
+width:18px;
+height:18px;
+cursor: pointer;
+`
+
+export const IncompletedListIcon2 = styled(SideBoxCheckIcon)`
+position: absolute;
+right:10px;
+top:35px;
+color:gray;
+width:18px;
+height:18px;
+cursor: pointer;
+`
+
+export const IncompletedListIcon3 = styled(SideBoxPlusIcon)`
+position: absolute;
+right:30px;
+top:60px;
+color:gray;
+width:18px;
+height:18px;
+cursor: pointer;
+`
+
+export const IncompletedListIcon4 = styled(SideBoxCheckIcon)`
+position: absolute;
+right:10px;
+top:60px;
+color:gray;
+width:18px;
+height:18px;
+cursor: pointer;
+`
+
+export const IncompletedListIcon5 = styled(SideBoxPlusIcon)`
+position: absolute;
+right:30px;
+top:85px;
+color:gray;
+width:18px;
+height:18px;
+cursor: pointer;
+`
+
+export const IncompletedListIcon6 = styled(SideBoxCheckIcon)`
+position: absolute;
+right:10px;
+top:85px;
+color:gray;
+width:18px;
+height:18px;
+cursor: pointer;
+`
+//
+export const GuestBookList1 = styled.span`
+font-family:'Roboto';
+position:absolute;
+color:black;
+font-size:12px;
+font-weight:400;
+left:5px;
+top:30px;
+`;
+export const GuestBookList2 = styled.span`
+font-family:'Roboto';
+position:absolute;
+color:black;
+font-size:12px;
+font-weight:400;
+left:5px;
+top:45px;
+`;
+export const GuestBookList3 = styled.span`
+font-family:'Roboto';
+position:absolute;
+color:black;
+font-size:14px;
+font-weight:400;
+left:5px;
+top:60px;
+`;
+export const GuestBookList4 = styled.span`
+font-family:'Roboto';
+position:absolute;
+color:black;
+font-size:14px;
+font-weight:400;
+left:5px;
+top:75px;
+`;
+export const GuestBookList5 = styled.span`
+font-family:'Roboto';
+position:absolute;
+color:black;
+font-size:14px;
+font-weight:400;
+left:5px;
+top:90px;
+`;
+//
+export const FavoriteSmallTitle = styled.span`
+font-family:'Roboto';
+position:absolute;
+color:black;
+font-size:14px;
+font-weight:600;
+left:5px;
+top:30px;
+cursor: pointer;
+`;
+
+export const FavoriteSmallTitle2 = styled.span`
+font-family:'Roboto';
+position:absolute;
+color:black;
+font-size:14px;
+font-weight:600;
+left:5px;
+top:75px;
+cursor: pointer;
+`;
+
+export const FavoriteFriendList1 = styled.span`
+font-family:'Roboto';
+position:absolute;
+color:black;
+font-size:14px;
+font-weight:400;
+left:5px;
+top:50px;
+`;
+export const FavoriteFriendList2 = styled.span`
+font-family:'Roboto';
+position:absolute;
+color:black;
+font-size:14px;
+font-weight:400;
+left:55px;
+top:50px;
+`;
+export const FavoriteFriendList3 = styled.span`
+font-family:'Roboto';
+position:absolute;
+color:black;
+font-size:14px;
+font-weight:400;
+left:105px;
+top:50px;
+`;
+
+export const FavoriteTeamList1 = styled.span`
+font-family:'Roboto';
+position:absolute;
+color:black;
+font-size:14px;
+font-weight:400;
+left:5px;
+top:95px;
+`;
+export const FavoriteTeamList2 = styled.span`
+font-family:'Roboto';
+position:absolute;
+color:black;
+font-size:14px;
+font-weight:400;
+left:5px;
+top:90px;
+
+`;
+export const FavoriteTeamList3 = styled.span`
+font-family:'Roboto';
+position:absolute;
+color:black;
+font-size:14px;
+font-weight:400;
+left:5px;
+top:90px;
+`;
+
