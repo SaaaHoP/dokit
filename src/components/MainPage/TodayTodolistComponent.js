@@ -71,13 +71,13 @@ const TodayTodolistComponent = ({
   };
 
   const onInsert = useCallback(
-    async (content, description, lock) => {
+    async (content, description, lock, icon) => {
       let todo = {
         completed: false,
         content: content,
         date: selectDate,
         description: description,
-        emoticon: '',
+        emoticon: icon,
         emphasized: null,
         id: null,
         opened: lock,
@@ -90,18 +90,12 @@ const TodayTodolistComponent = ({
             id: res.data.id,
             sequence: res.data.sequence,
           };
-          // console.log(res.data.id);
-          // console.log(res.data.sequence);
-          // console.log(todo);
         }
       });
       setTodos(todos.concat(todo));
     },
     [todos, selectDate]
   );
-
-  //맨첨 불러온 리스트에서는 id가 부여되어 있어서 id로 삭제하면 되는데
-  //추가하고 삭제할때는 get해온뒤가 아닌거여서 id가 부여 안되어있다. 그거 해결해야할듯
 
   const onRemove = useCallback(
     (sequence) => {
@@ -124,7 +118,7 @@ const TodayTodolistComponent = ({
   );
 
   const onRevise = useCallback(
-    (sequence, todoContent, todoDescription, lock) => {
+    (sequence, todoContent, todoDescription, lock, icon) => {
       setTodos(
         todos.map((todo) =>
           todo.sequence === sequence
@@ -133,6 +127,7 @@ const TodayTodolistComponent = ({
                 content: todoContent,
                 description: todoDescription,
                 opened: lock,
+                emoticon: icon,
               }
             : todo
         )
@@ -187,7 +182,7 @@ const TodayTodolistComponent = ({
         <TodolistRightSubBox>
           <TodolistRightSubBoxText>내일</TodolistRightSubBoxText>
           <TodolistRightSubBoxText>
-            예정 할 일 {tomorrowTodos.numberOfItems}건
+            예정 할 일 {tomorrowTodos.numberOfIncomplete}건
           </TodolistRightSubBoxText>
         </TodolistRightSubBox>
       </TodolistRightBox>

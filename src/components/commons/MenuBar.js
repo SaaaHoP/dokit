@@ -436,15 +436,15 @@ TimerButton.defaultProps = {
               <SideBoxIcon1 />
               <SideBoxTitle1>Dokit List</SideBoxTitle1>
             </Link>
-            <Link to='/teamCalendar'>
+            <Link to='/calendar'>
               <SideBoxIcon2 />
               <SideBoxTitle2>Calendar</SideBoxTitle2>
             </Link>
-            <Link to='/main'>
+            <Link to='/friend'>
               <SideBoxIcon3 />
               <SideBoxTitle3>Friends</SideBoxTitle3>
             </Link>
-            <Link to='/main'>
+            <Link to='/team'>
               <SideBoxIcon4 />
               <SideBoxTitle4>Team</SideBoxTitle4>
             </Link>
