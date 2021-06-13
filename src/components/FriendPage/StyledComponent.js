@@ -1,16 +1,15 @@
 import styled from 'styled-components';
-import { AiOutlineTeam } from "react-icons/ai"; // Friend 아이콘
-import { BiSearchAlt2 } from "react-icons/bi"; // 돋보기 아이콘
-import { AiOutlineStar } from "react-icons/ai"; // 빈 별
-import { AiFillStar } from "react-icons/ai"; // 찬 별
-import { BsPeopleCircle } from "react-icons/bs"; // 프사
-import { FaPlus } from "react-icons/fa"
+import { AiOutlineTeam } from "react-icons/ai";
+import { BiSearchAlt2 } from "react-icons/bi"; 
+import { AiOutlineStar } from "react-icons/ai"; 
+import { AiFillStar } from "react-icons/ai"; 
+import { FaPlus } from "react-icons/fa";
+import {FaUserCircle} from 'react-icons/fa';
 
 export const FriendPageTemplate = styled.div`
     position: fixed;
     background: white;
     height: 700px;
-    // width: 1320px;
     top: 85px;
     left: 200px;
     right: 10px;
@@ -22,12 +21,12 @@ export const ModalBackground = styled.div`
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(255, 255, 255, 0.7);
 `;
 
 export const FriendPageAddModal = styled.div`
-    width: 360px;
-    height: 340px;
+    width: 370px;
+    height: 320px;
     top: 140px;
     right: 70px;
     float: right;
@@ -60,16 +59,18 @@ export const ModalContentsWrapper = styled.div`
 `;
 
 export const FriendPageAddModalInputEmail = styled.input.attrs({
-    placeholder: "input friend's email and press the enter key.."
+    placeholder: "input friend's email.."
 })`
+    margin-left: 10px;
     width: 300px;
     border: none;
     border-bottom: 1px solid #000000;
 `;
 
-export const FriendPageAddModalUserProfileCircle = styled(BsPeopleCircle)`
+export const FriendPageAddModalUserProfileCircle = styled(FaUserCircle)`
     height: 120px;
     width: 120px;
+    border-radius: 50%;
     color: #C4C4C4;
     margin: 0 auto;
     margin-top: 30px;
@@ -77,35 +78,41 @@ export const FriendPageAddModalUserProfileCircle = styled(BsPeopleCircle)`
 
 export const FriendPageAddModalUserName = styled.div`
     font-size: 18px;
+    height: 20px;
     margin: 0 auto;
     margin-top: 20px;
 `;
 
-export const FriendPageAddModalUserComment = styled.div`
-    margin: 0 auto;
-    margin-top: 10px;
-    font-size: 13px;
-    padding-top: 0.5rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    height: 30px;
-    background: rgba(172, 211, 220, 0.5);
-    border-radius: 10px;
-    border: none;
-    text-align: center;
+export const FriendPageButtonWrapper = styled.div`
+    display: flex;
 `;
 
-export const FriendPageAddModalAddButton = styled.div`
+export const FriendPageAddModalSearchButton = styled.button`
+    border: none;
+    margin-left: 190px;
     font-size: 18px;
-    width: 80px;
+    width: 75px;
     height: 36px;
-    margin-top: 30px;
-    margin-left: 230px;
     padding-top: 0.5rem;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.15);
     border-radius: 22px;
     text-align: center;
     cursor: pointer;
+    float: left;
+`;
+
+export const FriendPageAddModalAddButton = styled.button`
+    border: none;
+    margin-left: 10px;
+    font-size: 18px;
+    width: 75px;
+    height: 36px;
+    padding-top: 0.5rem;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 22px;
+    text-align: center;
+    cursor: pointer;
+    float: left;
 `;
 
 export const FriendPageTitleWrapper = styled.div`
@@ -250,10 +257,11 @@ export const FriendPageFavoriteStarLine = styled(AiOutlineStar)`
     cursor: pointer;
 `;
 
-export const FriendPageUserProfileCircle = styled(BsPeopleCircle)`
+export const FriendPageUserProfileCircle = styled(FaUserCircle)`
     height: 48px;
     width: 48px;
     color: #C4C4C4;
+    border-radius: 50%;
 `;
 
 export const FriendPageUserName = styled.div`

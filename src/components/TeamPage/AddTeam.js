@@ -122,7 +122,7 @@ const AddTeam = (props) => {
     //     const axiosGet = async () => {
     //         await axios.get(`${address}/friends/me/for_team`).then((res) => {
     //             setFriendListElements(res.data.friends);
-    //         });
+    //         });   
     //     };
     //     axiosGet();
     // },[]);

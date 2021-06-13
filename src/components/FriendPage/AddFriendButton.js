@@ -16,6 +16,7 @@ class AddFriendButton extends Component {
 
   closeModal = () => {
     this.setState({ isModalOpen: false });
+    window.location.reload();
   };
 
   render() {

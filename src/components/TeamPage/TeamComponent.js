@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link, Route } from 'react-router-dom';
 import axios from 'axios';
 import { address } from '../../variables';
 import {
@@ -32,12 +33,14 @@ const TeamComponent = () => {
 
     const FavoriteTeamListElementCreator = ({user}) => {
         return(
+            <Link to='/teamCalendar'>
             <TeamPageListElement>
                 <TeamPageFavoriteStar/>
                 <TeamPageUserProfileCircle src={user.profileUrl}/>
                 <TeamPageUserName>{user.teamName}</TeamPageUserName>
                 <TeamPageUserComment>{user.projectName}</TeamPageUserComment>
             </TeamPageListElement>
+            </Link>
         );
     }
 
