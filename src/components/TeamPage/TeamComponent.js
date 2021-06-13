@@ -129,12 +129,6 @@ const TeamComponent = () => {
     var [TeamListElements, setTeamListElements] = useState([]);
     var [TeamRequestElements, setTeamRequestElements] = useState([]);
 
-    // 로그인 대신 //
-    const accessToken = 'Bearer ' + "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX01FTUJFUiJdLCJlbWFpbCI6Imp3MUBuYXZlci5jb20iLCJpYXQiOjE2MjM0NzY0MzYsImV4cCI6MTYyMzQ5ODAzNn0.oycqXh9bFtxXRn26czgZPOrQKTEDF3begVWL9FZ2XkI";
-    axios.defaults.headers.common['Authorization'] = accessToken;
-    localStorage.setItem('Authorization', accessToken);
-    ////////////////
-
     useEffect(() => {
         const axiosGet = async () => {
             let jwtToken = localStorage.getItem('Authorization');
