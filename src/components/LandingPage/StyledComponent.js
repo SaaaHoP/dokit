@@ -23,7 +23,7 @@ export const LandingPageImgBox = styled.div`
 `;
 
 export const LandingPageImg = styled.div`
-  background-image: url(${LandingPage3_Img});
+  background-image: url(${LandingPage2_Img});
   background-size: 500px 583px;
   position: absolute;
   width: 500px;

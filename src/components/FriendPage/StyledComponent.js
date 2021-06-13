@@ -3,7 +3,8 @@ import { AiOutlineTeam } from "react-icons/ai";
 import { BiSearchAlt2 } from "react-icons/bi"; 
 import { AiOutlineStar } from "react-icons/ai"; 
 import { AiFillStar } from "react-icons/ai"; 
-import { FaPlus } from "react-icons/fa"
+import { FaPlus } from "react-icons/fa";
+import {FaUserCircle} from 'react-icons/fa';
 
 export const FriendPageTemplate = styled.div`
     position: fixed;
@@ -66,7 +67,7 @@ export const FriendPageAddModalInputEmail = styled.input.attrs({
     border-bottom: 1px solid #000000;
 `;
 
-export const FriendPageAddModalUserProfileCircle = styled.img`
+export const FriendPageAddModalUserProfileCircle = styled(FaUserCircle)`
     height: 120px;
     width: 120px;
     border-radius: 50%;
@@ -256,7 +257,7 @@ export const FriendPageFavoriteStarLine = styled(AiOutlineStar)`
     cursor: pointer;
 `;
 
-export const FriendPageUserProfileCircle = styled.img`
+export const FriendPageUserProfileCircle = styled(FaUserCircle)`
     height: 48px;
     width: 48px;
     color: #C4C4C4;
