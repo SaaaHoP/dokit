@@ -35,7 +35,7 @@ const FriendComponent = () => {
         return(
             <FriendPageListElement>
                 <FriendPageFavoriteStar onClick={(e) => deleteFavoriteHandler(user.id, e)}/>
-                <FriendPageUserProfileCircle src={user.profileUrl}/>
+                <FriendPageUserProfileCircle/>
                 <FriendPageUserName>{user.username}</FriendPageUserName>
                 <FriendPageUserComment>{user.conversation}</FriendPageUserComment>
             </FriendPageListElement>
@@ -50,10 +50,10 @@ const FriendComponent = () => {
             }
         });
         await axios.get(`${address}/friends/me/favorite`).then((res) => {
-            setFavoriteFriendListElements(res.data.friends);
+            // setFavoriteFriendListElements(res.data.friends);
         });
         await axios.get(`${address}/friends/me/normal`).then((res) => {
-            setFriendListElements(res.data.friends);
+            // setFriendListElements(res.data.friends);
         });
     };
     
@@ -71,7 +71,7 @@ const FriendComponent = () => {
         return(
             <FriendPageListElement>
                 <FriendPageFavoriteStarLine onClick={(e) => favoriteHandler(user.id, e)}/>
-                <FriendPageUserProfileCircle src={user.profileUrl}/>
+                <FriendPageUserProfileCircle/>
                 <FriendPageUserName>{user.username}</FriendPageUserName>
                 <FriendPageUserComment>{user.conversation}</FriendPageUserComment>
             </FriendPageListElement>
@@ -84,10 +84,10 @@ const FriendComponent = () => {
                id: friendId
         });
         await axios.get(`${address}/friends/me/favorite`).then((res) => {
-            setFavoriteFriendListElements(res.data.friends);
+            // setFavoriteFriendListElements(res.data.friends);
         });
         await axios.get(`${address}/friends/me/normal`).then((res) => {
-            setFriendListElements(res.data.friends);
+            // setFriendListElements(res.data.friends);
         });
     };
     
@@ -104,7 +104,7 @@ const FriendComponent = () => {
     const FriendRequestElementCreator = ({user}) => {
         return(
             <FriendPageListElement>
-                <FriendPageUserProfileCircle src={user.profileUrl}/>
+                <FriendPageUserProfileCircle/>
                 <FriendPageUserName>{user.username}</FriendPageUserName>
                 <FriendPageAcceptButton onClick={(e) => acceptHandler(user.id, e)}>
                     Accept
@@ -120,10 +120,10 @@ const FriendComponent = () => {
            friendId: id
         });
         await axios.get(`${address}/friends/me/from_request`).then((res) => {
-            setFriendRequestElements(res.data.friends);
+            // setFriendRequestElements(res.data.friends);
         });
         await axios.get(`${address}/friends/me/normal`).then((res) => {
-            setFriendListElements(res.data.friends);
+            // setFriendListElements(res.data.friends);
         });
     };
     
@@ -135,10 +135,10 @@ const FriendComponent = () => {
             }
         });
         await axios.get(`${address}/friends/me/from_request`).then((res) => {
-            setFriendRequestElements(res.data.friends);
+            // setFriendRequestElements(res.data.friends);
         });
         await axios.get(`${address}/friends/me/normal`).then((res) => {
-                setFriendListElements(res.data.friends);
+                // setFriendListElements(res.data.friends);
             });
     };
     
@@ -160,14 +160,14 @@ const FriendComponent = () => {
             }
         });
         await axios.get(`${address}/friends/me/to_request`).then((res) => {
-            setMyFriendRequestElements(res.data.friends);
+            // setMyFriendRequestElements(res.data.friends);
         });
     };
     
     const MyFriendRequestElementCreator = ({user}) => {
         return(
             <FriendPageListElement>
-                <FriendPageUserProfileCircle src={user.profileUrl}/>
+                <FriendPageUserProfileCircle/>
                 <FriendPageUserName>{user.username}</FriendPageUserName>
                 <FriendPageRejectButton onClick={(e) => deleteHandler(user.id, e)}>Delete</FriendPageRejectButton>
             </FriendPageListElement>
@@ -185,34 +185,102 @@ const FriendComponent = () => {
         );
     }
 
-    var [FriendListElements, setFriendListElements] = useState([]);
-    var [FavoriteFriendListElements, setFavoriteFriendListElements] = useState([]);
-    var [FriendRequestElements, setFriendRequestElements] = useState([]);
-    var [MyFriendRequestElements, setMyFriendRequestElements] = useState([]);
+    // var [FriendListElements, setFriendListElements] = useState([]);
+    // var [FavoriteFriendListElements, setFavoriteFriendListElements] = useState([]);
+    // var [FriendRequestElements, setFriendRequestElements] = useState([]);
+    // var [MyFriendRequestElements, setMyFriendRequestElements] = useState([]);
 
-    useEffect(() => {
-        const axiosGet = async () => {
-            let jwtToken = localStorage.getItem('Authorization');
-            axios.defaults.headers.common['Authorization'] = jwtToken;
 
-            await axios.get(`${address}/friends/me/normal`).then((res) => {
-                setFriendListElements(res.data.friends);
-            });
+    // useEffect(() => {
+    //     const axiosGet = async () => {
+    //         let jwtToken = localStorage.getItem('Authorization');
+    //         axios.defaults.headers.common['Authorization'] = jwtToken;
+
+    //         await axios.get(`${address}/friends/me/normal`).then((res) => {
+    //             setFriendListElements(res.data.friends);
+    //         });
             
-            await axios.get(`${address}/friends/me/favorite`).then((res) => {
-                setFavoriteFriendListElements(res.data.friends);
-            });
+    //         await axios.get(`${address}/friends/me/favorite`).then((res) => {
+    //             setFavoriteFriendListElements(res.data.friends);
+    //         });
             
-            await axios.get(`${address}/friends/me/from_request`).then((res) => {
-                setFriendRequestElements(res.data.friends);
-            });
+    //         await axios.get(`${address}/friends/me/from_request`).then((res) => {
+    //             setFriendRequestElements(res.data.friends);
+    //         });
             
-            await axios.get(`${address}/friends/me/to_request`).then((res) => {
-                setMyFriendRequestElements(res.data.friends);
-            });
-        };
-        axiosGet();
-    },[]);
+    //         await axios.get(`${address}/friends/me/to_request`).then((res) => {
+    //             setMyFriendRequestElements(res.data.friends);
+    //         });
+    //     };
+    //     axiosGet();
+    // },[]);
+    const FavoriteFriendListElements = [
+        {
+            id: 1,
+            username: '민지원',
+            conversation: '으랏짜짯짜',
+            favorite: 'true'
+        },
+    ];
+
+    const FriendListElements = [
+        {
+            id: 1,
+            username: '김지현',
+            conversation: '플젝 홧팅~!',
+            favorite: 'false'
+        },
+        {
+            id: 2,
+            username: '박성호',
+            conversation: '안녕하세용가리',
+            favorite: 'false'
+        },
+        {
+            id: 3,
+            username: '정명훈',
+            conversation: '월요일 좋아~',
+            favorite: 'false'
+        },
+    ];
+    
+    const FriendRequestElements = [
+        {
+            id: 1,
+            username: '차인표',
+        },
+        {
+            id: 2,
+            username: '최동욱'
+        },
+        {
+            id: 3,
+            username: '박근한'
+        },
+        {
+            id: 4,
+            username: '안하주'
+        },
+        {
+            id: 6,
+            username: '강병도'
+        },
+
+    ];
+
+    const MyFriendRequestElements = [
+        {
+            id: 1,
+            username: '민루피',
+        },
+        {
+            id: 2,
+            username: '은지원'
+        },
+    ];
+
+
+
 
     return (
         <>

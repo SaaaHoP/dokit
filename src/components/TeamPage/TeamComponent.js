@@ -93,10 +93,10 @@ const TeamComponent = () => {
            teamId: id
         });
         await axios.get(`${address}/teams/me/request`).then((res) => {
-            setTeamRequestElements(res.data.teams);
+            ////setTeamRequestElements(res.data.teams);
         });
         await axios.get(`${address}/teams/me/normal`).then((res) => {
-            setTeamListElements(res.data.teams);
+            //setTeamListElements(res.data.teams);
         });
     };
 
@@ -108,10 +108,10 @@ const TeamComponent = () => {
             }
         });
         await axios.get(`${address}/teams/me/request`).then((res) => {
-            setTeamRequestElements(res.data.teams);
+            //setTeamRequestElements(res.data.teams);
         });
         await axios.get(`${address}/teams/me/normal`).then((res) => {
-                setTeamListElements(res.data.teams);
+                //setTeamListElements(res.data.teams);
             });
     };
     
@@ -125,29 +125,78 @@ const TeamComponent = () => {
         );
     }
 
-    var [FavoriteTeamListElements, setFavoriteTeamListElements] = useState([]);
-    var [TeamListElements, setTeamListElements] = useState([]);
-    var [TeamRequestElements, setTeamRequestElements] = useState([]);
+    // var [FavoriteTeamListElements, //setFavoriteTeamListElements] = useState([]);
+    // var [TeamListElements, //setTeamListElements] = useState([]);
+    // var [TeamRequestElements, //setTeamRequestElements] = useState([]);
 
-    useEffect(() => {
-        const axiosGet = async () => {
-            let jwtToken = localStorage.getItem('Authorization');
-            axios.defaults.headers.common['Authorization'] = jwtToken;
+    // useEffect(() => {
+    //     const axiosGet = async () => {
+    //         let jwtToken = localStorage.getItem('Authorization');
+    //         axios.defaults.headers.common['Authorization'] = jwtToken;
 
-            await axios.get(`${address}/teams/me/favorite`).then((res) => {
-                setFavoriteTeamListElements(res.data.teams);
-            });
+    //         await axios.get(`${address}/teams/me/favorite`).then((res) => {
+    //             //setFavoriteTeamListElements(res.data.teams);
+    //         });
 
-            await axios.get(`${address}/teams/me/normal`).then((res) => {
-                setTeamListElements(res.data.teams);
-            });
+    //         await axios.get(`${address}/teams/me/normal`).then((res) => {
+    //             //setTeamListElements(res.data.teams);
+    //         });
 
-            await axios.get(`${address}/teams/me/request`).then((res) => {
-                setTeamRequestElements(res.data.teams);
-            });
-        };
-        axiosGet();
-    },[]);
+    //         await axios.get(`${address}/teams/me/request`).then((res) => {
+    //             //setTeamRequestElements(res.data.teams);
+    //         });
+    //     };
+    //     axiosGet();
+    // },[]);
+    const FavoriteTeamListElements = [
+        {
+            id: 1,
+            teamName: '두야~호~!',
+            projectName: 'DOKIT',
+            favorite: 'true'
+        },
+        {
+            id: 2,
+            teamName: '19쿼드라',
+            projectName: '인공지능 8조',
+            favorite: 'true'
+        },
+    ];
+    const TeamListElements = [
+        {
+            id: 1,
+            teamName: '객체 2조',
+            projectName: 'Car Rental Service',
+            favorite: 'false'
+        },
+        {
+            id: 2,
+            teamName: '객체 9조',
+            projectName: '미정',
+            favorite: 'false'
+        },
+        {
+            id: 2,
+            teamName: '네프 8조',
+            projectName: 'Socket Programming',
+            favorite: 'false'
+        },
+    ];
+    const TeamRequestElements = [
+        {
+            id: 1,
+            teamName: '스터디그룹 SP',
+        },
+        {
+            id: 2,
+            teamName: '댄스 동아리 DOPOP',
+        },
+        {
+            id: 2,
+            teamName: '프로그래밍 가반'
+        },
+    ];
+
 
     return (
 

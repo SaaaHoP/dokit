@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { RiTeamLine } from "react-icons/ri"; 
 import { BiSearchAlt2 } from "react-icons/bi"; 
 import { AiOutlineStar, AiFillStar } from "react-icons/ai"; 
-import { BsPeopleCircle } from "react-icons/bs"; 
+import { FaUserCircle } from "react-icons/fa"; 
 import { FaPlus } from "react-icons/fa";
 import { TiPlus } from "react-icons/ti";
 
@@ -100,7 +100,7 @@ export const TeamPageAddModalUserCheckbox = styled.input.attrs({
     margin-right: 10px;
 `;
 
-export const TeamPageAddModalUserProfile = styled(BsPeopleCircle)`
+export const TeamPageAddModalUserProfile = styled(FaUserCircle)`
     height: 36px;
     width: 36px;
     color: #C4C4C4;
@@ -323,7 +323,7 @@ export const TeamPageFavoriteStarLine = styled(AiOutlineStar)`
     cursor: pointer;
 `;
 
-export const TeamPageUserProfileCircle = styled(BsPeopleCircle)`
+export const TeamPageUserProfileCircle = styled(FaUserCircle)`
     height: 48px;
     width: 48px;
     color: #C4C4C4;
