@@ -9,19 +9,27 @@ import {
     FriendPageAddModalInputEmail,
     FriendPageAddModalUserProfileCircle,
     FriendPageAddModalUserName,
+    FriendPageButtonWrapper,
+    FriendPageAddModalSearchButton,
     FriendPageAddModalAddButton,
 } from "./StyledComponent";
 
 const AddFriend = (props) => {
 
   var [User,setUser] = useState([]);
+  const [em, setEm] = useState('');
   const isOpen = props.isOpen;
   const close = props.close;
 
   const inputHandler = (e) => {
+    setEm(e.target.value);
+  };
+
+  const searchHandler = async(e) => {
+    e.preventDefault();
     axios.get(`${address}/friends`, {
       params: {
-        email: e.target.value
+        email: em
       }
     })
     .then((res) => {
@@ -52,7 +60,10 @@ const AddFriend = (props) => {
               <FriendPageAddModalUserProfileCircle src={User.profileUrl}/>
               <FriendPageAddModalUserName> {User.username} </FriendPageAddModalUserName>
             </ModalContentsWrapper>
-            <FriendPageAddModalAddButton onClick={(e) => addHandler(e)}>Add</FriendPageAddModalAddButton>
+            <FriendPageButtonWrapper>
+              <FriendPageAddModalSearchButton onClick={(e) => searchHandler(e)}>Search</FriendPageAddModalSearchButton>
+              <FriendPageAddModalAddButton onClick={(e) => addHandler(e)}>Add</FriendPageAddModalAddButton>
+            </FriendPageButtonWrapper>
           </FriendPageAddModal>
         </ModalBackground>
         ) : null}

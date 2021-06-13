@@ -82,9 +82,13 @@ export const FriendPageAddModalUserName = styled.div`
     margin-top: 20px;
 `;
 
-export const FriendPageAddModalAddButton = styled.button`
+export const FriendPageButtonWrapper = styled.div`
+    display: flex;
+`;
+
+export const FriendPageAddModalSearchButton = styled.button`
     border: none;
-    margin-left: 270px;
+    margin-left: 190px;
     font-size: 18px;
     width: 75px;
     height: 36px;
@@ -93,6 +97,21 @@ export const FriendPageAddModalAddButton = styled.button`
     border-radius: 22px;
     text-align: center;
     cursor: pointer;
+    float: left;
+`;
+
+export const FriendPageAddModalAddButton = styled.button`
+    border: none;
+    margin-left: 10px;
+    font-size: 18px;
+    width: 75px;
+    height: 36px;
+    padding-top: 0.5rem;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 22px;
+    text-align: center;
+    cursor: pointer;
+    float: left;
 `;
 
 export const FriendPageTitleWrapper = styled.div`
