@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { RiTeamLine } from "react-icons/ri"; 
-import { BiSearchAlt2 } from "react-icons/bi"; 
-import { AiOutlineStar, AiFillStar } from "react-icons/ai"; 
-import { FaUserCircle } from "react-icons/fa"; 
+import { RiTeamLine } from "react-icons/ri";
+import { BiSearchAlt2 } from "react-icons/bi";
+import { AiOutlineStar, AiFillStar } from "react-icons/ai";
+import { FaUserCircle } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa";
 import { TiPlus } from "react-icons/ti";
 
@@ -35,7 +35,7 @@ export const TeamPageAddModal = styled.form`
     box-sizing: border-box;
     border: 2px solid rgba(0, 0, 0, 0.15);
     border-radius: 20px;
-    background: white;       
+    background: white;
 `;
 
 export const ModalCloseButton = styled.span`
@@ -77,7 +77,7 @@ export const TeamPageAddModalSearchWrapper = styled.div`
 
 export const TeamPageAddModalInputSearchName = styled.input.attrs({
     placeholder: "input friend's name.."
-})` 
+})`
     font-size: 12px;
     width: 130px;
     border: none;
@@ -127,19 +127,19 @@ export const TeamPageAddModalThumbnail = styled.div`
     background: rgba(196, 196, 196, 0.6);
     border-radius: 75px;
     font-size: 20px;
-    text-align: center; 
+    text-align: center;
     color: rgba(0, 0, 0, 0.5);
     padding-top: 60px;
 `;
 
 export const TeamPageAddModalSelectThumbnail = styled(TiPlus)`
-    color: #97D7E6; 
+    color: #97D7E6;
     width: 48px;
     height: 48px;
     margin-top: 30px;
     margin-left: 110px;
     cursor: pointer;
-`; 
+`;
 
 export const TeamPageAddModalInputWrapper = styled.div`
     margin-top: 35px;
@@ -158,7 +158,7 @@ export const TeamPageAddModalProject = styled.div`
 `;
 
 export const TeamPageAddModalInputName = styled.input.attrs({
-    
+
 })`
     margin-left: 10px;
     width: 140px;

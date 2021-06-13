@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { address } from '../../variables';
-import { 
+import {
     TeamPageAddModalFriendListElement,
     TeamPageAddModalUserName,
     TeamPageAddModalUserCheckbox,
     TeamPageAddModalUserProfile,
-    ModalBackground, 
-    TeamPageAddModal, 
-    ModalCloseButton, 
+    ModalBackground,
+    TeamPageAddModal,
+    ModalCloseButton,
     ModalContentsWrapper,
     TeamPageAddModalSelectWrapper,
     TeamPageAddModalTitle,
@@ -40,7 +40,7 @@ const AddTeam = (props) => {
     const FriendListElementCreator = ({user}) => {
         return(
             <TeamPageAddModalFriendListElement>
-                <TeamPageAddModalUserCheckbox 
+                <TeamPageAddModalUserCheckbox
                  onClick={(e) => chkHandler(user.id, e)}
                 />
                 <TeamPageAddModalUserProfile src={user.profileUrl}/>
@@ -82,7 +82,7 @@ const AddTeam = (props) => {
     const submitHandler = async (e) => {
 
         e.preventDefault();
-    
+
         let team = {
             friends: friends,
             image: null,
@@ -126,17 +126,17 @@ const AddTeam = (props) => {
     //     };
     //     axiosGet();
     // },[]);
-    
+
     return (
         <>
-        {isOpen ? (  
+        {isOpen ? (
           <ModalBackground>
                 <TeamPageAddModal
                  onSubmit={submitHandler}
                  action={`${address}/teams`}
                  method="post"
                 >
-                    <ModalCloseButton onClick={close}> 
+                    <ModalCloseButton onClick={close}>
                      &times;
                     </ModalCloseButton>
                     <ModalContentsWrapper onClick={open}>
