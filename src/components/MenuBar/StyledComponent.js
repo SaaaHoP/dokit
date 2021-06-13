@@ -1,23 +1,23 @@
 import styled from 'styled-components';
 import { DokitIcon } from '../commons/DokitIcon';
 import {
-    UpperBoxAlarmIcon,
-    UpperBoxMeIcon,
-    SideBoxHomeIcon,
-    SideBoxCalendarIcon,
-    SideBoxFriendsIcon,
-    SideBoxTeamIcon,
-    SideBoxTimerIcon,
-    SideBoxTimerStartIcon,
-    SideBoxStopwatchStartIcon,
-    SideBoxStopwatchResetIcon,
-    SideBoxIncompledtedListIcon,
-    SideBoxGuestBookIcon,
-    SideBoxFavoriteIcon,
-    UpperBoxMe_SettingIcon,
-    UpperBoxMe_LogoutIcon,
-    SideBoxPlusIcon,
-    SideBoxCheckIcon
+  UpperBoxAlarmIcon,
+  UpperBoxMeIcon,
+  SideBoxHomeIcon,
+  SideBoxCalendarIcon,
+  SideBoxFriendsIcon,
+  SideBoxTeamIcon,
+  SideBoxTimerIcon,
+  SideBoxTimerStartIcon,
+  SideBoxStopwatchStartIcon,
+  SideBoxStopwatchResetIcon,
+  SideBoxIncompledtedListIcon,
+  SideBoxGuestBookIcon,
+  SideBoxFavoriteIcon,
+  UpperBoxMe_SettingIcon,
+  UpperBoxMe_LogoutIcon,
+  SideBoxPlusIcon,
+  SideBoxCheckIcon,
 } from '../commons/MenuBarIcon';
 import MenuPost from '../../icons/MenuPost.png';
 import TimerPost from '../../icons/TimerPost.png';
@@ -132,6 +132,17 @@ export const SideBoxDetailBox = styled.div`
   padding: 10px;
   margin: 5px;
 `;
+
+export const SideBoxTimerTemp = styled.span`
+  position: relative;
+  top: 40px;
+  left: 7px;
+  width: 30px;
+  height: 20px;
+  font-size: 30px;
+  font-weight: 600;
+`;
+
 export const SideBoxTimerHours = styled.input`
   position: relative;
   top: -5px;
@@ -511,63 +522,50 @@ export const NotificationLine = styled.div`
   background-color: gray;
 `;
 export const NotificationContentBox = styled.div`
-background-color:red;
+  background-color: red;
 `;
 export const NotificationContent1 = styled.div`
-font-family:'Roboto';
-position:absolute;
-color:black;
-font-size:16px;
-font-weight:500;
-left:20px;
-top:50px;
+  position: absolute;
+  color: black;
+  font-size: 16px;
+  left: 20px;
+  top: 50px;
 `;
 export const NotificationContent2 = styled.div`
-font-family:'Roboto';
-position:absolute;
-color:black;
-font-size:16px;
-font-weight:500;
-left:20px;
-top:75px;
+  position: absolute;
+  color: black;
+  font-size: 16px;
+  left: 20px;
+  top: 75px;
 `;
 export const NotificationContent3 = styled.div`
-font-family:'Roboto';
-position:absolute;
-color:black;
-font-size:16px;
-font-weight:500;
-left:20px;
-top:100px;
+  position: absolute;
+  color: black;
+  font-size: 16px;
+  left: 20px;
+  top: 100px;
 `;
 export const NotificationContent4 = styled.div`
-font-family:'Roboto';
-position:absolute;
-color:black;
-font-size:16px;
-font-weight:500;
-left:20px;
-top:125px;
+  position: absolute;
+  color: black;
+  font-size: 16px;
+  left: 20px;
+  top: 125px;
 `;
 export const NotificationContent5 = styled.div`
-font-family:'Roboto';
-position:absolute;
-color:black;
-font-size:16px;
-font-weight:500;
-left:20px;
-top:150px;
+  position: absolute;
+  color: black;
+  font-size: 16px;
+  left: 20px;
+  top: 150px;
 `;
 export const NotificationContent6 = styled.div`
-font-family:'Roboto';
-position:absolute;
-color:black;
-font-size:16px;
-font-weight:500;
-left:20px;
-top:175px;
+  position: absolute;
+  color: black;
+  font-size: 16px;
+  left: 20px;
+  top: 175px;
 `;
-export const NotificationContent1 = styled.span``;
 
 export const TitleDialog = styled.div``;
 
@@ -575,220 +573,248 @@ export const TitleChange = styled.span``;
 
 export const TitleChangeText = styled.span``;
 
-export const TitleChangeButton = styled.span`
-`;
+export const TitleChangeButton = styled.span``;
 
 export const IncompletedList1 = styled.span`
-font-family:'Roboto';
-position:absolute;
-color:black;
-font-size:14px;
-font-weight:400;
-left:5px;
-top:35px;
+  font-family: 'Noto Sans KR';
+
+  position: absolute;
+  color: black;
+  font-size: 13px;
+  font-weight: 500;
+  left: 5px;
+  top: 35px;
+  margin-top: 2px;
+  margin-left: 5px;
 `;
 
 export const IncompletedList2 = styled.span`
-font-family:'Roboto';
-position:absolute;
-color:black;
-font-size:14px;
-font-weight:400;
-left:5px;
-top:60px;
+  font-family: 'Noto Sans KR';
+
+  position: absolute;
+  color: black;
+  font-size: 13px;
+  font-weight: 500;
+  left: 5px;
+  top: 60px;
+  margin-top: 2px;
+  margin-left: 5px;
 `;
 
 export const IncompletedList3 = styled.span`
-font-family:'Roboto';
-position:absolute;
-color:black;
-font-size:14px;
-font-weight:400;
-left:5px;
-top:85px;
+  font-family: 'Noto Sans KR';
+
+  position: absolute;
+  color: black;
+  font-size: 13px;
+  font-weight: 500;
+  left: 5px;
+  top: 85px;
+  margin-top: 2px;
+  margin-left: 5px;
 `;
 
 export const IncompletedListIcon1 = styled(SideBoxPlusIcon)`
-position: absolute;
-right:30px;
-top:35px;
-color:gray;
-width:18px;
-height:18px;
-cursor: pointer;
-`
+  position: absolute;
+  right: 30px;
+  top: 35px;
+  color: gray;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+`;
 
 export const IncompletedListIcon2 = styled(SideBoxCheckIcon)`
-position: absolute;
-right:10px;
-top:35px;
-color:gray;
-width:18px;
-height:18px;
-cursor: pointer;
-`
+  position: absolute;
+  right: 10px;
+  top: 35px;
+  color: gray;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+`;
 
 export const IncompletedListIcon3 = styled(SideBoxPlusIcon)`
-position: absolute;
-right:30px;
-top:60px;
-color:gray;
-width:18px;
-height:18px;
-cursor: pointer;
-`
+  position: absolute;
+  right: 30px;
+  top: 60px;
+  color: gray;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+`;
 
 export const IncompletedListIcon4 = styled(SideBoxCheckIcon)`
-position: absolute;
-right:10px;
-top:60px;
-color:gray;
-width:18px;
-height:18px;
-cursor: pointer;
-`
+  position: absolute;
+  right: 10px;
+  top: 60px;
+  color: gray;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+`;
 
 export const IncompletedListIcon5 = styled(SideBoxPlusIcon)`
-position: absolute;
-right:30px;
-top:85px;
-color:gray;
-width:18px;
-height:18px;
-cursor: pointer;
-`
+  position: absolute;
+  right: 30px;
+  top: 85px;
+  color: gray;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+`;
 
 export const IncompletedListIcon6 = styled(SideBoxCheckIcon)`
-position: absolute;
-right:10px;
-top:85px;
-color:gray;
-width:18px;
-height:18px;
-cursor: pointer;
-`
+  position: absolute;
+  right: 10px;
+  top: 85px;
+  color: gray;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+`;
 //
 export const GuestBookList1 = styled.span`
-font-family:'Roboto';
-position:absolute;
-color:black;
-font-size:12px;
-font-weight:400;
-left:5px;
-top:30px;
+  font-family: 'Noto Sans KR';
+
+  position: absolute;
+  color: black;
+  font-size: 13px;
+  font-weight: 500;
+  left: 5px;
+  top: 30px;
+  margin-top: 5px;
+  margin-left: 5px;
 `;
 export const GuestBookList2 = styled.span`
-font-family:'Roboto';
-position:absolute;
-color:black;
-font-size:12px;
-font-weight:400;
-left:5px;
-top:45px;
+  font-family: 'Noto Sans KR';
+
+  position: absolute;
+  color: black;
+  font-size: 13px;
+  font-weight: 500;
+  left: 5px;
+  top: 45px;
+  margin-top: 5px;
+  margin-left: 5px;
 `;
 export const GuestBookList3 = styled.span`
-font-family:'Roboto';
-position:absolute;
-color:black;
-font-size:14px;
-font-weight:400;
-left:5px;
-top:60px;
+  position: absolute;
+  color: black;
+  font-size: 14px;
+  font-weight: 400;
+  left: 5px;
+  top: 60px;
+  margin-top: 2px;
+  margin-left: 5px;
 `;
 export const GuestBookList4 = styled.span`
-font-family:'Roboto';
-position:absolute;
-color:black;
-font-size:14px;
-font-weight:400;
-left:5px;
-top:75px;
+  position: absolute;
+  color: black;
+  font-size: 14px;
+  font-weight: 400;
+  left: 5px;
+  top: 75px;
+  margin-top: 2px;
+  margin-left: 5px;
 `;
 export const GuestBookList5 = styled.span`
-font-family:'Roboto';
-position:absolute;
-color:black;
-font-size:14px;
-font-weight:400;
-left:5px;
-top:90px;
+  position: absolute;
+  color: black;
+  font-size: 14px;
+  font-weight: 400;
+  left: 5px;
+  top: 90px;
+  margin-top: 2px;
+  margin-left: 5px;
 `;
 //
 export const FavoriteSmallTitle = styled.span`
-font-family:'Roboto';
-position:absolute;
-color:black;
-font-size:14px;
-font-weight:600;
-left:5px;
-top:30px;
-cursor: pointer;
+  font-family: 'Roboto';
+  position: absolute;
+  color: black;
+  font-size: 14px;
+  font-weight: 600;
+  left: 5px;
+  top: 30px;
+  cursor: pointer;
+  margin-top: 2px;
+  margin-left: 5px;
 `;
 
 export const FavoriteSmallTitle2 = styled.span`
-font-family:'Roboto';
-position:absolute;
-color:black;
-font-size:14px;
-font-weight:600;
-left:5px;
-top:75px;
-cursor: pointer;
+  font-family: 'Roboto';
+  position: absolute;
+  color: black;
+  font-size: 14px;
+  font-weight: 600;
+  left: 5px;
+  top: 75px;
+  cursor: pointer;
+  margin-top: 2px;
+  margin-left: 5px;
 `;
 
 export const FavoriteFriendList1 = styled.span`
-font-family:'Roboto';
-position:absolute;
-color:black;
-font-size:14px;
-font-weight:400;
-left:5px;
-top:50px;
+  font-family: 'Noto Sans KR';
+
+  position: absolute;
+  color: black;
+  font-size: 13px;
+  font-weight: 500;
+  left: 5px;
+  top: 50px;
+  margin-top: 2px;
+  margin-left: 10px;
 `;
 export const FavoriteFriendList2 = styled.span`
-font-family:'Roboto';
-position:absolute;
-color:black;
-font-size:14px;
-font-weight:400;
-left:55px;
-top:50px;
+  font-family: 'Noto Sans KR';
+
+  position: absolute;
+  color: black;
+  font-size: 13px;
+  font-weight: 500;
+  left: 55px;
+  top: 50px;
+  margin-top: 2px;
+  margin-left: 10px;
 `;
 export const FavoriteFriendList3 = styled.span`
-font-family:'Roboto';
-position:absolute;
-color:black;
-font-size:14px;
-font-weight:400;
-left:105px;
-top:50px;
+  font-family: 'Roboto';
+  position: absolute;
+  color: black;
+  font-size: 14px;
+  font-weight: 400;
+  left: 105px;
+  top: 50px;
 `;
 
 export const FavoriteTeamList1 = styled.span`
-font-family:'Roboto';
-position:absolute;
-color:black;
-font-size:14px;
-font-weight:400;
-left:5px;
-top:95px;
+  font-family: 'Noto Sans KR';
+  position: absolute;
+  color: black;
+  font-size: 13px;
+  font-weight: 500;
+  left: 5px;
+  top: 95px;
+  margin-top: 2px;
+  margin-left: 10px;
 `;
 export const FavoriteTeamList2 = styled.span`
-font-family:'Roboto';
-position:absolute;
-color:black;
-font-size:14px;
-font-weight:400;
-left:5px;
-top:90px;
-
+  font-family: 'Roboto';
+  position: absolute;
+  color: black;
+  font-size: 14px;
+  font-weight: 400;
+  left: 5px;
+  top: 90px;
 `;
 export const FavoriteTeamList3 = styled.span`
-font-family:'Roboto';
-position:absolute;
-color:black;
-font-size:14px;
-font-weight:400;
-left:5px;
-top:90px;
+  font-family: 'Roboto';
+  position: absolute;
+  color: black;
+  font-size: 14px;
+  font-weight: 400;
+  left: 5px;
+  top: 90px;
 `;

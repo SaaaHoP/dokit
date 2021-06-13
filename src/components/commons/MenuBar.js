@@ -83,7 +83,8 @@ import {
   FavoriteFriendList3,
   FavoriteTeamList1,
   FavoriteTeamList2,
-  FavoriteTeamList3
+  FavoriteTeamList3,
+  SideBoxTimerTemp,
 } from '../MenuBar/StyledComponent';
 import TitleButton from '@material-ui/core/Button';
 import TitleTextField from '@material-ui/core/TextField';
@@ -113,15 +114,14 @@ const MenuBar = () => {
   const [title, setTitle] = useState('');
   const [title2, setTitle2] = useState('wrong');
 
-  useEffect(()=>{
+  useEffect(() => {
     let jwtToken = localStorage.getItem('Authorization');
     axios.defaults.headers.common['Authorization'] = jwtToken;
     axios.get(`${address}/members/me/conversation`).then((res) => {
       setTitle(res.data.conversation);
     });
-    console.log("useEffect");
-  },[setTitle])
-
+    console.log('useEffect');
+  }, [setTitle]);
 
   // useCallback(() => {
   //   let jwtToken = localStorage.getItem('Authorization');
@@ -153,7 +153,6 @@ const MenuBar = () => {
     handleClose3();
   };
 
-
   //apply title function
   // const applyHandler =  () => {
   //   // e.preventDefault();
@@ -167,20 +166,19 @@ const MenuBar = () => {
   //   axiosGet();
   // }
 
-
-//   const applyHandler = (e) => {
-//     useEffect(()=> {
-//     e.preventDefault();
-//     const axiosGet = () => {
-//       let jwtToken = localStorage.getItem('Authorization');
-//     axios.defaults.headers.common['Authorization'] = jwtToken;
-//      axios.get(`${address}/members/me/conversation`).then((res) => {
-//       setTitle(res.data.conversation);
-//     });
-//     }
-//     axiosGet();
-//   }, [setTitle])
-// }
+  //   const applyHandler = (e) => {
+  //     useEffect(()=> {
+  //     e.preventDefault();
+  //     const axiosGet = () => {
+  //       let jwtToken = localStorage.getItem('Authorization');
+  //     axios.defaults.headers.common['Authorization'] = jwtToken;
+  //      axios.get(`${address}/members/me/conversation`).then((res) => {
+  //       setTitle(res.data.conversation);
+  //     });
+  //     }
+  //     axiosGet();
+  //   }, [setTitle])
+  // }
 
   const openTitle = () => {
     setTitle2(title);
@@ -395,12 +393,24 @@ TimerButton.defaultProps = {
               </Link>
               <NotificationLine />
               <NotificationContentBox>
-                <NotificationContent1>민지원 님이 친구 요청 하였습니다</NotificationContent1>
-                <NotificationContent2>박성호 님이 그룹에 초대하였습니다</NotificationContent2>
-                <NotificationContent3>3/30 미완료 리스트 3건 있습니다</NotificationContent3>
-                <NotificationContent4>이상민 님이 방명록을 남기셨습니다</NotificationContent4>
-                <NotificationContent5>오늘의 리스트를 작성해주세요</NotificationContent5>
-                <NotificationContent6>잠깐! 타이머를 종료 하셨나요?</NotificationContent6>
+                <NotificationContent1>
+                  민지원 님이 친구 요청 하였습니다
+                </NotificationContent1>
+                <NotificationContent2>
+                  박성호 님이 그룹에 초대하였습니다
+                </NotificationContent2>
+                <NotificationContent3>
+                  3/30 미완료 리스트 3건 있습니다
+                </NotificationContent3>
+                <NotificationContent4>
+                  이상민 님이 방명록을 남기셨습니다
+                </NotificationContent4>
+                <NotificationContent5>
+                  오늘의 리스트를 작성해주세요
+                </NotificationContent5>
+                <NotificationContent6>
+                  잠깐! 타이머를 종료 하셨나요?
+                </NotificationContent6>
               </NotificationContentBox>
             </NotificationDialog>
           ) : null}
@@ -452,35 +462,21 @@ TimerButton.defaultProps = {
           <SideBoxDetail2>
             <SideBoxIcon5 />
             <SideBoxTitle5>Timer</SideBoxTitle5>
-            <SideBoxContent>
-              <SideBoxDetailBox>
-                <SideBoxTimerHours />:
-                <SideBoxTimerMinutes />:
-                <SideBoxTimerSeconds />
-                <SideBoxTimerButton />
-              </SideBoxDetailBox>
-              <SideBoxDetailBox>
-                <SideBoxStopwatchHours>2 :</SideBoxStopwatchHours>
-                <SideBoxStopwatchMinutes>2 :</SideBoxStopwatchMinutes>
-                <SideBoxStopwatchSeconds>2</SideBoxStopwatchSeconds>
-                <SideBoxStopwatchButton1 />
-                <SideBoxStopwatchButton2 />
-              </SideBoxDetailBox>
-            </SideBoxContent>
+            <SideBoxTimerTemp>03 : 15 : 29</SideBoxTimerTemp>
           </SideBoxDetail2>
           <SideBoxDetail3>
             <SideBoxIcon6 />
             <SideBoxTitle6>Incompleted List</SideBoxTitle6>
             <div>
               <IncompletedList1>인공지능 3주차 강의</IncompletedList1>
-              <IncompletedListIcon1/>
-              <IncompletedListIcon2/>
+              <IncompletedListIcon1 />
+              <IncompletedListIcon2 />
               <IncompletedList2>알고리즘 2주차 강의</IncompletedList2>
-              <IncompletedListIcon3/>
-              <IncompletedListIcon4/>
+              <IncompletedListIcon3 />
+              <IncompletedListIcon4 />
               <IncompletedList3>프로젝트 자료제출</IncompletedList3>
-              <IncompletedListIcon5/>
-              <IncompletedListIcon6/>
+              <IncompletedListIcon5 />
+              <IncompletedListIcon6 />
             </div>
           </SideBoxDetail3>
           <SideBoxDetail4>
@@ -503,8 +499,15 @@ TimerButton.defaultProps = {
               <FavoriteFriendList2>민지원</FavoriteFriendList2>
               <FavoriteFriendList3></FavoriteFriendList3>
             </div>
-            <div style={{"position" : "absolute", "width" : "200px", "height" : "1px", "left" : "0px", "top" : "70px",
-            "background-color" : "gray"}}/>
+            <div
+              style={{
+                position: 'absolute',
+                width: '175px',
+                left: '10px',
+                top: '72px',
+                border: '1px solid rgba(0,0,0,0.3)',
+              }}
+            />
             <div>
               <FavoriteSmallTitle2>Team</FavoriteSmallTitle2>
               <FavoriteTeamList1>두야호</FavoriteTeamList1>

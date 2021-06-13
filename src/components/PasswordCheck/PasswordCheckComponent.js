@@ -26,25 +26,11 @@ const PasswordCheck = () => {
     setPassword(e.target.value);
   }, []);
 
-    const wrongHandler = () => {
-    }
-
-    //async&await
-    //Confirm버튼 누를시 발생시킬 fuction
-    const submitHandler = async (e) => {
-        console.log(postPassword);
-        e.preventDefault();
-        //주소 이런식으로 발생시킴
-        await axios.post(`${address}/members/profile/me/password/valid`, postPassword).then((res)=> {
-            if(res.status === 200) history.push('/setting')
-            else {wrongHandler()}
-        });
-    };
+  const wrongHandler = () => {};
 
   let postPassword = {
     password: password,
   };
-
 
   //async&await
   //Confirm버튼 누를시 발생시킬 fuction
@@ -58,6 +44,9 @@ const PasswordCheck = () => {
       .post(`${address}/members/profile/me/password/valid`, postPassword)
       .then((res) => {
         if (res.status === 200) history.push('/setting');
+        else {
+          wrongHandler();
+        }
       });
   };
 
@@ -81,7 +70,7 @@ const PasswordCheck = () => {
             </PasswordCheckConfirmButton1>
           </Link>
           <PasswordCheckConfirmButton2 onClick={history.goBack}>
-            Cancle
+            Cancel
           </PasswordCheckConfirmButton2>
         </PasswordCheckConfirmButtonBox>
       </PasswordCheckConfirmBox>
