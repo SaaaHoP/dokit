@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { address } from '../../variables';
-import { 
+import {
     TeamPageAddModalFriendListElement,
     TeamPageAddModalUserName,
     TeamPageAddModalUserCheckbox,
     TeamPageAddModalUserProfile,
-    ModalBackground, 
-    TeamPageAddModal, 
-    ModalCloseButton, 
+    ModalBackground,
+    TeamPageAddModal,
+    ModalCloseButton,
     ModalContentsWrapper,
     TeamPageAddModalSelectWrapper,
     TeamPageAddModalTitle,
@@ -28,7 +28,7 @@ import {
 
 const AddTeam = (props) => {
 
-    const [FriendListElements, setFriendListElements] = useState([]);
+    // const [FriendListElements, setFriendListElements] = useState([]);
     const isOpen = props.isOpen;
     const open = props.open;
     const close = props.close;
@@ -40,7 +40,7 @@ const AddTeam = (props) => {
     const FriendListElementCreator = ({user}) => {
         return(
             <TeamPageAddModalFriendListElement>
-                <TeamPageAddModalUserCheckbox 
+                <TeamPageAddModalUserCheckbox
                  onClick={(e) => chkHandler(user.id, e)}
                 />
                 <TeamPageAddModalUserProfile src={user.profileUrl}/>
@@ -62,11 +62,11 @@ const AddTeam = (props) => {
     };
 
     const teamHandler = async(e) => {
-        setTeamName(e.target.value);
+        // setTeamName(e.target.value);
     };
 
     const projectHandler = async(e) => {
-        setProjectName(e.target.value);
+        // setProjectName(e.target.value);
     };
 
     const FriendListCreator = ({users}) =>{
@@ -82,7 +82,7 @@ const AddTeam = (props) => {
     const submitHandler = async (e) => {
 
         e.preventDefault();
-    
+
         let team = {
             friends: friends,
             image: null,
@@ -95,25 +95,48 @@ const AddTeam = (props) => {
 
     };
 
-    useEffect(() => {
-        const axiosGet = async () => {
-            await axios.get(`${address}/friends/me/for_team`).then((res) => {
-                setFriendListElements(res.data.friends);
-            });   
-        };
-        axiosGet();
-    },[]);
-    
+    const FriendListElements = [
+        {
+            id: 1,
+            username: '민지원',
+        },
+        {
+            id: 2,
+            username: '김지현',
+        },
+        {
+            id: 3,
+            username: '박성호',
+        },
+        {
+            id: 4,
+            username: '정명훈',
+        },
+        {
+            id: 5,
+            username: '이상민',
+        },
+    ];
+
+    // useEffect(() => {
+    //     const axiosGet = async () => {
+    //         await axios.get(`${address}/friends/me/for_team`).then((res) => {
+    //             setFriendListElements(res.data.friends);
+    //         });
+    //     };
+    //     axiosGet();
+    // },[]);
+
     return (
         <>
-        {isOpen ? (  
+        {isOpen ? (
           <ModalBackground>
                 <TeamPageAddModal
                  onSubmit={submitHandler}
                  action={`${address}/teams`}
                  method="post"
                 >
-                    <ModalCloseButton onClick={close}> 
+                    <ModalCloseButton onClick={close}>
                      &times;
                     </ModalCloseButton>
                     <ModalContentsWrapper onClick={open}>
