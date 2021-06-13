@@ -372,7 +372,7 @@ TimerButton.defaultProps = {
                   Change
                 </TitleButton>
                 <TitleButton onClick={cancleTitle} color='primary'>
-                  Cancle
+                  Cancel
                 </TitleButton>
               </TitleDialogActions>
             </TitleDialog>
