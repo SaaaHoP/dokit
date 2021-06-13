@@ -14,6 +14,8 @@ import { RiSettings3Line } from "react-icons/ri"
 import { CgLogOff } from "react-icons/cg"
 import { IoMdArrowDroprightCircle } from "react-icons/io"
 import { HiStop } from "react-icons/hi"
+import { AiFillPlusCircle } from "react-icons/ai"
+import { AiFillCheckCircle } from "react-icons/ai"
 
 export const SideBoxHomeIcon = styled(AiOutlineHome)`
   width: 24px;
@@ -86,6 +88,16 @@ export const SideBoxStopwatchStartIcon = styled(IoMdArrowDroprightCircle)`
 `;
 
 export const SideBoxStopwatchResetIcon = styled(HiStop)`
+  width: 24px;
+  height: 24px;
+`;
+
+export const SideBoxPlusIcon = styled(AiFillPlusCircle)`
+  width: 24px;
+  height: 24px;
+`;
+
+export const SideBoxCheckIcon = styled(AiFillCheckCircle)`
   width: 24px;
   height: 24px;
 `;
