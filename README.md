@@ -20,7 +20,8 @@
 
 ## 주의 사항
 Git flow를 통해 develop 브랜치에서 feat/ 를 생성하여 작업하고, develop에 PR 할 것.(master 금지)\
-PR할 때 제목 예시 : PR[성호] : feat/MainPage          + 설명란 바뀐 부분, 추가한 부분 상세히 적을 것.\
-새로운 모듈을 설치하면 프로젝트 디렉토리 Git bash에서 yarn 또는 yarn install 통해 모듈 설치할 것(패키지 매니저는 yarn으로 통일, npx 가급적 금지)
+PR할 때 제목 예시 : PR[성호] : feat/MainPage  + 설명란 바뀐 부분, 추가한 부분 상세히 적을 것.\
+새로운 모듈을 설치하면 프로젝트 디렉토리 Git bash에서 yarn 또는 yarn install 통해 모듈 설치할 것\
+(패키지 매니저는 yarn으로 통일, npx 가급적 금지)
 
 ## 프로젝트 종료 이후에도 리팩토링 하며 코드 수정, 레이아웃 변경하여 리뷰하기
